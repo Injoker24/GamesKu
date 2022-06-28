@@ -12,7 +12,7 @@
                 <!-- Email input -->
                 <div class="form-outline mb-4">
                     <label class="form-label" for="form2Example1">Email address</label>
-                    <input type="email" name="email" id="form2Example1" class="form-control" placeholder="Enter Your Email Address Here..." value={{ \Illuminate\Support\Facades\Cookie::get("login_cookie") !== NULL ? \Illuminate\Support\Facades\Cookie::get("login_cookie") : old('email') }}>
+                    <input type="email" name="email" id="form2Example1" class="form-control" placeholder="Enter Your Email Address Here..." value={{ old('email') }}>
                 </div>
 
                 <!-- Password input -->
