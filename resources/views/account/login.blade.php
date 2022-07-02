@@ -8,7 +8,7 @@
             <img src="" alt="img">
             <h2 class="fw-bolder py-3" style="color: white">Let's Pay and Play</h2>
         </div>
-        <div class="container" style="width: 800px; background-color:white; padding:0% 7% 0% 7%">
+        <div class="container" style="width: 800px; background-color:white; padding:0% 5% 0% 5%">
             <form action="{{ route('login') }}" method="post">
                 @csrf
                 <h1 class="h1 text-center py-5">LOGIN</h1>
@@ -38,7 +38,9 @@
                 </div>
 
                 <!-- Submit button -->
-                <button type="submit" class="btn btn-primary rounded-0 my-5 fs-5 btn-block w-50">LOGIN</button>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary rounded-0 my-5 fs-5 btn-block w-50">LOGIN</button>
+                </div>
             </form>
         </div>
     </div>

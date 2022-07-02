@@ -14,25 +14,27 @@
     }
     .btn-primary, .btn-primary:active, .btn-primary:visited{
         background-color: #0B0C10;
-        border-color: #0B0C10;
+        border: solid 1.2pt #0B0C10;
         color: #C5C6C7;
     }
     .btn-primary:hover{
-        background-color: #C5C6C7;
-        border-color: #0B0C10;
+        background-color: #ffffff;
         color: #0B0C10;
+        border: solid 1.2pt #0B0C10;
     }
     .btn-secondary, .btn-secondary:active, .btn-secondary:visited{
-        background-color: #C5C6C7;
-        border-color: #0B0C10;
+        background-color: #ffffff;
+        border: solid 1.2pt #0B0C10;
         color: #0B0C10;
     }
     .btn-secondary:hover{
         background-color: #0B0C10;
-        border-color: #0B0C10;
+        border: solid 1.2pt #0B0C10;
         color: #C5C6C7;
     }
-
+    .form-custom{
+        background-color: #C4C4C4;
+    }
 </style>
 <body>
     @yield('container')
