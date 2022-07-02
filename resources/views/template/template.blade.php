@@ -8,6 +8,32 @@
     <title>@yield('title')</title>
   </head>
 </head>
+<style>
+    a{
+        text-decoration: none;
+    }
+    .btn-primary, .btn-primary:active, .btn-primary:visited{
+        background-color: #0B0C10;
+        border-color: #0B0C10;
+        color: #C5C6C7;
+    }
+    .btn-primary:hover{
+        background-color: #C5C6C7;
+        border-color: #0B0C10;
+        color: #0B0C10;
+    }
+    .btn-secondary, .btn-secondary:active, .btn-secondary:visited{
+        background-color: #C5C6C7;
+        border-color: #0B0C10;
+        color: #0B0C10;
+    }
+    .btn-secondary:hover{
+        background-color: #0B0C10;
+        border-color: #0B0C10;
+        color: #C5C6C7;
+    }
+
+</style>
 <body>
     @yield('container')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
