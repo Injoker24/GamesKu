@@ -16,14 +16,15 @@ class CreateTransactionDetailsTable extends Migration
         Schema::create('transaction_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('transaction_id');
-            $table->foreignId('game_id');
+            $table->foreignId('topup_id');
             $table->foreignId('payment_type_id');
-            $table->string('status');
+            $table->enum('status', ["Waiting for Payment", "In Progress", "Completed"]);
             $table->integer('price');
+            $table->string('input_name');
             $table->timestamps();
 
             $table->foreign('transaction_id')->references('id')->on('transactions');
-            $table->foreign('game_id')->references('id')->on('games');
+            $table->foreign('topup_id')->references('id')->on('topups');
             $table->foreign('payment_type_id')->references('id')->on('payment_types');
 
         });

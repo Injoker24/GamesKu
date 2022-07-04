@@ -15,9 +15,10 @@ class CreateTopupsTable extends Migration
     {
         Schema::create('topups', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('game_id');
             $table->string('topup_type');
             $table->integer('amount');
-            $table->foreignId('game_id');
+            $table->integer('price');
             $table->timestamps();
 
             $table->foreign('game_id')->references('id')->on('games');
