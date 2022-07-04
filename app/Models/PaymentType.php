@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class PaymentType extends Model
 {
     use HasFactory;
+
+    public function transaction_detail()
+    {
+        return $this->belongsTo(TransactionDetail::class);
+    }
 }

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Game extends Model
 {
     use HasFactory;
+
+    public function topup()
+    {
+        return $this->hasMany(Topup::class);
+    }
 }

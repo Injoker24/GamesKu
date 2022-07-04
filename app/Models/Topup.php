@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Topup extends Model
 {
     use HasFactory;
+
+    public function transaction_detail()
+    {
+        return $this->belongsTo(TransactionDetail::class);
+    }
+
+    public function game()
+    {
+        return $this->belongsTo(Game::class);
+    }
 }
