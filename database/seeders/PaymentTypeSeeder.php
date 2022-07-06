@@ -43,5 +43,6 @@ class PaymentTypeSeeder extends Seeder
             'payment_type_name' => 'Ovo',
             'payment_type_logo' => 'paymentasset\Method Ovo'
         ]);
+        
     }
 }
