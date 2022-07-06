@@ -26,8 +26,10 @@ Route::post('/login', [UserController::class, "login"])->name('login');
 Route::get('/register', [UserController::class, "index_register"])->name('register_page');
 Route::post('/register', [UserController::class, "register"])->name('register');
 
+Route::get('/logout', [UserController::class, "logout"])->name('logout');
+
 Route::get('/home', function() {
     return view('home', [
         'games' => Game::all()
     ]);
-})->middleware('auth')->name('home_page');
+})->name('home_page');
