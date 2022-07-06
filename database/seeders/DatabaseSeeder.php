@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Database\Seeders\UserSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,5 +15,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        $this->call([
+            GameSeeder::class,
+            UserSeeder::class,
+            TopupSeeder::class,
+            PaymentTypeSeeder::class,
+            HistorySeeder::class,
+            TransactionSeeder::class,
+            HistoryDetailSeeder::class,
+            TransactionDetailSeeder::class,
+        ]);
     }
 }
