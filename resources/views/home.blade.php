@@ -1,4 +1,4 @@
-@extends('template/template')
+@extends('template_web.template')
 
 @section('title', 'Home Page')
 

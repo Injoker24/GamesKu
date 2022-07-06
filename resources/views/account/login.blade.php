@@ -1,4 +1,4 @@
-@extends('template/template')
+@extends('template_boarding.template')
 
 @section('title', 'Login')
 
