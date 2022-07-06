@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\UserController;
+use App\Models\Game;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,9 @@ Route::post('/login', [UserController::class, "login"])->name('login');
 
 Route::get('/register', [UserController::class, "index_register"])->name('register_page');
 Route::post('/register', [UserController::class, "register"])->name('register');
+
+Route::get('/home', function() {
+    return view('home', [
+        'games' => Game::all()
+    ]);
+})->middleware('auth')->name('home_page');

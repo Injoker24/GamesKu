@@ -5,7 +5,7 @@
 @section('container')
     <div class="container-fluid p-5" style="background-color: #1F2833">
         <div class="container d-flex justify-content-center">
-            <img src="{{ asset('storage/gamesku.png') }}" alt="img">
+            <img src="{{ asset('storage/GamesKu Icon.png') }}" alt="img">
             <h2 class="fw-bolder py-3" style="color: white">Let's Pay and Play</h2>
         </div>
         <div class="container" style="width: 800px; background-color:white; padding:0% 5% 0% 5%">
