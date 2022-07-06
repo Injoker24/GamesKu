@@ -15,7 +15,7 @@ class PaymentTypeSeeder extends Seeder
     public function run()
     {
         PaymentType::create([
-            'payment_type_name' => 'BVA',
+            'payment_type_name' => 'BCA',
             'payment_type_logo' => 'paymentasset\Method BCA'
         ]);
 
@@ -43,6 +43,6 @@ class PaymentTypeSeeder extends Seeder
             'payment_type_name' => 'Ovo',
             'payment_type_logo' => 'paymentasset\Method Ovo'
         ]);
-        
+
     }
 }

@@ -1,4 +1,4 @@
-@extends('template_web.template')
+@extends('layouts.main')
 
 @section('title', 'Home Page')
 

@@ -1,4 +1,4 @@
-@extends('template_boarding.template')
+@extends('layouts.main')
 
 @section('title', 'Boarding Page')
 
