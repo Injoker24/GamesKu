@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             TransactionSeeder::class,
             HistoryDetailSeeder::class,
             TransactionDetailSeeder::class,
+            GameSeeder::class
         ]);
     }
 }

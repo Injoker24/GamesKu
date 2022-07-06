@@ -15,33 +15,33 @@ class PaymentTypeSeeder extends Seeder
     public function run()
     {
         PaymentType::create([
-            'payment_type_name' => 'bca',
-            'payment_type_logo' => 'payment-type/bca'
+            'payment_type_name' => 'BVA',
+            'payment_type_logo' => 'paymentasset\Method BCA'
         ]);
 
         PaymentType::create([
-            'payment_type_name' => 'bni',
-            'payment_type_logo' => 'payment-type/bni'
+            'payment_type_name' => 'BNI',
+            'payment_type_logo' => 'paymentasset\Method BNI'
         ]);
 
         PaymentType::create([
-            'payment_type_name' => 'bri',
-            'payment_type_logo' => 'payment-type/bri'
+            'payment_type_name' => 'BRI',
+            'payment_type_logo' => 'paymentasset\Method BRI'
         ]);
 
         PaymentType::create([
-            'payment_type_name' => 'dana',
-            'payment_type_logo' => 'payment-type/dana'
+            'payment_type_name' => 'Dana',
+            'payment_type_logo' => 'paymentasset\Method Dana'
         ]);
 
         PaymentType::create([
-            'payment_type_name' => 'gopay',
-            'payment_type_logo' => 'payment-type/gopay'
+            'payment_type_name' => 'Gopay',
+            'payment_type_logo' => 'paymentasset\Method Gopay'
         ]);
 
         PaymentType::create([
-            'payment_type_name' => 'ovo',
-            'payment_type_logo' => 'payment-type/ovo'
+            'payment_type_name' => 'Ovo',
+            'payment_type_logo' => 'paymentasset\Method Ovo'
         ]);
     }
 }
