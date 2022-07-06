@@ -15,7 +15,7 @@ class GameSeeder extends Seeder
     public function run()
     {
         Game::create([
-            'id' => "G0001",
+            // 'id' => "G0001",
             'name' => "Mobile Legends : Bang Bang",
             'developer' => "Moonton",
             'game_logo' => "gameasset\Logo ML.png",
@@ -24,7 +24,7 @@ class GameSeeder extends Seeder
         ]);
 
         Game::create([
-            'id' => "G0002",
+            // 'id' => "G0002",
             'name' => "Valorant",
             'developer' => "Riot Games",
             'game_logo' => "gameasset\Logo Valorant.png",
@@ -33,7 +33,7 @@ class GameSeeder extends Seeder
         ]);
 
         Game::create([
-            'id' => "G0003",
+            // 'id' => "G0003",
             'name' => "PUBG Mobiles",
             'developer' => "Level Infinite",
             'game_logo' => "gameasset\Logo PUBG.png",
@@ -42,7 +42,7 @@ class GameSeeder extends Seeder
         ]);
 
         Game::create([
-            'id' => "G0004",
+            // 'id' => "G0004",
             'name' => "Apex Legends",
             'developer' => "Electronic Arts",
             'game_logo' => "gameasset\Logo Apex.png",
@@ -51,7 +51,7 @@ class GameSeeder extends Seeder
         ]);
 
         Game::create([
-            'id' => "G0005",
+            // 'id' => "G0005",
             'name' => "Fallguys",
             'developer' => "Mediatonic",
             'game_logo' => "gameasset\Logo Fallguys.png",
@@ -60,7 +60,7 @@ class GameSeeder extends Seeder
         ]);
 
         Game::create([
-            'id' => "G0006",
+            // 'id' => "G0006",
             'name' => "Clash Royale",
             'developer' => "Supercell",
             'game_logo' => "gameasset\Logo CR.jpg",
@@ -69,7 +69,7 @@ class GameSeeder extends Seeder
         ]);
 
         Game::create([
-            'id' => "G0007",
+            // 'id' => "G0007",
             'name' => "Garena Free Fire: Rampage",
             'developer' => "Garena International I",
             'game_logo' => "gameasset\Logo FF.png",
@@ -78,7 +78,7 @@ class GameSeeder extends Seeder
         ]);
 
         Game::create([
-            'id' => "G0008",
+            // 'id' => "G0008",
             'name' => "Genshin Impact",
             'developer' => "Mihoyo",
             'game_logo' => "gameasset\Logo Gensin.jpg",
