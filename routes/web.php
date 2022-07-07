@@ -20,8 +20,8 @@ use App\Http\Controllers\UserController;
     NonMember
     - Login
     - Register
-    - Search Game Name
-    - View Game Detail
+    - Search Game Name (+Member)
+    - View Game Detail (+Member)
 
     Member
     - View Current Transactions
