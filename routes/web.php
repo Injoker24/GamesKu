@@ -15,6 +15,33 @@ use App\Http\Controllers\UserController;
 |
 */
 
+/* TODO
+
+    NonMember
+    - Login
+    - Register
+    - Search Game Name
+    - View Game Detail
+
+    Member
+    - View Current Transactions
+    - Transaction Detail
+    - Payment
+    - View History
+    - View History Detail
+    - Delete History
+    - Profile
+    - Edit Profile
+
+    Admin
+    - Add Game
+    - Update Game Detail
+    - Remove Game
+    - Confirm Transaction
+    - Reject Transaction
+
+*/
+
 Route::get('/', function () {
     return view('boarding');
 });
