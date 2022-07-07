@@ -46,7 +46,7 @@ Route::get('/', function () {
     return view('home', [
         'games' => Game::all()
     ]);
-});
+})->name('home_page');
 
 Route::get('/login', [UserController::class, "index_login"])->name('login_page');
 Route::post('/login', [UserController::class, "login"])->name('login');
@@ -57,8 +57,8 @@ Route::post('/register', [UserController::class, "register"])->name('register');
 
 Route::get('/logout', [UserController::class, "logout"])->name('logout');
 
-Route::get('/home', function() {
-    return view('home', [
-        'games' => Game::all()
-    ]);
-})->name('home_page');
+// Route::get('/home', function() {
+//     return view('home', [
+//         'games' => Game::all()
+//     ]);
+// })->name('home_page');
