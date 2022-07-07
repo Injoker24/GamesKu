@@ -1,0 +1,30 @@
+:root {
+    --dark: #1F2833;
+}
+
+body {
+    margin: 0%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: whitesmoke;
+}
+
+.navbar {
+    background-color: var(--dark);
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.nav-details {
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding-right: 100px;
+}
+
+.nav-details:hover{
+    color: greenyellow;
+}
