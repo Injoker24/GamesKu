@@ -4,7 +4,7 @@
 
 @section('container')
     @include('partials.navbar')
-<<<<<<< HEAD
+
     <img src="\storage\Banner 1.png" alt="" width="100%" height="400">
     <div class="container mt-5">
         @foreach ($games as $game)
