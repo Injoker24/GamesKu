@@ -23,11 +23,4 @@
             {{-- <img src="{{ asset('storage/' . $game->game_img) }}" alt="" width="150"> --}}
         @endforeach
     </div>
-=======
-    <img src="\storage\Banner 1.png" alt="" width="100%">
-    
-    @foreach ($games as $game)
-        <img src="{{ asset('storage/' . $game->game_img) }}" alt="" width="150">
-    @endforeach
->>>>>>> f69a4c4dba30d138f83c5bcec16d885709324ed4
 @endsection
