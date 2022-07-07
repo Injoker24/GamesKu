@@ -43,7 +43,9 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('boarding');
+    return view('home', [
+        'games' => Game::all()
+    ]);
 });
 
 Route::get('/login', [UserController::class, "index_login"])->name('login_page');
