@@ -2,6 +2,7 @@
 
 use App\Models\Game;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GameController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -56,6 +57,8 @@ Route::get('/register', [UserController::class, "index_register"])->name('regist
 Route::post('/register', [UserController::class, "register"])->name('register');
 
 Route::get('/logout', [UserController::class, "logout"])->name('logout');
+
+Route::get('/{name}', [GameController::class, "show"])->name('game_page');
 
 // Route::get('/home', function() {
 //     return view('home', [

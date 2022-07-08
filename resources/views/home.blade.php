@@ -18,6 +18,7 @@
         </div>
         <h1>ALL GAMES</h1>
         @foreach ($games as $game)
+        <a href="/{{ $game->name }}">
             <div class="card bg-dark mb-4 games-card">
                 <img src="{{ asset('storage/' . $game->game_img) }}" alt="..." height="150" style="object-fit:cover; object-position:cover; filter:brightness(50%)">
                 <div class="card-img-overlay">
@@ -28,6 +29,7 @@
                     </div>
                 </div>
             </div>
+        </a>
         @endforeach
     </div>
 @endsection
