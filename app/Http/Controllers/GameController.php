@@ -8,88 +8,29 @@ use Illuminate\Http\Request;
 
 class GameController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function searchGame()
     {
-        //
+        return view('guest.search');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function viewAllGame()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Game  $game
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Game $game, Request $request)
-    {
-        // dd($game, $request, $request->name);
-
-        $game = Game::where('name', $request->name)->first();
-        $payment = PaymentType::all();
-        // dd($game, $topup, $payment);
-
-        return view('show',[
-            'games' => $game,
-            'payments' => $payment
+        return view('guest.allgame', [
+            'games' => Game::all()
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Game  $game
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Game $game)
+    public function gameDetail(Game $game, Request $request)
     {
-        //
-    }
+        // dd($game, $request, $request->name);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Game  $game
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Game $game)
-    {
-        //
-    }
+        $game = Game::where('id', $request->id)->first();
+        $payment = PaymentType::all();
+        // dd($game, $topup, $payment);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Game  $game
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Game $game)
-    {
-        //
+        return view('guest.gameDetail',[
+            'games' => $game,
+            'payments' => $payment
+        ]);
     }
 }
