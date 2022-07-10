@@ -24,7 +24,7 @@ class GameController extends Controller
     {
         // dd($game, $request, $request->name);
 
-        $game = Game::where('id', $request->id)->first();
+        $game = Game::where('name', $request->name)->first();
         $payment = PaymentType::all();
         // dd($game, $topup, $payment);
 

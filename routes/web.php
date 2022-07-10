@@ -1,12 +1,12 @@
 <?php
 
-use App\Http\Controllers\Controller;
 use App\Models\Game;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\MemberController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ use App\Http\Controllers\AdminController;
 
 /* All */
 Route::get('/search', [GameController::class, "searchGame"]);
-Route::get('/game/{id}', [GameController::class, "gameDetail"]);
+Route::get('/game/{name}', [GameController::class, "gameDetail"]);
 Route::get('/allgame', [GameController::class, "viewAllGame"]);
 
 
@@ -67,13 +67,14 @@ Route::get('/register', [UserController::class, "index_register"])->name('regist
 Route::post('/register/auth', [UserController::class, "register"])->name('register');
 
 /* Member Only */
+Route::post('/home/{name}', [MemberController::class, "gatau"]);
 Route::get('/transaction', [MemberController::class, "transactionPage"]);
 Route::get('/transaction/{id}', [MemberController::class, "transactionDetail"]);
 Route::get('/history', [MemberController::class, "historyPage"]);
 Route::get('/history/{id}', [MemberController::class, "historyDetail"]);
 Route::post('/history/delete', [MemberController::class, "deleteAllHistory"]);
 Route::post('/history/{id}/delete', [MemberController::class, "deleteHistory"]);
-Route::get('/game/{id}/topup', [MemberController::class, "topupPage"]);
+Route::post('/game/{id}/topup', [MemberController::class, "topupPage"]);
 
 /* Admin Only */
 Route::get('/manage-game', [AdminController::class, "manageGamePage"]);

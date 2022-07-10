@@ -1,7 +1,7 @@
 <div class="navbar">
     <a href="#" style="padding-left: 50px;"><img src="{{ asset('storage/GamesKu Logo.png') }}" alt="" width="200"></a>
     <div style="padding-left: 100px;">
-        <a class="nav-details" href="/">HOME</a>
+        <a class="nav-details" href="/home">HOME</a>
         @auth
             @if (Auth::user()->IsAdmin)
                 <a class="nav-details" href="#">MANAGE TRANSACTIONS</a>

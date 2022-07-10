@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class GameController extends Controller
+class MemberController extends Controller
 {
     public function transactionPage()
     {
@@ -36,8 +36,13 @@ class GameController extends Controller
 
     }
 
-    public function topupPage()
+    public function topupPage(Request $request)
     {
+
         return view('member.topup');
+    }
+
+    public function gatau(Request $request){
+        dd($request);
     }
 }
