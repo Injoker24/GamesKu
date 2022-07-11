@@ -3,7 +3,6 @@
 @section('title', 'Login')
 
 @section('container')
-    @endif
     <div class="container-fluid p-5" style="background-color: #1F2833">
         <div class="container d-flex justify-content-center">
             <img src="{{ asset('storage/GamesKu Icon.png') }}" alt="img">
