@@ -67,32 +67,38 @@ Route::get('/register', [UserController::class, "index_register"])->name('regist
 Route::post('/register/auth', [UserController::class, "register"])->name('register');
 
 /* Member Only */
-Route::post('/home/{name}', [MemberController::class, "gatau"]);
-Route::get('/transaction', [MemberController::class, "transactionPage"]);
-Route::get('/transaction/{id}', [MemberController::class, "transactionDetail"]);
-Route::get('/history', [MemberController::class, "historyPage"]);
-Route::get('/history/{id}', [MemberController::class, "historyDetail"]);
-Route::post('/history/delete', [MemberController::class, "deleteAllHistory"]);
-Route::post('/history/{id}/delete', [MemberController::class, "deleteHistory"]);
-Route::post('/game/{id}/topup', [MemberController::class, "topupPage"]);
+Route::middleware('auth')->group(function() {
+    Route::post('/home/{name}', [MemberController::class, "gatau"]);
+    Route::get('/transaction', [MemberController::class, "transactionPage"]);
+    Route::get('/transaction/{id}', [MemberController::class, "transactionDetail"]);
+    Route::get('/history', [MemberController::class, "historyPage"]);
+    Route::get('/history/{id}', [MemberController::class, "historyDetail"]);
+    Route::post('/history/delete', [MemberController::class, "deleteAllHistory"]);
+    Route::post('/history/{id}/delete', [MemberController::class, "deleteHistory"]);
+    Route::post('/game/{id}/topup', [MemberController::class, "topupPage"]);
+});
 
 /* Admin Only */
-Route::get('/manage-game', [AdminController::class, "manageGamePage"]);
-Route::get('/manage-game/{id}', [AdminController::class, "manageGameDetail"]);
-Route::get('/manage-game/{id}/edit-game', [AdminController::class, "editGamePage"]);
-Route::post('/manage-game/{id}/edit-game/edit', [AdminController::class, "editGame"]);
-Route::post('/manage-game/{id}/delete', [AdminController::class, "deleteGame"]);
-Route::get('/manage-game/add-game', [AdminController::class, "addGamePage"]);
-Route::post('/manage-game/add-game/add', [AdminController::class, "addGame"]);
+Route::middleware('admin')->group(function() {
+    Route::get('/manage-game', [AdminController::class, "manageGamePage"]);
+    Route::get('/manage-game/{id}', [AdminController::class, "manageGameDetail"]);
+    Route::get('/manage-game/{id}/edit-game', [AdminController::class, "editGamePage"]);
+    Route::post('/manage-game/{id}/edit-game/edit', [AdminController::class, "editGame"]);
+    Route::post('/manage-game/{id}/delete', [AdminController::class, "deleteGame"]);
+    Route::get('/manage-game/add-game', [AdminController::class, "addGamePage"]);
+    Route::post('/manage-game/add-game/add', [AdminController::class, "addGame"]);
 
-Route::get('/manage-transaction', [AdminController::class, "manageTransactionPage"]);
-Route::get('/manage-transaction/{id}', [AdminController::class, "manageTransactionDetail"]);
-Route::post('/manage-transaction/{id}/accept', [AdminController::class, "acceptTransaction"]);
-Route::post('/manage-transaction/{id}/reject', [AdminController::class, "rejectTransaction"]);
+    Route::get('/manage-transaction', [AdminController::class, "manageTransactionPage"]);
+    Route::get('/manage-transaction/{id}', [AdminController::class, "manageTransactionDetail"]);
+    Route::post('/manage-transaction/{id}/accept', [AdminController::class, "acceptTransaction"]);
+    Route::post('/manage-transaction/{id}/reject', [AdminController::class, "rejectTransaction"]);
+});
 
 /* Member and Admin */
-Route::get('/home', [Controller::class, "homePage"])->name('home_page');
-Route::get('/profile', [Controller::class, "profilePage"]);
-Route::get('/edit-profile', [Controller::class, "editProfilePage"]);
-Route::post('/edit-profile/edit', [Controller::class, "editProfile"]);
-Route::get('/logout', [UserController::class, "logout"])->name('logout');
+Route::middleware(['auth', 'admin'])->group(function() {
+    Route::get('/home', [Controller::class, "homePage"])->name('home_page');
+    Route::get('/profile', [Controller::class, "profilePage"]);
+    Route::get('/edit-profile', [Controller::class, "editProfilePage"]);
+    Route::post('/edit-profile/edit', [Controller::class, "editProfile"]);
+    Route::get('/logout', [UserController::class, "logout"])->name('logout');
+});
