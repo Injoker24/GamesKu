@@ -11,6 +11,6 @@ class PaymentType extends Model
 
     public function transaction_detail()
     {
-        return $this->belongsTo(TransactionDetail::class);
+        return $this->hasMany(TransactionDetail::class);
     }
 }

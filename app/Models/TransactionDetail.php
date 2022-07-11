@@ -16,11 +16,11 @@ class TransactionDetail extends Model
 
     public function topup()
     {
-        return $this->hasOne(Topup::class);
+        return $this->belongsTo(Topup::class);
     }
 
     public function PaymentType()
     {
-        return $this->hasOne(PaymentType::class);
+        return $this->belongsTo(PaymentType::class);
     }
 }
