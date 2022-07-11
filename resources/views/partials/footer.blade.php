@@ -13,7 +13,7 @@
             <div class="col">
                 <h6 class="subtitle font-weight-normal mb-1">Social Media</h6>
                 <div class="social-links">
-                    <a style="text-decoration: none; margin-right: 5px;"><i class="ti-facebook"></i></a>
+                    <a style="text-decoration: none; margin-right: 5px;" href=""><i class="ti-facebook"></i></a>
                     <a style="text-decoration: none; margin-right: 5px;" href=""><i class="ti-twitter-alt"></i></a>
                     <a style="text-decoration: none; margin-right: 5px;" href=""><i class="ti-google"></i></a>
                     <a style="text-decoration: none; margin-right: 5px;" href=""><i class="ti-pinterest-alt"></i></a>
