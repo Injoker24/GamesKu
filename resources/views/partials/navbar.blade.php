@@ -13,7 +13,7 @@
             <a class="nav-details" href="/logout">Logout</a>
         @else
             <a class="nav-details" href="/register">Register</a>
-            <a class="login-button">Login</a>
+            <a class="login-button" href="/login">Login</a>
         @endauth
     </div>
 </div>
