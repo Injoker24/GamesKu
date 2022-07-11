@@ -21,18 +21,22 @@
             </div>
 
             @endforeach
-            <p id="priceinput">Price: </p>
+            <p id="priceinput" name="priceinput">Price: </p>
+            {{-- input bawah ni jangan dihapus ya --}}
+            <input type="hidden" name="price" value="" id="forprice">
         </div>
 
         <div class="row">
             @foreach ($payments as $payment)
             <div class="col-4">
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio{{ $payment->id }}" autocomplete="off">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio{{ $payment->id }}" autocomplete="off" onclick="getPaymentType({{ $payment->id }})">
                 <label class="btn btn-outline-primary ms-3" for="btnradio{{ $payment->id }}">
                     <img src="{{ asset('storage/' . $payment->payment_type_logo) }}" alt="" width="100" height="50" class="align-middle">
                 </label>
             </div>
             @endforeach
+            {{-- input bawah ni jangan dihapus ya --}}
+            <input type="hidden" name="payment" value="" id="forpayment">
         </div>
 
           <button type="submit" class="btn btn-primary">BUY NOW</button>
@@ -42,6 +46,11 @@
         function addPrice(price){
             var priceinput = document.getElementById('priceinput');
             priceinput.innerHTML = "Price: " + price;
+            document.getElementById('forprice').value = price;
+        }
+
+        function getPaymentType(paymentType){
+            document.getElementById('forpayment').value = paymentType;
         }
     </script>
 @endsection

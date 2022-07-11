@@ -3,12 +3,18 @@
 @section('title', 'Login')
 
 @section('container')
+    @endif
     <div class="container-fluid p-5" style="background-color: #1F2833">
         <div class="container d-flex justify-content-center">
             <img src="{{ asset('storage/GamesKu Icon.png') }}" alt="img">
             <h2 class="fw-bolder py-3" style="color: white">Let's Pay and Play</h2>
         </div>
         <div class="container" style="width: 800px; background-color:white; padding:0% 5% 0% 5%">
+            @if (session()->has('error'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert"> {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
             <form action="{{ route('login') }}" method="post">
                 @csrf
                 <h1 class="h1 text-center py-5">LOGIN</h1>
