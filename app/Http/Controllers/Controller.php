@@ -14,7 +14,9 @@ class Controller extends BaseController
 
     public function onboarding()
     {
-        return view('guest.boarding');
+        return view('guest.boarding', [
+            'games' => Game::all()
+        ]);
     }
 
     public function homePage()
