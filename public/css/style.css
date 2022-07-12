@@ -55,6 +55,8 @@ a {
     color: var(--accent);
     cursor: pointer;
 }
+/* End of navbar.blade.php */
+
 
 /* footer.blade.php */
 .footer {
@@ -64,7 +66,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    box-shadow: rgba(0, 0, 0, 0.15) -2.4px -2.4px 3.2px;
     z-index: 1000;
     color: var(--white);
 }
@@ -96,6 +98,8 @@ a {
 .social-links a:hover {
   color: #f06161;
 }
+/* End of footer.blade.php */
+
 
 /* boarding.blade.php */
 .boarding-banner {
@@ -156,7 +160,7 @@ a {
 
 .about-stat {
      font-weight: bold;
-     color: var(--accent);
+     color: #4fa30f;
 }
 
 .view-all-button-container{
@@ -186,6 +190,8 @@ a {
     color: var(--white);
     cursor: pointer;
 }
+/* End of boarding.blade.php */
+
 
 /* home.blade.php */
 .banner-container {
@@ -270,4 +276,112 @@ a {
 .main-search-button:hover {
     color: var(--white);
 }
+/* End of home.blade.php */
 
+
+/* gameDetail.blade.php */
+.game-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 200px 20px 200px;
+    background-color: var(--dark);
+}
+
+.game-detail-banner-container {
+    position: relative;
+}
+
+.detail-image {
+    height: 250px;
+    width: 70vw;
+    object-fit: cover;
+    background-position: top;
+}
+
+.detail-icon {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 20px;
+    transform: translate(-50%, -50%);
+    border: 10px solid var(--white);
+    background-color: var(--white);
+}
+
+.form-game-container {
+    background-color: var(--white);
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-game-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.topup-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.topup-type-button {
+    color: var(--dark);
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    width: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    border: 2px solid var(--accent);
+}
+
+.topup-type-button:hover,
+.topup-type-button-selected{
+    color: var(--dark);
+    background-color: var(--accent);
+    border: 2px solid var(--accent);
+}
+
+.price-topup {
+    color: var(--white);
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: var(--dark);
+    width: 300px;
+    padding: 10px 30px 10px 30px;
+    border-radius: 50px;
+}
+
+.buy-now-button {
+    color: var(--dark);
+    background-color: var(--accent);
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: none;
+}
+
+.buy-now-button:hover {
+    color: var(--white);
+}
