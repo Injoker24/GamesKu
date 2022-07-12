@@ -10,7 +10,8 @@
                 <a class="nav-details" href="#">Transaction</a>
                 <a class="nav-details" href="#">History</a>
             @endif
-            <a class="nav-details" href="/logout">Logout</a>
+            <a class="nav-details" href="/profile">Profile</a>
+            <a class="login-button" href="/logout">Logout</a>
         @else
             <a class="nav-details" href="/register">Register</a>
             <a class="login-button" href="/login">Login</a>

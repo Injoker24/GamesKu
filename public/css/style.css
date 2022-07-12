@@ -55,6 +55,8 @@ a {
     color: var(--accent);
     cursor: pointer;
 }
+/* End of navbar.blade.php */
+
 
 /* footer.blade.php */
 .footer {
@@ -96,6 +98,8 @@ a {
 .social-links a:hover {
   color: #f06161;
 }
+/* End of footer.blade.php */
+
 
 /* boarding.blade.php */
 .boarding-banner {
@@ -156,7 +160,7 @@ a {
 
 .about-stat {
      font-weight: bold;
-     color: var(--accent);
+     color: #4fa30f;
 }
 
 .view-all-button-container{
@@ -186,6 +190,8 @@ a {
     color: var(--white);
     cursor: pointer;
 }
+/* End of boarding.blade.php */
+
 
 /* home.blade.php */
 .banner-container {
@@ -270,4 +276,47 @@ a {
 .main-search-button:hover {
     color: var(--white);
 }
+/* End of home.blade.php */
 
+
+/* gameDetail.blade.php */
+.game-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 200px 20px 200px;
+    background-color: var(--dark);
+}
+
+.detail-image {
+    height: 250px;
+    width: 850px;
+    object-fit: cover;
+}
+
+.form-game-detail-container {
+    background-color: var(--white);
+    width: 850px;
+}
+
+.topup-type-button {
+    color: var(--dark);
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    width: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    border: 2px solid var(--accent);
+}
+
+.topup-type-button:hover,
+.topup-type-button-selected{
+    color: var(--dark);
+    background-color: var(--accent);
+    border: 2px solid var(--accent);
+}

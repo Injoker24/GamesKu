@@ -75,7 +75,7 @@ Route::middleware('auth')->group(function() {
     Route::get('/history/{id}', [MemberController::class, "historyDetail"]);
     Route::post('/history/delete', [MemberController::class, "deleteAllHistory"]);
     Route::post('/history/{id}/delete', [MemberController::class, "deleteHistory"]);
-    Route::post('/game/{id}/topup', [MemberController::class, "topupPage"]);
+    Route::post('/game/{name}/topup', [MemberController::class, "topupPage"]);
 });
 
 /* Admin Only */
