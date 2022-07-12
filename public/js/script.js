@@ -11,8 +11,14 @@ function addPrice(price){
 }
 
 $('button').on('click', function(){
-    $('button').removeClass('topup-type-button-selected');
-    $(this).addClass('topup-type-button-selected');
+    if($(this).attr('class') == 'topup-type-button'){
+        $('.topup-type-button').removeClass('topup-type-button-selected');
+        $(this).addClass('topup-type-button-selected');
+    }
+    else if($(this).attr('class') == 'payment-type-button'){
+        $('.payment-type-button').removeClass('payment-type-button-selected');
+        $(this).addClass('payment-type-button-selected');
+    }
 });
 
 function getPaymentType(paymentType){

@@ -13,7 +13,7 @@
             </div>
             <div class="form-game-container">
                 <h3 class="section-title" style="font-weight: bold; margin-top: 80px;">{{ $games->name }}</h3>
-                <form action="/home/{{ $games->name }}/topup" method="POST" class="mx-5 form-game-detail-container" enctype="multipart/form-data">
+                <form action="/home/{{ $games->name }}" method="POST" class="mx-5 form-game-detail-container" enctype="multipart/form-data">
                     @csrf
                     <div class="my-3 w-100 mx-5 align-self-center topup-button-container">
                         <label for="userID" class="form-label" style="margin-right: 20px;">Input User ID</label>
@@ -36,11 +36,16 @@
                     {{-- help bikin ini kek yg diatas warnanya, kek yg buat pick diamond, ato ga help bkin yang diatas kek gni, gw soalnya pake js bikin selected statenya --}}
                     <div class="row">
                         @foreach ($payments as $payment)
-                        <div class="col-4 topup-button-container" style="margin-top: 20px;">
+                        {{-- <div class="col-4 topup-button-container" style="margin-top: 20px;">
                             <input type="radio" class="btn-check" name="btnradio" id="btnradio{{ $payment->id }}" autocomplete="off" onclick="getPaymentType({{ $payment->id }})">
                             <label class="btn btn-outline-primary ms-3" for="btnradio{{ $payment->id }}">
                                 <img src="{{ asset('storage/' . $payment->payment_type_logo) }}" alt="" width="100" height="40" class="align-middle" style="object-fit: fill;">
                             </label>
+                        </div> --}}
+                        <div class="col-4 topup-button-container">
+                            <button type="button" class="payment-type-button" id="btnradio{{ $payment->id }}" onclick="getPaymentType({{ $payment->id }})">
+                                <img src="{{ asset('storage/' . $payment->payment_type_logo) }}" alt="" width="100" height="40" class="align-middle" style="object-fit: fill;">
+                            </button>
                         </div>
                         @endforeach
                         {{-- input bawah ni jangan dihapus ya --}}

@@ -332,7 +332,7 @@ a {
     justify-content: center;
 }
 
-.topup-type-button {
+.topup-type-button,.payment-type-button {
     color: var(--dark);
     background-color: rgba(255, 255, 255, 0);
     font-size: 12px;
@@ -348,7 +348,9 @@ a {
 }
 
 .topup-type-button:hover,
-.topup-type-button-selected{
+.topup-type-button-selected,
+.payment-type-button:hover,
+.payment-type-button-selected{
     color: var(--dark);
     background-color: var(--accent);
     border: 2px solid var(--accent);

@@ -6,6 +6,7 @@ use App\Models\Topup;
 use App\Models\Transaction;
 use App\Models\TransactionDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 use Symfony\Component\Console\Input\Input;
 
 class MemberController extends Controller
@@ -20,9 +21,19 @@ class MemberController extends Controller
         ]);
     }
 
-    public function transactionDetail()
+    public function transactionDetail($id)
     {
-        return view('member.transactionDetail');
+        $transactionDetail = TransactionDetail::find($id);
+        return view('member.transactionDetail', [
+            'trDetail' => $transactionDetail
+        ]);
+    }
+
+    public function uploadPayment($id){
+        $transactionDetail = TransactionDetail::find($id);
+        return view('member.uploadPayment', [
+            'trDetail' => $transactionDetail
+        ]);
     }
 
     public function historyPage()
@@ -45,21 +56,22 @@ class MemberController extends Controller
 
     }
 
-    public function topupPage(Request $request)
-    {
-
-        return view('member.topup');
-    }
+    // public function topupPage(Request $request)
+    // {
+        // spertiny gkpke
+    //     return view('member.topup');
+    // }
 
     public function gatau(Request $request){
-        // dd($request, $request->priceinput, $request->btnradio1, $request->button);
+        // $date = now()->toDateTimeString();
+        // dd($request, $date);
         if(!auth()->check()){
             return redirect()->route('login_page')->with('error', 'You must login first');
         }
         $validated = $request->validate([
             'userID' => 'required',
             'price' => 'required',
-            'btnradio' => 'required',
+            'payment' => 'required',
         ]);
 
         $transaction = new Transaction();
@@ -76,5 +88,9 @@ class MemberController extends Controller
         $transactionDetail->save();
 
         return redirect()->route('home_page')->with('success', 'transaction added');
+    }
+
+    public function gatau2(Request $request){
+        dd($request, $request->file());
     }
 }
