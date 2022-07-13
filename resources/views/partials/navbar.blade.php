@@ -8,7 +8,7 @@
                 <a class="nav-details" href="#">Manage Game</a>
             @else
                 <a class="nav-details" href="/transaction">Transaction</a>
-                <a class="nav-details" href="#">History</a>
+                <a class="nav-details" href="/history">History</a>
             @endif
             <a class="nav-details" href="/profile">Profile</a>
             <a class="login-button" href="/logout">Logout</a>
