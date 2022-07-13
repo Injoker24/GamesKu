@@ -4,9 +4,9 @@
 
 @section('container')
     @include('partials.navbar')
-    <div class="container-fluid p-5" style="background-color: #1F2833">
+    <div class="container-fluid p-5" style="background-color: var(--dark);">
         <div class="container d-flex justify-content-center">
-            <h2 class="fw-bolder pb-4" style="color: white">Let's Pay and Play</h2>
+            <h2 class="fw-bolder pb-4" style="color: white">Welcome Back!</h2>
         </div>
         <div class="container" style="width: 800px; background-color: var(--white); padding:0% 5% 0% 5%; border-radius: 40px;">
             @if (session()->has('error'))

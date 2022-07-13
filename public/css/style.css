@@ -416,7 +416,7 @@ a {
 /* End of gameDetail.blade.php */
 
 
-/* login.blade.php */
+/* login.blade.php and register.blade.php */
 .login-page-button {
     color: var(--dark);
     background-color: var(--accent);
