@@ -1,5 +1,5 @@
 <div class="navbar">
-    <a href="#" style="padding-left: 200px;"><img src="{{ asset('storage/GamesKu Icon.png') }}" alt="" width="50"></a>
+    <a href="/" style="padding-left: 200px;"><img src="{{ asset('storage/GamesKu Icon.png') }}" alt="" width="50"></a>
     <div style="padding-right: 200px;">
         @auth
             <a class="nav-details" href="/home">Home</a>

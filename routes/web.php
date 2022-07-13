@@ -59,7 +59,7 @@ Route::get('/allgame', [GameController::class, "viewAllGame"]);
 
 
 /* Guest Only */
-Route::get('/', [Controller::class, "onboarding"]);
+Route::get('/', [Controller::class, "onboarding"])->name('boarding_page');
 Route::get('/login', [UserController::class, "index_login"])->name('login_page');
 Route::post('/login/auth', [UserController::class, "login"])->name('login');
 

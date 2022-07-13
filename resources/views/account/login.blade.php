@@ -3,20 +3,20 @@
 @section('title', 'Login')
 
 @section('container')
+    @include('partials.navbar')
     <div class="container-fluid p-5" style="background-color: #1F2833">
         <div class="container d-flex justify-content-center">
-            <img src="{{ asset('storage/GamesKu Icon.png') }}" alt="img">
-            <h2 class="fw-bolder py-3" style="color: white">Let's Pay and Play</h2>
+            <h2 class="fw-bolder pb-4" style="color: white">Let's Pay and Play</h2>
         </div>
-        <div class="container" style="width: 800px; background-color:white; padding:0% 5% 0% 5%">
+        <div class="container" style="width: 800px; background-color: var(--white); padding:0% 5% 0% 5%; border-radius: 40px;">
             @if (session()->has('error'))
                 <div class="alert alert-danger alert-dismissible fade show" role="alert"> {{ session('error') }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
-            <form action="{{ route('login') }}" method="post">
+            <form style="color: var(--dark);" action="{{ route('login') }}" method="post">
                 @csrf
-                <h1 class="h1 text-center py-5">LOGIN</h1>
+                <h1 class="h1 text-center pt-5 pb-3">Login</h1>
 
                 <!-- Email input -->
                 <div class="form-outline mb-4">
@@ -37,19 +37,19 @@
                 @endif
 
                 <!-- Register buttons -->
-                <div class="text-center d-flex justify-content-around">
-                    <p>Not have an Account? <a href="/register">Register</a></p>
+                <div class="text-center d-flex justify-content-between">
+                    <p>Don't have an account? <a href="/register">Register</a></p>
                     <a href="#">Forget Password?</a>
                 </div>
 
                 <!-- Submit button -->
                 <div class="text-center">
-                    <button type="submit" class="btn btn-primary rounded-0 my-5 fs-5 btn-block w-50">LOGIN</button>
+                    <button type="submit" class="login-page-button">Login</button>
                 </div>
             </form>
         </div>
     </div>
-
+    @include('partials.footer')
 @endsection
 
 
