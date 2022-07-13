@@ -16,6 +16,29 @@
     .form-custom{
         background-color: #C4C4C4;
     }
+    .card-transaction{
+        border-top: solid 2pt #000000;
+        border-bottom: solid 2pt #000000;
+    }
+    .card-status{
+        padding: 0.5% 2% 0.5% 2%;
+        width: 150pt;
+        text-align: center;
+        border: solid 1.5pt green;
+        color: red;
+        font-weight: 600;
+    }
+    .btn-see-detail{
+        padding: 20% 5% 20% 5%;
+        /* height: 9.5rem;
+        width: 9.5rem; */
+        border-radius: 30pt;
+        background-color: #000000;
+        text-align: center;
+        color: white;
+        font-size: 20pt;
+        font-weight: 600;
+    }
 </style>
 <body>
     {{-- @if (!Request::is('/') && !Request::is('login') && !Request::is('register')) --}}
