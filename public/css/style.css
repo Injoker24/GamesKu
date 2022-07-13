@@ -286,6 +286,7 @@ a {
     align-items: center;
     padding: 20px 200px 20px 200px;
     background-color: var(--dark);
+    counter-reset: list-number;
 }
 
 .game-detail-banner-container {
@@ -326,6 +327,30 @@ a {
     align-items: center;
 }
 
+.topup-part-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-left: 60px;
+}
+
+.topup-part-container::before {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    counter-increment: list-number;
+    content: counter(list-number);
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    background-color: var(--dark);
+    border-radius: 2px;
+    font-weight: bold;
+    color: var(--white);
+}
+
 .topup-button-container {
     display: flex;
     align-items: center;
@@ -358,7 +383,7 @@ a {
 
 .price-topup {
     color: var(--white);
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     margin-top: 30px;
     margin-bottom: 30px;
