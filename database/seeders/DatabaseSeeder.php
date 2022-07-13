@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             TopupSeeder::class,
             PaymentTypeSeeder::class,
+            TransactionSeeder::class,
         ]);
     }
 }
