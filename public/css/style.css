@@ -45,7 +45,7 @@ a {
 }
 
 .badge-progress {
-    color: var(--white);
+    color: var(--dark);
     background-color: #17a2b8;
 }
 
@@ -493,22 +493,40 @@ a {
     justify-content: space-between;
     align-items: center;
     height: 200px;
+    margin-bottom: 30px;
+    color: var(--white);
+    background-color: var(--dark);
 }
 
 .transaction-image {
     height: 140px;
     width: 140px;
     object-fit: cover;
-    border-radius: 10px;
-    border: 1px solid var(--dark);
+    border-radius: 20px;
+    border: 3px solid var(--white);
     margin-right: 50px;
 }
 
-.card-status{
-    padding: 0.5% 2% 0.5% 2%;
-    width: 150pt;
-    text-align: center;
-    border: solid 1.5pt green;
-    color: red;
-    font-weight: 600;
+.transaction-price-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    margin-right: 50px;
+}
+
+.detail-button {
+    color: var(--dark);
+    background-color: var(--accent);
+    border: 3px solid var(--accent);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+}
+
+.detail-button:hover {
+    color: var(--white);
+    background-color: #ffffff00;
 }
