@@ -19,8 +19,4 @@ class Transaction extends Model
         return $this->hasOne(TransactionDetail::class);
     }
 
-    public function history_detail()
-    {
-        return $this->belongsTo(HistoryDetail::class);
-    }
 }

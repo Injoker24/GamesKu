@@ -16,11 +16,11 @@ class CreateHistoryDetailsTable extends Migration
         Schema::create('history_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('history_id');
-            $table->foreignId('transaction_id');
+            $table->foreignId('transaction_detail_id');
             $table->timestamps();
 
             $table->foreign('history_id')->references('id')->on('histories');
-            $table->foreign('transaction_id')->references('id')->on('transactions');
+            $table->foreign('transaction_detail_id')->references('id')->on('transaction_details');
         });
     }
 

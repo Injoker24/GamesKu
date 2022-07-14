@@ -23,4 +23,9 @@ class TransactionDetail extends Model
     {
         return $this->belongsTo(PaymentType::class);
     }
+
+    public function history_detail()
+    {
+        return $this->hasOne(HistoryDetail::class);
+    }
 }
