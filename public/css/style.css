@@ -15,6 +15,45 @@ a {
     text-decoration: none;
 }
 
+.badges {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+}
+
+.badge-pill {
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 10rem;
+    width: 200px;
+}
+
+.badge-success {
+    color: var(--dark);
+    background-color: var(--accent);
+}
+
+.badge-rejected {
+    color: var(--white);
+    background-color: #f06161;
+}
+
+.badge-progress {
+    color: var(--white);
+    background-color: #17a2b8;
+}
+
+.badge-waiting {
+    color: var(--dark);
+    background-color: #ffc107;
+}
+
 /* navbar.blade.php */
 .navbar {
     background-color: var(--dark);
@@ -434,4 +473,42 @@ a {
 .login-page-button:hover {
     background-color: var(--dark);
     color: var(--white);
+}
+/* End of login.blade.php and register.blade.php */
+
+
+/* transaction.blade.php */
+.transaction-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-transaction{
+    border: 3px solid var(--dark);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 200px;
+}
+
+.transaction-image {
+    height: 140px;
+    width: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid var(--dark);
+    margin-right: 50px;
+}
+
+.card-status{
+    padding: 0.5% 2% 0.5% 2%;
+    width: 150pt;
+    text-align: center;
+    border: solid 1.5pt green;
+    color: red;
+    font-weight: 600;
 }

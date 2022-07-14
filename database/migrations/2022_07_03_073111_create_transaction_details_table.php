@@ -18,7 +18,7 @@ class CreateTransactionDetailsTable extends Migration
             $table->foreignId('transaction_id');
             $table->foreignId('topup_id');
             $table->foreignId('payment_type_id');
-            $table->enum('status', ["Waiting for Payment", "In Progress", "Completed"]);
+            $table->enum('status', ["Waiting for Payment", "In Progress", "Completed", "Rejected"]);
             $table->integer('price');
             $table->timestamp('due_date');
             $table->string('image_path')->nullable();
