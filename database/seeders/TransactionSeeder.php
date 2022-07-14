@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 use App\Models\Transaction;
+use Illuminate\Database\Seeder;
 use App\Models\TransactionDetail;
 
 class TransactionSeeder extends Seeder
@@ -29,6 +30,8 @@ class TransactionSeeder extends Seeder
             'payment_type_id' => 1,
             'status' => 'Waiting for Payment',
             'price' => 100000,
+            'due_date' => Carbon::tomorrow(),
+            'image_path' => '-',
             'input_name' => 'Injoker24'
         ]);
 
@@ -38,6 +41,8 @@ class TransactionSeeder extends Seeder
             'payment_type_id' => 4,
             'status' => 'In Progress',
             'price' => 300000,
+            'due_date' => Carbon::tomorrow(),
+            'image_path' => '-',
             'input_name' => 'Nevertheless'
         ]);
     }
