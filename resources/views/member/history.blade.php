@@ -8,7 +8,7 @@
     <div class="container-fluid mt-5" style="padding-left: 180px; padding-right: 180px;">
         <h3 class="pb-3" style="font-weight: bold;">My History</h3>
         <div class="transaction-container">
-            @foreach ($histories as $hs)
+            @forelse ($histories as $hs)
             <div class="card-transaction w-100 py-5 px-4">
                 <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
                     <div>
@@ -34,7 +34,10 @@
                     <a href="/history/{{ $hs->id }}/delete" class="remove-button">X</a>
                 </div>
             </div>
-            @endforeach
+            @empty
+                <h4 style="font-weight:bold; color: #00000089;"> No Data Found </h4>
+                <img src="/storage/No Data.png" class="no-data-image" alt="...">
+            @endforelse
         </div>
     </div>
     @include('partials.footer')
