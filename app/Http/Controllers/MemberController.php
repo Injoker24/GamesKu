@@ -84,10 +84,11 @@ class MemberController extends Controller
         $transactionDetail->payment_type_id = $request->payment;
         $transactionDetail->status = "Waiting for Payment";
         $transactionDetail->price = $request->price;
+        $transactionDetail->image_path = null;
         $transactionDetail->input_name = $request->userID;
         $transactionDetail->save();
 
-        return redirect()->route('home_page')->with('success', 'transaction added');
+        return redirect()->route('transaction_detail_page', [$transaction->id])->with('success', 'transaction added');
     }
 
     public function gatau2(Request $request){

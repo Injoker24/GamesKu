@@ -21,7 +21,7 @@ class CreateTransactionDetailsTable extends Migration
             $table->enum('status', ["Waiting for Payment", "In Progress", "Completed"]);
             $table->integer('price');
             $table->timestamp('due_date');
-            $table->string('image_path');
+            $table->string('image_path')->nullable();
             $table->string('input_name');
             $table->timestamps();
 
