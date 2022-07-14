@@ -108,7 +108,11 @@ class MemberController extends Controller
     }
 
     public function gatau2(Request $request){
-        // dd($request, $request->file());
+        $validatedData = $request->validate([
+            'paymentproof' => 'image|mimes:jpeg,png,jpg'
+        ],[
+            'paymentproof.image' => 'Please upload payment proof image'
+        ]);
 
         if(!$request->file('paymentproof')){
             return redirect('/transaction/' . $request->id . '/upload')->with('error', 'Please upload payment proof');
