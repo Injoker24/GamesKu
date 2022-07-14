@@ -92,6 +92,21 @@ class MemberController extends Controller
     }
 
     public function gatau2(Request $request){
-        dd($request, $request->file());
+        // dd($request, $request->file());
+
+        if(!$request->file('paymentproof')){
+            return redirect('/transaction/' . $request->id . '/upload')->with('error', 'Please upload payment proof');
+        }
+        else{
+            // dd($request->file('paymentproof'));
+            $file = $request->file('paymentproof')->store('paymentProof');
+
+            TransactionDetail::where('id', $request->id)->update([
+                'status' => 'In Progress',
+                'image_path' => $file
+            ]);
+            return redirect('/home')->with('success', 'Payment proof uploaded');
+        }
+
     }
 }

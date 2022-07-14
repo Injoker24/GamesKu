@@ -18,7 +18,9 @@
     <p>PAY BEFORE BELOM DIBUAT DI DB</p>
     <p>NOTE ASDIOSHDGSIAUOGDDISUGIUGF</p>
 
-    <a href="/transaction/{{ $trDetail->id }}/upload" class="badge rounded-pill text-bg-secondary text-decoration-none p-5">UPLOAD PAYMENT</a>
+    @if ($trDetail->status == "Waiting for Payment")
+        <a href="/transaction/{{ $trDetail->id }}/upload" class="badge rounded-pill text-bg-secondary text-decoration-none p-5">UPLOAD PAYMENT</a>
+    @endif
 
 
 
