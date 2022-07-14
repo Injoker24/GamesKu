@@ -22,7 +22,7 @@ class Controller extends BaseController
     public function homePage()
     {
         return view('home', [
-            'games' => Game::all()
+            'games' => Game::all()->take(5)
         ]);
     }
 
