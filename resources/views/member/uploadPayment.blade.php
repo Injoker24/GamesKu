@@ -33,6 +33,11 @@
             <label for="formFile" class="form-label">Upload Proof of Payment</label>
             <input class="form-control w-25" type="file" id="paymentproof" name="paymentproof">
         </div>
+        @if($errors->any())
+            <div class="alert alert-danger">
+                {{$errors->first()}}
+            </div>
+        @endif
         <div class="note">
             <h2 class="text-center">NOTE</h2>
             <ul class="fw-bold">
