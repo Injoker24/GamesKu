@@ -15,6 +15,45 @@ a {
     text-decoration: none;
 }
 
+.badges {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+}
+
+.badge-pill {
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 10rem;
+    width: 200px;
+}
+
+.badge-success {
+    color: var(--dark);
+    background-color: var(--accent);
+}
+
+.badge-rejected {
+    color: var(--white);
+    background-color: #f06161;
+}
+
+.badge-progress {
+    color: var(--dark);
+    background-color: #17a2b8;
+}
+
+.badge-waiting {
+    color: var(--dark);
+    background-color: #ffc107;
+}
+
 /* navbar.blade.php */
 .navbar {
     background-color: var(--dark);
@@ -434,4 +473,60 @@ a {
 .login-page-button:hover {
     background-color: var(--dark);
     color: var(--white);
+}
+/* End of login.blade.php and register.blade.php */
+
+
+/* transaction.blade.php */
+.transaction-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-transaction{
+    border: 3px solid var(--dark);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 200px;
+    margin-bottom: 30px;
+    color: var(--white);
+    background-color: var(--dark);
+}
+
+.transaction-image {
+    height: 140px;
+    width: 140px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 3px solid var(--white);
+    margin-right: 50px;
+}
+
+.transaction-price-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    margin-right: 50px;
+}
+
+.detail-button {
+    color: var(--dark);
+    background-color: var(--accent);
+    border: 3px solid var(--accent);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+}
+
+.detail-button:hover {
+    color: var(--white);
+    background-color: #ffffff00;
 }

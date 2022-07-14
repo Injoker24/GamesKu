@@ -14,6 +14,10 @@ class Controller extends BaseController
 
     public function onboarding()
     {
+        if(auth()->check()){
+            return redirect()->route('home_page');
+        }
+
         return view('guest.boarding', [
             'games' => Game::all()->take(5)
         ]);
@@ -22,7 +26,7 @@ class Controller extends BaseController
     public function homePage()
     {
         return view('home', [
-            'games' => Game::all()
+            'games' => Game::all()->take(5)
         ]);
     }
 
