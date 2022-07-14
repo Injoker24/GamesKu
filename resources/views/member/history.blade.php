@@ -5,7 +5,7 @@
 @section('container')
     @include('partials.navbar')
     {{-- @dump($histories) --}}
-    <div class="container-fluid mt-5" style="padding-left: 180px; padding-right: 180px;">
+    <div class="container-fluid mt-5" style="padding-left: 160px; padding-right: 160px;">
         <h3 class="pb-3" style="font-weight: bold;">My History</h3>
         <div class="transaction-container">
             @forelse ($histories as $hs)
