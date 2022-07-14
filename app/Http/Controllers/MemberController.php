@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Topup;
 use App\Models\Transaction;
 use App\Models\TransactionDetail;
@@ -84,6 +85,7 @@ class MemberController extends Controller
         $transactionDetail->payment_type_id = $request->payment;
         $transactionDetail->status = "Waiting for Payment";
         $transactionDetail->price = $request->price;
+        $transactionDetail->due_date = Carbon::now()->addDays(1);
         $transactionDetail->image_path = null;
         $transactionDetail->input_name = $request->userID;
         $transactionDetail->save();

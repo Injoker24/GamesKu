@@ -5,7 +5,7 @@
 @section('container')
     @include('partials.navbar')
     {{-- @dump($transactions) --}}
-    <div class="container-fluid mt-5" style="padding-left: 200px; padding-right: 200px;">
+    <div class="container-fluid mt-5" style="padding-left: 180px; padding-right: 180px;">
         <h3 class="pb-3" style="font-weight: bold;">My Transactions</h3>
         <div class="transaction-container">
             @foreach ($transactions as $tr)
@@ -17,7 +17,7 @@
                     <div class="transaction-text">
                         <h6 class="card-text mb-1">Transaction ID: {{ $tr->id }}</h6>
                         <h5 class="card-title mb-1">{{ $tr->topup->game->name }}</h5>
-                        <p class="card-text mb-2">{{ $tr->created_at }}</p>
+                        <p class="card-text mb-2" style="font-size: 14px;">Deadline: <span style="color: var(--accent);">{{ $tr->due_date }}</span></p>
                         @if( $tr->status == "Completed")
                             <span class="badges badge-pill badge-success">{{ $tr->status }}</span>
                         @elseif ( $tr->status == "Waiting for Payment")
