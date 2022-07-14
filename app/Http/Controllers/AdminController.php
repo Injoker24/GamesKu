@@ -46,7 +46,6 @@ class AdminController extends Controller
     public function manageTransactionPage()
     {
         $transaction = TransactionDetail::where('status', 'In Progress')->get();
-        // $transactionDetail = TransactionDetail::whereIn('transaction_id', $transaction->pluck('id'))->get();
         return view('admin.manageTransaction', [
             'transactions' => $transaction
         ]);

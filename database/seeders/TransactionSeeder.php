@@ -30,7 +30,7 @@ class TransactionSeeder extends Seeder
             'payment_type_id' => 1,
             'status' => 'Waiting for Payment',
             'price' => 100000,
-            'due_date' => Carbon::tomorrow(),
+            'due_date' => Carbon::now()->addDays(1),
             'image_path' => '-',
             'input_name' => 'Injoker24'
         ]);
@@ -41,7 +41,7 @@ class TransactionSeeder extends Seeder
             'payment_type_id' => 4,
             'status' => 'In Progress',
             'price' => 300000,
-            'due_date' => Carbon::tomorrow(),
+            'due_date' => Carbon::now()->addDays(1),
             'image_path' => '-',
             'input_name' => 'Nevertheless'
         ]);

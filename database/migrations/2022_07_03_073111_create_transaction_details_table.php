@@ -20,7 +20,7 @@ class CreateTransactionDetailsTable extends Migration
             $table->foreignId('payment_type_id');
             $table->enum('status', ["Waiting for Payment", "In Progress", "Completed"]);
             $table->integer('price');
-            $table->date('due_date');
+            $table->timestamp('due_date');
             $table->string('image_path');
             $table->string('input_name');
             $table->timestamps();
