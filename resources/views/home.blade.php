@@ -12,21 +12,21 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <div class="banner-container">
-                <h1>BINGUNG CARI TEMPAT BELI SKIN?</h1>
-                <h1><span style="color:var(--accent)">GAMESKU-IN</span> AJA</h1>
+            <div class="banner-container banner-1-image">
+                <h1 style="font-weight: bold;">New Valorant Bundle?</h1>
+                <h1 style="font-weight:bold;"><span style="color:var(--accent); font-size: 48px;">GamesKu</span> Got You Covered!</h1>
             </div>
           </div>
           <div class="carousel-item">
-            <div class="banner-container">
-                <h1>BINGUNG CARI TEMPAT BELI SKIN?</h1>
-                <h1><span style="color:var(--accent)">GAMESKU-IN</span> AJA</h1>
+            <div class="banner-container banner-2-image">
+                <h1 style="font-weight: bold;">Diamond Topups for New Skins?</h1>
+                <h1 style="font-weight:bold;"><span style="color:var(--accent); font-size: 48px;">GamesKu</span> Makes It Easy!</h1>
             </div>
           </div>
           <div class="carousel-item">
-            <div class="banner-container">
-                <h1>BINGUNG CARI TEMPAT BELI SKIN?</h1>
-                <h1><span style="color:var(--accent)">GAMESKU-IN</span> AJA</h1>
+            <div class="banner-container banner-3-image">
+                <h1 style="font-weight: bold;">No Showbucks for Season Pass?</h1>
+                <h1 style="font-weight:bold;"><span style="color:var(--accent); font-size: 48px;">GamesKu</span> Is Your Answer!</h1>
             </div>
           </div>
         </div>
