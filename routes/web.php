@@ -97,7 +97,7 @@ Route::middleware('admin')->group(function() {
 });
 
 /* Member and Admin */
-Route::middleware(['auth', 'admin'])->group(function() {
+Route::middleware(['auth'])->group(function() {
     Route::get('/home', [Controller::class, "homePage"])->name('home_page');
     Route::get('/profile', [Controller::class, "profilePage"]);
     Route::get('/edit-profile', [Controller::class, "editProfilePage"]);
