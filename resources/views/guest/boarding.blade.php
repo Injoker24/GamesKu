@@ -73,7 +73,7 @@
         </a>
         @endforeach
         <div class="view-all-button-container">
-            <a href="" class="view-all-games-button">View All Games</a>
+            <a href="/login" class="view-all-games-button">View All Games</a>
         </div>
     </div>
     @include('partials.footer')

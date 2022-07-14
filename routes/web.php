@@ -55,7 +55,7 @@ use App\Http\Controllers\MemberController;
 /* All */
 Route::get('/search', [GameController::class, "searchGame"]);
 Route::get('/game/{name}', [GameController::class, "gameDetail"]);
-Route::get('/allgame', [GameController::class, "viewAllGame"]);
+Route::get('/allgames', [GameController::class, "viewAllGame"]);
 
 
 /* Guest Only */
