@@ -14,7 +14,7 @@
             {{-- masih kurang validasi form untuk harus milih semua baru bisa beli --}}
             <div class="form-game-container">
                 <h3 class="section-title" style="font-weight: bold; margin-top: 80px;">{{ $games->name }}</h3>
-                <form action="/home/{{ $games->name }}" method="POST" class="mx-5 form-game-detail-container" enctype="multipart/form-data">
+                <form action="/game/{{ $games->name }}" method="POST" class="mx-5 form-game-detail-container" enctype="multipart/form-data">
                     @csrf
                     <div class="my-3 w-100 mx-5 align-self-center topup-part-container">
                         <label for="userID" class="form-label" style="margin-right: 20px;">Input User ID</label>

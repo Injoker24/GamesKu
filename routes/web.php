@@ -68,9 +68,9 @@ Route::post('/register/auth', [UserController::class, "register"])->name('regist
 
 /* Member Only */
 Route::middleware('auth')->group(function() {
-    Route::post('/home/{name}', [MemberController::class, "gatau"]);
+    Route::post('/game/{name}', [MemberController::class, "gatau"]);
     Route::get('/transaction', [MemberController::class, "transactionPage"]);
-    Route::get('/transaction/{id}', [MemberController::class, "transactionDetail"]);
+    Route::get('/transaction/{id}', [MemberController::class, "transactionDetail"])->name('transaction_detail_page');
     Route::get('/transaction/{id}/upload', [MemberController::class, "uploadPayment"]);
     Route::post('/transaction/{id}/upload',[MemberController::class, "gatau2"]);
     Route::get('/history', [MemberController::class, "historyPage"]);
