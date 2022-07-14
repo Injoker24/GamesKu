@@ -42,7 +42,7 @@ class TransactionSeeder extends Seeder
             'status' => 'In Progress',
             'price' => 300000,
             'due_date' => Carbon::now()->addDays(1),
-            'image_path' => '-',
+            'image_path' => '/paymentProof/PYBmMvJbWI6d8D608E6UY6LseVi5sGsWnPC0LWCH.jpg',
             'input_name' => 'Nevertheless'
         ]);
     }

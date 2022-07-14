@@ -3,22 +3,32 @@
 @section('title', "Transaction ". $trDetail->id)
 
 @section('container')
-    <img src="{{ asset('storage' . $trDetail->topup->game->game_logo) }}" class="img-fluid rounded-start" alt="...">
-    <p>{{ $trDetail->topup->game->name }}</p>
-    <p>{{ $trDetail->id }}</p>
-    <p>{{ Auth::user()->email }}</p>
-    <p>{{ $trDetail->created_at }}</p>
-    <p>{{ $trDetail->status }}</p>
-    <p>virtual acc blom bkin </p>
+    @include('partials.navbar')
+    <div class="d-flex mt-5 ms-5">
+        <img src="{{ asset('storage' . $trDetail->topup->game->game_logo) }}" class="img-fluid rounded-start" alt="..." width="150">
 
+        <div class="info-detail d-flex flex-column justify-content-center ms-5">
+            <span class="h2">{{ $trDetail->topup->game->name }}</span>
+            <span>Transaction ID &emsp;{{ $trDetail->id }}</span>
+            <span>Email &emsp;&emsp;&emsp;&emsp;&emsp;{{ Auth::user()->email }}</span>
+            <span>Date & Time &emsp;&emsp;{{ $trDetail->created_at }}</span>
+            <span>Payment Status &emsp;{{ $trDetail->status }}</span>
+            <span>No. Virtual Acc &emsp;virtual acc blom bkin </span>
+        </div>
+    </div>
 
-
-    <form action="/manage-transaction/{{ $trDetail->id }}" method="POST">
+    <h2 class="mt-5 text-center">PAYMENT PROOF</h2>
+    <form action="/manage-transaction/{{ $trDetail->id }}" method="POST" class="ms-5 mt-5 float-center">
         @csrf
-        <img src="{{ asset('storage/' . $trDetail->image_path) }}" class="img-fluid rounded-start" alt="...">
+        {{-- imgnya gabisa kecenter :)) --}}
+        <img src="{{ asset('storage/' . $trDetail->image_path) }}" class="img-fluid rounded-start float-center" alt="...">
 
-        <button type="submit" class="btn badge text-bg-success" name="submitbutton" value="accept">ACCEPT</button>
-        <button type="submit" class="btn badge text-bg-danger" name="submitbutton" value="reject">REJECT</button>
+        <br>
+
+        <div class="buttton d-flex justify-content-center">
+            <button type="submit" class="btn badge text-bg-success me-3" name="submitbutton" value="accept">ACCEPT</button>
+            <button type="submit" class="btn badge text-bg-danger" name="submitbutton" value="reject">REJECT</button>
+        </div>
     </form>
 
 @endsection

@@ -38,17 +38,17 @@
             </div>
         @endforeach
     </div> --}}
-    @if (session()->has('reject'))
-        <div class="alert alert-danger alert-dismissible fade show" role="alert"> {{ session('reject') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
-
-    @if (session()->has('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert"> {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+    @if (session()->has('message'))
+        @if (str_contains(session('message'), 'accepted'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert"> {{ session('message') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @elseif (str_contains(session('message'), 'rejected'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert"> {{ session('message') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
         @endif
+    @endif
 
     <div class="container-fluid mt-5" style="padding-left: 200px; padding-right: 200px;">
         <h3 class="pb-3">My Transactions</h3>

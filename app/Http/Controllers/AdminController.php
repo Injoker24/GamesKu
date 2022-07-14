@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\History;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use App\Models\HistoryDetail;
 use App\Models\TransactionDetail;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -61,22 +64,37 @@ class AdminController extends Controller
 
     public function finalizeTransaction(Request $request)
     {
+        $message = '';
         // dd($request->input('submitbutton'));
         switch($request->input('submitbutton')){
             case 'accept':
                 TransactionDetail::where('id', $request->id)->update([
                     'status' => 'Completed'
                 ]);
-                return redirect('/manage-transaction')->with('success', 'Transaction has been accepted');
+                $message = 'Transaction has been accepted';
+                // return redirect('/manage-transaction')->with('success', 'Transaction has been accepted');
                 break;
 
             case 'reject':
                 TransactionDetail::where('id', $request->id)->update([
                     'status' => 'Rejected'
                 ]);
-                return redirect('/manage-transaction')->with('reject', 'Transaction has been rejected');
+                $message = 'Transaction has been rejected';
+                // return redirect('/manage-transaction')->with('reject', 'Transaction has been rejected');
                 break;
         }
+        // dd($message);
+        $tr = TransactionDetail::where('id', $request->id)->first();
+        $history = new History();
+        $history->user_id = auth()->user()->id;
+        $history->save();
+
+        $historyDetail = new HistoryDetail();
+        $historyDetail->history_id = $history->id;
+        $historyDetail->transaction_id = $tr->transaction_id;
+        $historyDetail->save();
+
+        return redirect('/manage-transaction')->with('message', $message);
     }
 
 

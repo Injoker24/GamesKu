@@ -92,6 +92,7 @@ Route::middleware('admin')->group(function() {
 
     Route::get('/manage-transaction', [AdminController::class, "manageTransactionPage"]);
     Route::get('/manage-transaction/{id}', [AdminController::class, "manageTransactionDetail"]);
+    // both accept reject
     Route::post('/manage-transaction/{id}', [AdminController::class, "finalizeTransaction"]);
 });
 
