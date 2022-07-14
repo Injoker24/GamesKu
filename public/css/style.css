@@ -549,9 +549,30 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 10px;
 }
 
 .detail-button:hover {
+    color: var(--white);
+    background-color: #ffffff00;
+}
+
+.remove-button {
+    color: var(--dark);
+    background-color: #f06161;
+    border: 3px solid #f06161;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.remove-button:hover {
     color: var(--white);
     background-color: #ffffff00;
 }

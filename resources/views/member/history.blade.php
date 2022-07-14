@@ -16,7 +16,8 @@
                     </div>
                     <div class="transaction-text">
                         <h6 class="card-text mb-1">Transaction ID: {{ $hs->transaction_detail->id }}</h6>
-                        <h5 class="card-title mb-2">{{ $hs->transaction_detail->topup->game->name }}</h5>
+                        <h5 class="card-title mb-1">{{ $hs->transaction_detail->topup->game->name }}</h5>
+                        <p class="card-text mb-2" style="font-size: 14px;">Created: <span style="color: var(--accent);">{{ $hs->transaction_detail->created_at }}</span></p>
                         @if( $hs->transaction_detail->status == "Completed")
                             <span class="badges badge-pill badge-success">{{ $hs->transaction_detail->status }}</span>
                         @elseif ( $hs->transaction_detail->status == "Rejected")
@@ -30,6 +31,7 @@
                         <h5 class="card-text" style="color: var(--accent); font-weight: bold;">Rp {{ $hs->transaction_detail->topup->price }}</h5>
                     </div>
                     <a href="/history/{{ $hs->id }}" class="detail-button">See Detail</a>
+                    <a href="/history/{{ $hs->id }}/delete" class="remove-button">X</a>
                 </div>
             </div>
             @endforeach
