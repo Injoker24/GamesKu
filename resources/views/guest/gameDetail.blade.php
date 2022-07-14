@@ -18,10 +18,18 @@
                     @csrf
                     <div class="my-3 w-100 mx-5 align-self-center topup-part-container">
                         <label for="userID" class="form-label" style="margin-right: 20px;">Input User ID</label>
-                        <input style="width: 100%;" type="text" class="form-control" id="userID" name="userID" placeholder="For example: {{ $games->input_example }}">
+                        <input style="width: 100%;" type="text" class="form-control @error('userID') is-invalid @enderror" id="userID" name="userID" placeholder="For example: {{ $games->input_example }}">
+                        @error('userID')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="my-3 w-100 mx-5 align-self-center topup-part-container">
-                        <label class="form-label">Choose Nominal</label>
+                        <label>Choose Nominal</label>
+                        @if ( $errors->has('price') )
+                            <span id="priceHelp" class="form-text text-danger">{{ $errors->first('price') }}</span>
+                        @endif
                         <div class="row">
                             @foreach ($games->topup as $topup)
                             <div class="col-3 topup-button-container">
@@ -34,8 +42,12 @@
                     <div class="price-topup" id="priceinput" name="priceinput">Price: </div>
                     {{-- input bawah ni jangan dihapus ya --}}
                     <input type="hidden" name="price" value="" id="forprice">
+
                     <div class="my-3 w-100 mx-5 align-self-center topup-part-container">
-                        <label class="form-label">Choose Payment Type</label>
+                        <label>Choose Payment Type</label>
+                        @if ( $errors->has('payment') )
+                            <span id="paymentHelp" class="form-text text-danger">{{ $errors->first('payment') }}</span>
+                        @endif
                         <div class="row">
                             @foreach ($payments as $payment)
                             <div class="col-4 topup-button-container">

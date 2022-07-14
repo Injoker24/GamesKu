@@ -73,6 +73,11 @@ class MemberController extends Controller
             'userID' => 'required',
             'price' => 'required',
             'payment' => 'required',
+        ],
+        [
+            'userID.required' => 'Please enter your user ID',
+            'price.required' => 'Please choose one of the nominals stated',
+            'payment.required' => 'Please choose one of the payment methods stated',
         ]);
 
         $transaction = new Transaction();
@@ -90,7 +95,7 @@ class MemberController extends Controller
         $transactionDetail->input_name = $request->userID;
         $transactionDetail->save();
 
-        return redirect()->route('transaction_detail_page', [$transaction->id])->with('success', 'transaction added');
+        return redirect()->route('transaction_detail_page', [$transaction->id])->with('success', 'Transaction added');
     }
 
     public function gatau2(Request $request){
