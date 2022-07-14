@@ -85,13 +85,14 @@ class AdminController extends Controller
         }
         // dd($message);
         $tr = TransactionDetail::where('id', $request->id)->first();
+        // dd($tr, $tr->transaction->user_id);
         $history = new History();
-        $history->user_id = auth()->user()->id;
+        $history->user_id = $tr->transaction->user_id;
         $history->save();
 
         $historyDetail = new HistoryDetail();
         $historyDetail->history_id = $history->id;
-        $historyDetail->transaction_id = $tr->transaction_id;
+        $historyDetail->transaction_detail_id = $tr->id;
         $historyDetail->save();
 
         return redirect('/manage-transaction')->with('message', $message);

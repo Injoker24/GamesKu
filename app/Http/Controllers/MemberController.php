@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Topup;
+use App\Models\History;
 use App\Models\Transaction;
-use App\Models\TransactionDetail;
 use Illuminate\Http\Request;
+use App\Models\HistoryDetail;
+use App\Models\TransactionDetail;
 use Illuminate\Support\Facades\Redis;
 use Symfony\Component\Console\Input\Input;
 
@@ -15,7 +17,7 @@ class MemberController extends Controller
     public function transactionPage()
     {
         $transaction = Transaction::where('user_id', auth()->user()->id)->get();
-        $transactionDetail = TransactionDetail::whereIn('transaction_id', $transaction->pluck('id'))->get();
+        $transactionDetail = TransactionDetail::whereIn('transaction_id', $transaction->pluck('id'))->where('status', 'In Progress')->orWhere('status', 'Waiting for Payment')->get();
         // dd($transactionDetail);
         return view('member.transaction', [
             'transactions' => $transactionDetail
@@ -39,12 +41,19 @@ class MemberController extends Controller
 
     public function historyPage()
     {
-        return view('member.history');
+        $history = History::where('user_id', auth()->user()->id)->get();
+        $historyDetail = HistoryDetail::whereIn('history_id', $history->pluck('id'))->get();
+        return view('member.history', [
+            'histories' => $historyDetail
+        ]);
     }
 
-    public function historyDetail()
+    public function historyDetail($id)
     {
-        return view('member.historyDetail');
+        $historyDetail = HistoryDetail::find($id);
+        return view('member.historyDetail', [
+            'hsDetail' => $historyDetail
+        ]);
     }
 
     public function deleteAllHistory()
