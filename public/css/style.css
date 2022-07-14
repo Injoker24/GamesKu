@@ -557,7 +557,36 @@ a {
     background-color: #ffffff00;
 }
 
-<<<<<<< HEAD
+.remove-button {
+    color: var(--dark);
+    background-color: #f06161;
+    border: 3px solid #f06161;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.remove-button:hover {
+    color: var(--white);
+    background-color: #ffffff00;
+}
+
+.no-data-image {
+    width: 300px;
+    height: 300px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* End of transaction.blade.php, history.blade.php, and manageTransaction.blade.php */
+
+
 /* transactionDetail.blade.php */
 .transaction-detail-container {
     display: flex;
@@ -657,31 +686,4 @@ a {
     background-color: var(--dark);
     color: var(--background);
     border: solid 2pt var(--dark);
-=======
-.remove-button {
-    color: var(--dark);
-    background-color: #f06161;
-    border: 3px solid #f06161;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px 20px 10px 20px;
-    border-radius: 5px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.remove-button:hover {
-    color: var(--white);
-    background-color: #ffffff00;
-}
-
-.no-data-image {
-    width: 300px;
-    height: 300px;
-    margin-top: 20px;
-    margin-bottom: 20px;
->>>>>>> 57cab13423e62fe6bffa0a734e7309aca8dd3889
 }
