@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaction;
 use Illuminate\Http\Request;
+use App\Models\TransactionDetail;
 
 class AdminController extends Controller
 {
@@ -43,7 +45,10 @@ class AdminController extends Controller
 
     public function manageTransactionPage()
     {
-        return view('admin.manageTransaction');
+        $transaction = TransactionDetail::where('status', 'In Progress')->get();
+        return view('admin.manageTransaction', [
+            'transactions' => $transaction
+        ]);
     }
 
     public function manageTransactionDetail()

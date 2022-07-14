@@ -17,6 +17,7 @@ class CreatePaymentTypesTable extends Migration
             $table->id();
             $table->string('payment_type_name');
             $table->string('payment_type_logo');
+            $table->string('virtual_account')->nullable();
             $table->timestamps();
         });
     }
