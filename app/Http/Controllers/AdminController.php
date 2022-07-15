@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Game;
 use App\Models\History;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
@@ -13,18 +14,26 @@ class AdminController extends Controller
 {
     public function manageGamePage()
     {
-        return view('admin.manageGame');
+        return view('admin.manageGame',[
+            'games' => Game::all()
+        ]);
     }
 
-    public function manageGameDetail()
+    public function editGamePage($name)
     {
-        return view('admin.manageGameDetail');
+        // sekalian langsung edit
+        $game = Game::where('name', $name)->first();
+        $type = $game->topup->first()->topup_type;
+        // dd($game->topup, $type);
+        return view('admin.editGame',[
+            'game' => $game,
+        ]);
     }
 
-    public function editGamePage()
-    {
-        return view('admin.editGame');
-    }
+    // public function editGamePage()
+    // {
+    //     return view('admin.editGame');
+    // }
 
     public function editGame()
     {

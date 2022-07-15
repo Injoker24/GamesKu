@@ -83,8 +83,8 @@ Route::middleware('auth')->group(function() {
 /* Admin Only */
 Route::middleware('admin')->group(function() {
     Route::get('/manage-game', [AdminController::class, "manageGamePage"]);
-    Route::get('/manage-game/{id}', [AdminController::class, "manageGameDetail"]);
-    Route::get('/manage-game/{id}/edit-game', [AdminController::class, "editGamePage"]);
+    Route::get('/manage-game/{name}', [AdminController::class, "editGamePage"]);
+    // Route::get('/manage-game/{id}/edit-game', [AdminController::class, "editGamePage"]);
     Route::post('/manage-game/{id}/edit-game/edit', [AdminController::class, "editGame"]);
     Route::post('/manage-game/{id}/delete', [AdminController::class, "deleteGame"]);
     Route::get('/manage-game/add-game', [AdminController::class, "addGamePage"]);
