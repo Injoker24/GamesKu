@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', "Transaction")
+@section('title', "Transactions")
 
 @section('container')
     @include('partials.navbar')

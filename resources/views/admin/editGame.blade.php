@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', "Edit" . $game->name)
+@section('title', "Edit " . $game->name)
 
 @section('container')
     @include('partials.navbar')

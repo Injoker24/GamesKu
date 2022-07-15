@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', "Transaction ". $trDetail->id)
+@section('title', "Manage Transaction " . $trDetail->id)
 
 @section('container')
     @include('partials.navbar')

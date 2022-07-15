@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\HistoryDetail;
 use App\Models\TransactionDetail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -23,17 +24,10 @@ class AdminController extends Controller
     {
         // sekalian langsung edit
         $game = Game::where('name', $name)->first();
-        $type = $game->topup->first()->topup_type;
-        // dd($game->topup, $type);
         return view('admin.editGame',[
             'game' => $game,
         ]);
     }
-
-    // public function editGamePage()
-    // {
-    //     return view('admin.editGame');
-    // }
 
     public function editGame(Request $request)
     {
@@ -42,16 +36,11 @@ class AdminController extends Controller
 
     public function deleteGame(Request $request)
     {
-        // $game = Game::find($request->id);
+        $id = $request->id;
+        $game = Game::find($id);
 
-        // if(isset($game)){
-        //     //Storage::delete('public/RealEstate/'.$game->image);
-        //     $game->delete();
-        // }
-
-        Game::destroy($request->id);
-
-        //Game::query()->where('id','=',$request->id)->delete();
+        $game->deleted = 1;
+        $game->save();
 
         return redirect('/manage-game');
     }
@@ -61,9 +50,34 @@ class AdminController extends Controller
         return view('admin.addGame');
     }
 
-    public function addGame()
+    public function addGame(Request $request)
     {
+        $request->validate([
+            'GameName' => 'required',
+            'GameDeveloper' => 'required',
+            'InputExample' => 'required',
+            'Logo' => 'required|mimes:jpeg,jpg,png|max:15000',
+            'BG' => 'required|mimes:jpeg,jpg,png|max:15000'
+        ]);
 
+        $name = $request->input('OfficeName');
+
+        $logoName = 'Logo '.$name.'.'.$request->Logo->extension();
+        $bgName = 'BG '.$name.'.'.$request->BG->extension();
+        Storage::putFileAs('public/gameAsset', $request->file('Image'), $logoName);
+        Storage::putFileAs('public/gameAsset', $request->file('Image'), $bgName);
+
+        $game = new Game();
+
+        $game->name = $request->input('GameName');
+        $game->developer = $request->input('GameDeveloper');
+        $game->game_logo = $logoName;
+        $game->game_img = $bgName;
+        $game->input_example = $request->input('InputExample');
+        $game->deleted = 0;
+        $game->save();
+
+        return redirect('/manage-game');
     }
 
     public function manageTransactionPage()
