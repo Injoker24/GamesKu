@@ -5,7 +5,7 @@
             <a class="nav-details" href="/home">Home</a>
             @if (Auth::user()->IsAdmin)
                 <a class="nav-details" href="/manage-transaction">Manage Transaction</a>
-                <a class="nav-details" href="#">Manage Game</a>
+                <a class="nav-details" href="/manage-game">Manage Game</a>
             @else
                 <a class="nav-details" href="/transaction">Transaction</a>
                 <a class="nav-details" href="/history">History</a>

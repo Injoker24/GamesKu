@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Game;
 use App\Models\History;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
@@ -13,7 +14,9 @@ class AdminController extends Controller
 {
     public function manageGamePage()
     {
-        return view('admin.manageGame');
+        return view('admin.manageGame', [
+            'games' => Game::all()
+        ]);
     }
 
     public function manageGameDetail()
@@ -31,9 +34,20 @@ class AdminController extends Controller
 
     }
 
-    public function deleteGame()
+    public function deleteGame(Request $request)
     {
+        // $game = Game::find($request->id);
 
+        // if(isset($game)){
+        //     //Storage::delete('public/RealEstate/'.$game->image);
+        //     $game->delete();
+        // }
+
+        Game::destroy($request->id);
+
+        //Game::query()->where('id','=',$request->id)->delete();
+
+        return redirect('/manage-game');
     }
 
     public function addGamePage()
