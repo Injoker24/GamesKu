@@ -106,17 +106,15 @@
                 </div>
             @endif
 
-            <div class="d-flex justify-content-center my-4">
-                @if ($trDetail->status == "Waiting for Payment")
+            @if ($trDetail->status == "Waiting for Payment")
+                <div class="d-flex justify-content-center my-4">
                     {{-- <a href="/transaction/{{ $trDetail->id }}/upload" class="badge rounded-pill text-bg-secondary text-decoration-none p-5">UPLOAD PAYMENT</a> --}}
                     <a href="/transaction/{{ $trDetail->id }}/upload" class="upload-payment-button">Upload Payment</a>
-                @endif
-            </div>
-            <div class="d-flex justify-content-center">
-                @if ($trDetail->status != "Completed")
+                </div>
+                <div class="d-flex justify-content-center">
                     <a href="#" class="cancel-payment-button">Cancel Transaction</a>
-                @endif
-            </div>
+                </div>
+            @endif
         </div>
     </div>
     @include('partials.footer')
