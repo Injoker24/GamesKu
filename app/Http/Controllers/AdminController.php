@@ -36,9 +36,9 @@ class AdminController extends Controller
     //     return view('admin.editGame');
     // }
 
-    public function editGame()
+    public function editGame(Request $request)
     {
-
+        dd($request->all(), $request->input('buzhidao'));
     }
 
     public function deleteGame(Request $request)
