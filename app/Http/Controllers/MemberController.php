@@ -32,7 +32,7 @@ class MemberController extends Controller
         ]);
     }
 
-    public function uploadPayment($id){
+    public function uploadPaymentPage($id){
         $transactionDetail = TransactionDetail::find($id);
         if($transactionDetail->status == "In Progress") {
             return redirect()->back();
@@ -75,7 +75,7 @@ class MemberController extends Controller
     //     return view('member.topup');
     // }
 
-    public function gatau(Request $request){
+    public function topupGame(Request $request){
         // $date = now()->toDateTimeString();
         // dd($request, $date);
         if(!auth()->check()){
@@ -110,7 +110,7 @@ class MemberController extends Controller
         return redirect()->route('transaction_detail_page', [$transaction->id])->with('success', 'Transaction added');
     }
 
-    public function gatau2(Request $request){
+    public function uploadPayment(Request $request){
         $validatedData = $request->validate([
             'paymentproof' => 'image|mimes:jpeg,png,jpg'
         ],[

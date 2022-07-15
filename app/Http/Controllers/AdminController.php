@@ -24,17 +24,10 @@ class AdminController extends Controller
     {
         // sekalian langsung edit
         $game = Game::where('name', $name)->first();
-        $type = $game->topup->first()->topup_type;
-        // dd($game->topup, $type);
         return view('admin.editGame',[
             'game' => $game,
         ]);
     }
-
-    // public function editGamePage()
-    // {
-    //     return view('admin.editGame');
-    // }
 
     public function editGame(Request $request)
     {
@@ -43,18 +36,6 @@ class AdminController extends Controller
 
     public function deleteGame(Request $request)
     {
-        // Ini Old yg Destroy
-
-        // $game = Game::find($request->id);
-
-        // if(isset($game)){
-        //     //Storage::delete('public/RealEstate/'.$game->image);
-        //     $game->delete();
-        // }
-
-        //Game::destroy($request->id);
-
-
         $id = $request->id;
         $game = Game::find($id);
 

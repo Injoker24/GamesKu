@@ -12,7 +12,7 @@
             @foreach ($games as $game)
                 @if ($game->deleted == 0)
                     <div class="content" style="width: 90%">
-                        <a href="/manage-game/{{ $game->id }}/edit-game">
+                        <a href="/manage-game/{{ $game->name }}">
                             <div class="card bg-dark mb-4 games-card">
                                 <img src="{{ asset('storage/' . $game->game_img) }}" alt="..." height="150" style="object-fit:cover; object-position:cover; filter:brightness(50%)">
                                 <div class="game-content">

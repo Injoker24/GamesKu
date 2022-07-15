@@ -68,25 +68,23 @@ Route::post('/register/auth', [UserController::class, "register"])->name('regist
 
 /* Member Only */
 Route::middleware('auth')->group(function() {
-    Route::post('/game/{name}', [MemberController::class, "gatau"]);
+    Route::post('/game/{name}', [MemberController::class, "topupGame"]);
     Route::get('/transaction', [MemberController::class, "transactionPage"]);
     Route::get('/transaction/{id}', [MemberController::class, "transactionDetail"])->name('transaction_detail_page');
-    Route::get('/transaction/{id}/upload', [MemberController::class, "uploadPayment"]);
-    Route::post('/transaction/{id}/upload',[MemberController::class, "gatau2"]);
+    Route::get('/transaction/{id}/upload', [MemberController::class, "uploadPaymentPage"]);
+    Route::post('/transaction/{id}/upload',[MemberController::class, "uploadPayment"]);
     Route::get('/history', [MemberController::class, "historyPage"]);
     Route::get('/history/{id}', [MemberController::class, "historyDetail"]);
     Route::post('/history/delete', [MemberController::class, "deleteAllHistory"]);
     Route::post('/history/{id}/delete', [MemberController::class, "deleteHistory"]);
-    Route::post('/game/{name}/topup', [MemberController::class, "topupPage"]);
 });
 
 /* Admin Only */
 Route::middleware('admin')->group(function() {
     Route::get('/manage-game', [AdminController::class, "manageGamePage"]);
     Route::get('/manage-game/{name}', [AdminController::class, "editGamePage"]);
-    // Route::get('/manage-game/{id}/edit-game', [AdminController::class, "editGamePage"]);
-    Route::post('/manage-game/{id}/edit-game/edit', [AdminController::class, "editGame"]);
-    Route::post('/manage-game/{id}/delete', [AdminController::class, "deleteGame"]);
+    Route::post('/manage-game/{name}/edit', [AdminController::class, "editGame"]);
+    Route::post('/manage-game/{name}/delete', [AdminController::class, "deleteGame"]);
     Route::get('/manage-game/add-game', [AdminController::class, "addGamePage"]);
     Route::post('/manage-game/add-game/add', [AdminController::class, "addGame"]);
 
