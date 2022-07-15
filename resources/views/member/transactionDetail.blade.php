@@ -100,7 +100,10 @@
                 </div>
             @endif
             @if ($trDetail->status == "In Progress")
-                <img src="{{ asset('storage/' . $trDetail->image_path) }}" class="img-fluid rounded-start float-center" alt="...">
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <h5 style="font-weight: bold; ">Payment Proof</h5>
+                    <img src="{{ asset('storage/' . $trDetail->image_path) }}" style="margin-bottom: 20px; max-width: 400px;">
+                </div>
             @endif
 
             <div class="d-flex justify-content-center my-4">

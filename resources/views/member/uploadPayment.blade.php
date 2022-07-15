@@ -73,7 +73,7 @@
             <div class="transaction-detail-item">
                 <h5 style="font-weight: bold; ">Payment Method</h5>
                 <div class="transaction-detail-payment d-flex align-items-center">
-                    <img src="{{ asset('storage/' . $trDetail->paymentType->payment_type_logo ) }}" class="img-flui" alt="..." width="100"></p>
+                    <img src="{{ asset('storage/' . $trDetail->paymentType->payment_type_logo ) }}" class="img-fluid" alt="..." width="100"></p>
                 </div>
             </div>
             <div class="d-flex justify-content-center">
@@ -85,7 +85,7 @@
                 @csrf
                 <label for="formFile" class="form-label" style="font-weight: bold; font-size: 20px;">Upload Proof of Payment</label>
                 <input class="form-control w-25 mb-4" type="file" onchange="loadFile(event)" id="paymentproof" name="paymentproof">
-                <img id="output-preview" style="margin-bottom: 20px;"/>
+                <img id="output-preview" style="margin-bottom: 20px; max-width: 400px;"/>
                 @if($errors->any())
                     <div class="alert alert-danger">
                         {{$errors->first()}}
