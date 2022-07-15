@@ -47,8 +47,10 @@
     <div class="mt-5 mb-5" style="padding-left: 200px; padding-right: 200px;">
         <div class="main-search-input fl-wrap mb-5">
             <div class="main-search-input-item">
-                <input type="text" value="" placeholder="Search Games...">
-                <a href="#"><button class="main-search-button">Search</button></a>
+                <form action="/search" method="get">
+                    <input type="text" value="" placeholder="Search Games..." name="game">
+                    <button class="main-search-button" type="submit">Search</button>
+                </form>
             </div>
         </div>
         <h3 style="margin-bottom: 20px; color: var(--dark); font-weight: bold;">All Games</h3>
