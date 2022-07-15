@@ -20,6 +20,7 @@ class CreateGamesTable extends Migration
             $table->string('game_logo');
             $table->string('game_img');
             $table->string('input_example')->nullable();
+            $table->boolean('deleted')->default(false);
             $table->timestamps();
         });
     }
