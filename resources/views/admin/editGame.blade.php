@@ -1,11 +1,11 @@
 @extends('layouts.main')
 
-@section('title', "Edit" . $game->name)
+@section('title', "Edit " . $game->name)
 
 @section('container')
     @include('partials.navbar')
     @dump($game)
-    
+
     <div class="transaction-detail-container">
         <div class="transaction-fill-container p-5" style="border-radius: 40px">
             <div class="d-flex mb-4">

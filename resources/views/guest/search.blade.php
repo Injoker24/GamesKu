@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Home Page')
+@section('title', 'Search Page')
 
 @section('container')
     @include('partials.navbar')

@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', "History  " . $hsDetail->id)
+@section('title', "History Detail")
 
 @section('container')
     @include('partials.navbar')

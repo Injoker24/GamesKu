@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', "Manage Game")
+@section('title', "Manage Games")
 
 @section('container')
     @include('partials.navbar')

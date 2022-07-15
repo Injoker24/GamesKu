@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', "Transaction ". $trDetail->id)
+@section('title', "Transaction Detail")
 
 @section('container')
     {{-- @dump($trDetail) --}}
