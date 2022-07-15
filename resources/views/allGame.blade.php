@@ -5,7 +5,7 @@
 @section('container')
     @include('partials.navbar')
     <div class="container-fluid mt-5 mb-5" style="padding-left: 200px; padding-right: 200px;">
-        <h3 class="pb-3" style="margin-bottom: 20px; color: var(--dark); font-weight: bold;"">Game List</h3>
+        <h3 class="pb-3" style="margin-bottom: 20px; color: var(--dark); font-weight: bold;">Games List</h3>
 
         @foreach ($games as $game)
             @if ($game->deleted == 0)

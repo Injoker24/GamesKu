@@ -87,13 +87,14 @@
             </div>
 
             <div class="note p-5">
-                <h2 class="text-center mb-4 fw-bold">Note</h2>
+                <h2 class="text-center mb-4 fw-bold">Notes</h2>
                 <ul class="fw-normal">
-                    <li>Harga yang tertera sudah termasuk PPN</li>
-                    <li>Pastikan Nomor Virtual Account sudah benar dan sesuai dengan nominal transaksi</li>
-                    <li>Segera lakukan pembayaran sesuai waktu yang ditentukan, jika ada keterlambatan maka pesanan akan secara otomatis dibatalkan</li>
-                    <li>Jika ada kendalan silahkan hubungi kontak pada media sosial GamesKu</li>
-                    <li>Dimohon untuk menyimpan bukti pembayaran untuk lanjut di langkah selanjutnya</li>
+                    <li>Displayed price includes PPN</li>
+                    <li>Make sure your Virtual Account number is correct</li>
+                    <li>Don't forget to save your payment evidence for the next step</li>
+                    <li>Please finish uploading your payment evidence within the alloted time, if you're late, the order will be automatically rejected</li>
+                    <li>Wait for our admins to review your order</li>
+                    <li>If there are any issues or questions, please contact GamesKu at our social media</li>
                 </ul>
 
             </div>
@@ -101,12 +102,12 @@
             <div class="d-flex justify-content-center my-4">
                 @if ($trDetail->status == "Waiting for Payment")
                     {{-- <a href="/transaction/{{ $trDetail->id }}/upload" class="badge rounded-pill text-bg-secondary text-decoration-none p-5">UPLOAD PAYMENT</a> --}}
-                    <a href="/transaction/{{ $trDetail->id }}/upload" class="upload-payment-button">UPLOAD<br/>PAYMENT</a>
+                    <a href="/transaction/{{ $trDetail->id }}/upload" class="upload-payment-button">Upload Payment</a>
                 @endif
             </div>
             <div class="d-flex justify-content-center">
                 @if ($trDetail->status != "Completed")
-                    <a href="#" class="cancel-payment-button">CANCEL<br/>TRANSACTION</a>
+                    <a href="#" class="cancel-payment-button">Cancel Transaction</a>
                 @endif
             </div>
         </div>
