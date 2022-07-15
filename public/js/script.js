@@ -41,7 +41,7 @@ function addNominal(type){
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
 
-    cell1.innerHTML = nominal + " " + type;
-    cell2.innerHTML = price;
-    cell3.innerHTML = '<a href="#" class="badge text-bg-danger rounded-pull text-decoration-none">DELETE</a>';
+    cell1.innerHTML = "<input class='form-control text-center' type='text' value='" + nominal + " " + type + "' readonly style='background:none;border:none'name='nominal[]'> ";
+    cell2.innerHTML = "<input class='form-control text-center' type='text' value='" + price + "' readonly style='background:none;border:none' name='price[]'>";
+    cell3.innerHTML = '<a href="#" class="badge text-bg-danger rounded-pill text-decoration-none">DELETE</a>';
 }
