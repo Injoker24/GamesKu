@@ -34,6 +34,9 @@ class MemberController extends Controller
 
     public function uploadPayment($id){
         $transactionDetail = TransactionDetail::find($id);
+        if($transactionDetail->status == "In Progress") {
+            return redirect()->back();
+        }
         return view('member.uploadPayment', [
             'trDetail' => $transactionDetail
         ]);

@@ -583,7 +583,6 @@ a {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-
 /* End of transaction.blade.php, history.blade.php, and manageTransaction.blade.php */
 
 
@@ -594,7 +593,6 @@ a {
     align-items: center;
     padding: 20px 200px 20px 200px;
     background-color: var(--dark);
-    counter-reset: list-number;
 }
 
 .transaction-fill-container{
@@ -612,40 +610,51 @@ a {
     margin-right: 50px;
 }
 
-.transaction-detail-item{
-    padding-left: 2%;
-    font-size: x-large;
-    font-weight: 500;
+.transaction-detail-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 800px;
+    background-color: var(--dark);
+    color: var(--white);
+    border-radius: 10px;
+    padding-left: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .transaction-detail-data{
-    padding-left: 2%;
-    font-size: x-large;
-    font-weight: 700;
-    border-bottom: solid 2pt var(--dark);
+    font-size: 24px;
+    margin: 0;
+    color: var(--accent);
 }
 
 .transaction-detail-payment{
     width: 100%;
     height: 3rem;
-    border-radius: 10rem;
-    border: solid 2pt var(--dark);
 }
 
 .transaction-detail-due{
-    margin: 3% 0% 4% 0%;
-    padding: 0.5% 2%;
-    border-radius: 10rem;
-    width: 320px;
+    margin-bottom: 20px;
+    padding: 20px 30px;
+    border-radius: 20px;
+    width: 400px;
     background-color: var(--dark);
     color: var(--white);
     align-items: center;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .note{
     background-color: var(--background);
     font-size: larger;
+    border-radius: 20px;
 }
 
 .upload-payment-button{

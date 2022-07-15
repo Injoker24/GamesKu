@@ -19,15 +19,21 @@ class AdminController extends Controller
         ]);
     }
 
-    public function manageGameDetail()
+    public function editGamePage($name)
     {
-        return view('admin.manageGameDetail');
+        // sekalian langsung edit
+        $game = Game::where('name', $name)->first();
+        $type = $game->topup->first()->topup_type;
+        // dd($game->topup, $type);
+        return view('admin.editGame',[
+            'game' => $game,
+        ]);
     }
 
-    public function editGamePage()
-    {
-        return view('admin.editGame');
-    }
+    // public function editGamePage()
+    // {
+    //     return view('admin.editGame');
+    // }
 
     public function editGame()
     {

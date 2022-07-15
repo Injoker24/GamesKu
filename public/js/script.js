@@ -24,3 +24,24 @@ $('button').on('click', function(){
 function getPaymentType(paymentType){
     document.getElementById('forpayment').value = paymentType;
 }
+
+
+function addNominal(type){
+    console.log(type);
+    var nominal = document.getElementById('inputnominal').value;
+    var price = document.getElementById('inputprice').value;
+    console.log(nominal, price);
+    var table = document.getElementsByTagName('table')[0];
+    console.log(table);
+    var x = $('table tbody tr').length;
+    console.log(x);
+    var row = table.insertRow(x+1);
+    row.className = "text-center";
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+
+    cell1.innerHTML = nominal + " " + type;
+    cell2.innerHTML = price;
+    cell3.innerHTML = '<a href="#" class="badge text-bg-danger rounded-pull text-decoration-none">DELETE</a>';
+}

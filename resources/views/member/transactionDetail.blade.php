@@ -7,40 +7,39 @@
     @include('partials.navbar')
     <div class="transaction-detail-container">
         <div class="transaction-fill-container p-5" style="border-radius: 40px">
-            <div class="d-flex ms-5 mb-5 pb-3">
-                <img src="{{ asset('storage' . $trDetail->topup->game->game_logo) }}" class="transaction-detail-image ms-5" alt="..." width="">
-                <div class="info-detail d-flex flex-column justify-content-center">
-                    {{-- <span class="h2">{{ $trDetail->topup->game->name }}</span> --}}
-                    <h1>{{ $trDetail->topup->game->name }}</h1>
-                    <div class="row align-items-center">
-                        <div class="col-4">
-                            <span>Transaction ID</span>
+            <div class="d-flex mb-4">
+                <img src="{{ asset('storage' . $trDetail->topup->game->game_logo) }}" class="transaction-detail-image" alt="..." width="">
+                <div class="info-detail d-flex flex-column" style="justify-content: center;">
+                    <h3 class="fw-bolder">{{ $trDetail->topup->game->name }}</h3>
+                    <div class="d-flex mb-1" style="width: 350px; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="fw-bolder">Transaction ID</span>
                         </div>
-                        <div class="col ms-3">
-                            <span class="fw-bolder">{{ $trDetail->id }}</span>
-                        </div>
-                    </div>
-                    <div class="row align-items-center">
-                        <div class="col-4">
-                            <span>Email</span>
-                        </div>
-                        <div class="col ms-3">
-                            <span class="fw-bolder">{{ Auth::user()->email }}</span>
+                        <div style="width: 200px;">
+                            <span style="text-align: left;">{{ $trDetail->id }}</span>
                         </div>
                     </div>
-                    <div class="row align-items-center">
-                        <div class="col-4">
-                            <span>Date & Time</span>
+                    <div class="d-flex mb-1" style="width: 350px; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="fw-bolder">User Email</span>
                         </div>
-                        <div class="col ms-3">
-                            <span class="fw-bolder">{{ $trDetail->created_at }}</span>
+                        <div style="width: 200px;">
+                            <span style="text-align: left;">{{ Auth::user()->email }}</span>
                         </div>
                     </div>
-                    <div class="row align-items-center">
-                        <div class="col-4">
-                            <span>Payment Status</span>
+                    <div class="d-flex mb-1" style="width: 350px; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="fw-bolder">Date & Time</span>
                         </div>
-                        <div class="col ms-3">
+                        <div style="width: 200px;">
+                            <span style="text-align: left;">{{ $trDetail->created_at }}</span>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-1" style="width: 350px; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="fw-bolder">Payment Status</span>
+                        </div>
+                        <div style="width: 200px;">
                             @if( $trDetail->status == "Completed")
                                 <span class="badges badge-pill badge-success">{{ $trDetail->status }}</span>
                             @elseif ( $trDetail->status == "Waiting for Payment")
@@ -52,45 +51,45 @@
                             @endif
                         </div>
                     </div>
-                    <div class="row align-items-center">
-                        <div class="col-4">
-                            <span>No. Virtual Acc</span>
+                    <div class="d-flex mb-1" style="width: 350px; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="fw-bolder">Virtual Acc</span>
                         </div>
-                        <div class="col ms-3">
-                            <span class="fw-bolder">virtual acc blom bkin</span>
+                        <div style="width: 200px;">
+                            <span style="text-align: left;">virtual acc blom bkin</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="transaction-detail-item">
-                <span>User ID</span>
+                <h5 style="font-weight: bold;">User ID</h5>
                 <p class="transaction-detail-data">{{ $trDetail->input_name }}</p>
             </div>
             <div class="transaction-detail-item">
-                <span>Item</span>
+                <h5 style="font-weight: bold;">Item</h5>
                 <p class="transaction-detail-data">{{ $trDetail->topup->amount }} {{ $trDetail->topup->topup_type }}</</p>
             </div>
             <div class="transaction-detail-item">
-                <span>Nominal</span>
+                <h5 style="font-weight: bold;">Nominal</h5>
                 <p class="transaction-detail-data">Rp {{ $trDetail->topup->price }}</p>
             </div>
             <div class="transaction-detail-item">
-                <span>Payment Method</span>
+                <h5 style="font-weight: bold; ">Payment Method</h5>
                 <div class="transaction-detail-payment d-flex align-items-center">
-                    <img src="{{ asset('storage/' . $trDetail->paymentType->payment_type_logo ) }}" class="img-fluid ps-4" alt="..." width="100"></p>
+                    <img src="{{ asset('storage/' . $trDetail->paymentType->payment_type_logo ) }}" class="img-flui" alt="..." width="100"></p>
                 </div>
             </div>
             <div class="d-flex justify-content-center">
                 <div class="transaction-detail-due">
-                    <span>Pay Before &emsp;&emsp;&emsp;{{ $trDetail->due_date }}</span>
+                    <h5>Pay Before: <span style="color: var(--accent);">{{ $trDetail->due_date }}</span></h5>
                 </div>
             </div>
 
-            <div class="note p-3">
-                <h2 class="text-center mb-4">NOTE</h2>
-                <ul class="fw-bold">
-                    <li> Harga yang tertera sudah termasuk PPN</li>
+            <div class="note p-5">
+                <h2 class="text-center mb-4 fw-bold">Note</h2>
+                <ul class="fw-normal">
+                    <li>Harga yang tertera sudah termasuk PPN</li>
                     <li>Pastikan Nomor Virtual Account sudah benar dan sesuai dengan nominal transaksi</li>
                     <li>Segera lakukan pembayaran sesuai waktu yang ditentukan, jika ada keterlambatan maka pesanan akan secara otomatis dibatalkan</li>
                     <li>Jika ada kendalan silahkan hubungi kontak pada media sosial GamesKu</li>
@@ -112,5 +111,5 @@
             </div>
         </div>
     </div>
-
+    @include('partials.footer')
 @endsection
