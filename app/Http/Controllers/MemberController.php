@@ -9,8 +9,6 @@ use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Models\HistoryDetail;
 use App\Models\TransactionDetail;
-use Illuminate\Support\Facades\Redis;
-use Symfony\Component\Console\Input\Input;
 
 class MemberController extends Controller
 {
@@ -69,15 +67,7 @@ class MemberController extends Controller
 
     }
 
-    // public function topupPage(Request $request)
-    // {
-        // spertiny gkpke
-    //     return view('member.topup');
-    // }
-
     public function topupGame(Request $request){
-        // $date = now()->toDateTimeString();
-        // dd($request, $date);
         if(!auth()->check()){
             return redirect()->route('login_page')->with('error', 'You must login first');
         }

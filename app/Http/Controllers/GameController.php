@@ -10,8 +10,7 @@ class GameController extends Controller
 {
     public function searchGame(Request $request)
     {
-        // dd($request->input('game'));
-        $game = Game::where('name', 'like', '%' . $request->input('game') . '%')->orWhere('developer', 'like', '%' . $request->input('game') . '%')->get();
+        $game = Game::where('name', 'like', '%' . $request->input('game') . '%')->get();
         return view('guest.search', [
             'games' => $game,
             'search' => $request->input('game')
@@ -27,11 +26,9 @@ class GameController extends Controller
 
     public function gameDetail(Game $game, Request $request)
     {
-        // dd($game, $request, $request->name);
 
         $game = Game::where('name', $request->name)->first();
         $payment = PaymentType::all();
-        // dd($game, $topup, $payment);
 
         return view('guest.gameDetail',[
             'games' => $game,

@@ -19,6 +19,7 @@ class CreateTopupsTable extends Migration
             $table->string('topup_type');
             $table->integer('amount');
             $table->integer('price');
+            $table->boolean('deletedtopup')->default(false);
             $table->timestamps();
 
             $table->foreign('game_id')->references('id')->on('games');

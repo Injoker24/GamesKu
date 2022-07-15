@@ -27,14 +27,14 @@ function getPaymentType(paymentType){
 
 
 function addNominal(type){
-    console.log(type);
+    // console.log(type);
     var nominal = document.getElementById('inputnominal').value;
     var price = document.getElementById('inputprice').value;
-    console.log(nominal, price);
+    // console.log(nominal, price);
     var table = document.getElementsByTagName('table')[0];
-    console.log(table);
+    // console.log(table);
     var x = $('table tbody tr').length;
-    console.log(x);
+    // console.log(x);
     var row = table.insertRow(x+1);
     row.className = "text-center";
     var cell1 = row.insertCell(0);
@@ -43,5 +43,31 @@ function addNominal(type){
 
     cell1.innerHTML = "<input class='form-control text-center' type='text' value='" + nominal + " " + type + "' readonly style='background:none;border:none'name='nominal[]'> ";
     cell2.innerHTML = "<input class='form-control text-center' type='text' value='" + price + "' readonly style='background:none;border:none' name='price[]'>";
-    cell3.innerHTML = '<a href="#" class="badge text-bg-danger rounded-pill text-decoration-none">DELETE</a>';
+    cell3.innerHTML = '<button type="button" class="btn btn-danger delete-new-column">DELETE</button>';
 }
+
+$(document).ready(function(){
+    $('.delete-column').on('click', function(){
+        // console.log($(this).parent().parent().remove());
+        var id = $(this).attr('id');
+        id = parseInt(id.replace(/[^0-9]/g, ''));
+        // console.log(id);
+
+        $(this).closest('tr').remove();
+
+        var value = $('#fordeleted').val();
+        if(value == ""){
+            $('#fordeleted').val(id);
+        }
+        else{
+            $('#fordeleted').val(value + "|" + id);
+        }
+
+        // console.log($('#fordeleted').val());
+
+    });
+});
+
+$("body").on('click', '.delete-new-column', function(){
+    $(this).closest('tr').remove();
+});

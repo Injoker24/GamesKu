@@ -22,7 +22,6 @@
                 <div class="transaction-detail-item">
                     <h5 style="font-weight: bold;">User ID Example</h5>
                     <input type="text" class="transaction-detail-data w-75" value="{{ $game->input_example }}">
-                    {{-- <p class="transaction-detail-data">{{ $trDetail->topup->amount }} {{ $trDetail->topup->topup_type }}</</p> --}}
                 </div>
                 <div class="transaction-detail-item p-5">
                     <h5 class="align-self-center" style="font-weight: bold;">Nominal List</h5>
@@ -36,30 +35,21 @@
                         </thead>
                         <tbody>
                             @foreach ($game->topup as $topup)
-                            <tr class="text-center" name="buzhidao">
+                            @if ($topup->deletedtopup == TRUE)
+                                @continue
+                            @endif
+                            <tr class="text-center">
                                 <td>{{ $topup->amount }} {{ $topup->topup_type }}</td>
                                 <td>Rp.{{ $topup->price }}</td>
-                                <td><a href="#" class="badge text-bg-danger rounded-pull text-decoration-none">DELETE</a></td>
+                                <td><button type="button" class="btn btn-danger delete-column" id="deletebutton{{ $topup->id }}">DELETE</button></td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
 
+                <input type="hidden" name="deleted" value="" id="fordeleted">
                 </div>
 
-                {{-- <div class="d-flex justify-content-start">
-                    <div class="ms-3">
-                        <label for="inputnominal" class="form-label">Input Nominal</label>
-                        <input type="text" class="form-control" id="inputnominal" name="inputnominal">
-                    </div>
-
-                    <div class="ms-3">
-                        <label for="inputprice" class="form-label">Input Price</label>
-                        <input type="text" class="form-control" name="inputprice" id="inputprice">
-                    </div>
-
-                    <button type="button" class="btn text-bg-success rounded-pill ms-3" onclick="addNominal('{{ $game->topup->first()->topup_type }}')">+Add Nominal</button>
-                </div> --}}
 
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary w-25 align-self-center" data-bs-toggle="modal" data-bs-target="#exampleModal">

@@ -4,11 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Game;
 use App\Models\History;
-use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Models\HistoryDetail;
+use App\Models\Topup;
 use App\Models\TransactionDetail;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
@@ -31,7 +30,32 @@ class AdminController extends Controller
 
     public function editGame(Request $request)
     {
-        dd($request->all(), $request->input('buzhidao'));
+        // dd($request->all());
+        $game = Game::where('name', $request->name)->first();
+        $deleted = explode('|', $request->deleted);
+        foreach($deleted as $id){
+            $game->topup()->where('id', $id)->update([
+                'deletedtopup' => true
+            ]);
+        };
+        // dd($deleted, $request->all(), $game->topup, $request->input('nominal') );
+
+        if($request->input('nominal')){
+            $price = $request->input('price');
+            $idx = 0;
+            foreach($request->input('nominal') as $nominal){
+                $split = explode(' ', $nominal);
+                dump($split[0] . $split[1] . $price[$idx]);
+                $topup = new Topup();
+                $topup->game_id = $game->id;
+                $topup->topup_type = $split[1];
+                $topup->amount = $split[0];
+                $topup->price = $price[$idx];
+                $topup->save();
+                $idx++;
+            }
+        }
+        return redirect()->back()->with('success', 'Game has been updated');
     }
 
     public function deleteGame(Request $request)
@@ -99,14 +123,12 @@ class AdminController extends Controller
     public function finalizeTransaction(Request $request)
     {
         $message = '';
-        // dd($request->input('submitbutton'));
         switch($request->input('submitbutton')){
             case 'accept':
                 TransactionDetail::where('id', $request->id)->update([
                     'status' => 'Completed'
                 ]);
                 $message = 'Transaction has been accepted';
-                // return redirect('/manage-transaction')->with('success', 'Transaction has been accepted');
                 break;
 
             case 'reject':
@@ -114,12 +136,10 @@ class AdminController extends Controller
                     'status' => 'Rejected'
                 ]);
                 $message = 'Transaction has been rejected';
-                // return redirect('/manage-transaction')->with('reject', 'Transaction has been rejected');
                 break;
         }
-        // dd($message);
+
         $tr = TransactionDetail::where('id', $request->id)->first();
-        // dd($tr, $tr->transaction->user_id);
         $history = new History();
         $history->user_id = $tr->transaction->user_id;
         $history->save();
