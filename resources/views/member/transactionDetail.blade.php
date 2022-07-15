@@ -80,24 +80,28 @@
                     <img src="{{ asset('storage/' . $trDetail->paymentType->payment_type_logo ) }}" class="img-flui" alt="..." width="100"></p>
                 </div>
             </div>
-            <div class="d-flex justify-content-center">
-                <div class="transaction-detail-due">
-                    <h5>Pay Before: <span style="color: var(--accent);">{{ $trDetail->due_date }}</span></h5>
+            @if ($trDetail->status == "Waiting for Payment")
+                <div class="d-flex justify-content-center">
+                    <div class="transaction-detail-due">
+                        <h5>Pay Before: <span style="color: var(--accent);">{{ $trDetail->due_date }}</span></h5>
+                    </div>
                 </div>
-            </div>
 
-            <div class="note p-5">
-                <h2 class="text-center mb-4 fw-bold">Notes</h2>
-                <ul class="fw-normal">
-                    <li>Displayed price includes PPN</li>
-                    <li>Make sure your Virtual Account number is correct</li>
-                    <li>Don't forget to save your payment evidence for the next step</li>
-                    <li>Please finish uploading your payment evidence within the alloted time, if you're late, the order will be automatically rejected</li>
-                    <li>Wait for our admins to review your order</li>
-                    <li>If there are any issues or questions, please contact GamesKu at our social media</li>
-                </ul>
-
-            </div>
+                <div class="note p-5">
+                    <h2 class="text-center mb-4 fw-bold">Notes</h2>
+                    <ul class="fw-normal">
+                        <li>Displayed price includes PPN</li>
+                        <li>Make sure your Virtual Account number is correct</li>
+                        <li>Don't forget to save your payment evidence for the next step</li>
+                        <li>Please finish uploading your payment evidence within the alloted time, if you're late, the order will be automatically rejected</li>
+                        <li>Wait for our admins to review your order</li>
+                        <li>If there are any issues or questions, please contact GamesKu at our social media</li>
+                    </ul>
+                </div>
+            @endif
+            @if ($trDetail->status == "In Progress")
+                <img src="{{ asset('storage/' . $trDetail->image_path) }}" class="img-fluid rounded-start float-center" alt="...">
+            @endif
 
             <div class="d-flex justify-content-center my-4">
                 @if ($trDetail->status == "Waiting for Payment")

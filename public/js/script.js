@@ -25,7 +25,6 @@ function getPaymentType(paymentType){
     document.getElementById('forpayment').value = paymentType;
 }
 
-
 function addNominal(type){
     console.log(type);
     var nominal = document.getElementById('inputnominal').value;
@@ -45,3 +44,11 @@ function addNominal(type){
     cell2.innerHTML = "<input class='form-control text-center' type='text' value='" + price + "' readonly style='background:none;border:none' name='price[]'>";
     cell3.innerHTML = '<a href="#" class="badge text-bg-danger rounded-pill text-decoration-none">DELETE</a>';
 }
+
+var loadFile = function(event) {
+    var output = document.getElementById('output-preview');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src);
+    }
+};
