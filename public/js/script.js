@@ -25,7 +25,6 @@ function getPaymentType(paymentType){
     document.getElementById('forpayment').value = paymentType;
 }
 
-
 function addNominal(type){
     // console.log(type);
     var nominal = document.getElementById('inputnominal').value;
@@ -71,3 +70,10 @@ $(document).ready(function(){
 $("body").on('click', '.delete-new-column', function(){
     $(this).closest('tr').remove();
 });
+var loadFile = function(event) {
+    var output = document.getElementById('output-preview');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src);
+    }
+};

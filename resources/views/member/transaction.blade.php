@@ -38,8 +38,10 @@
                 </div>
             </div>
             @empty
-                <h4 style="font-weight:bold; color: #00000089;"> No Data Found </h4>
-                <img src="/storage/No Data.png" class="no-data-image" alt="...">
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <h4 style="font-weight:bold; color: #00000089;"> No Transaction Found </h4>
+                    <img src="/storage/No Data.png" class="no-data-image" alt="...">
+                </div>
             @endforelse
         </div>
     </div>

@@ -60,7 +60,7 @@
             </div>
         </div>
         <h3 style="margin-bottom: 20px; color: var(--dark); font-weight: bold;">All Games</h3>
-        @foreach ($games as $game)
+        @forelse ($games as $game)
         <a href="/game/{{ $game->name }}">
             <div class="card bg-dark mb-4 games-card">
                 <img src="{{ asset('storage/' . $game->game_img) }}" alt="..." height="150" style="object-fit:cover; object-position:cover; filter:brightness(50%)">
@@ -73,7 +73,12 @@
                 </div>
             </div>
         </a>
-        @endforeach
+        @empty
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <h4 style="font-weight:bold; color: #00000089;"> No Games Found </h4>
+                <img src="/storage/No Data.png" class="no-data-image" alt="...">
+            </div>
+        @endforelse
         <div class="view-all-button-container">
             <a href="/allgames" class="view-all-games-button">View All Games</a>
         </div>

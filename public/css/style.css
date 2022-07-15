@@ -588,7 +588,7 @@ a {
 /* End of transaction.blade.php, history.blade.php, and manageTransaction.blade.php */
 
 
-/* transactionDetail.blade.php and historyDetail.blade.php*/
+/* transactionDetail.blade.php*/
 .transaction-detail-container {
     display: flex;
     flex-direction: column;
@@ -700,7 +700,7 @@ a {
     background-color: #c74242;
     color: var(--white);
 }
-/* End of transactionDetail.blade.php and historyDetail.blade.php */
+/* End of transactionDetail.blade.php*/
 
 
 /* historyDetail.blade.php */
@@ -752,4 +752,14 @@ a {
 .history-detail-payment{
     width: 100%;
     height: 3rem;
+}
+/* End of history.detail.blade.php */
+
+
+/* uploadPayment.blade.php */
+.submit-payment-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

@@ -9,7 +9,7 @@
 
         <h3 class="pb-3 pt-3" style="margin-bottom: 20px; color: var(--dark); font-weight: bold;"">Game List</h3>
         <div class="tes d-flex row">
-            @foreach ($games as $game)
+            @forelse ($games as $game)
                 @if ($game->deleted == 0)
                     <div class="content" style="width: 90%">
                         <a href="/manage-game/{{ $game->name }}">
@@ -37,7 +37,12 @@
                         </form>
                     </div>
                 @endif
-            @endforeach
+            @empty
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <h4 style="font-weight:bold; color: #00000089;"> No Games Found </h4>
+                    <img src="/storage/No Data.png" class="no-data-image" alt="...">
+                </div>
+            @endforelse
         </div>
 
     </div>
