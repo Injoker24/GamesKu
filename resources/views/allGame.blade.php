@@ -7,7 +7,7 @@
     <div class="container-fluid mt-5 mb-5" style="padding-left: 200px; padding-right: 200px;">
         <h3 class="pb-3" style="margin-bottom: 20px; color: var(--dark); font-weight: bold;">Games List</h3>
 
-        @foreach ($games as $game)
+        @forelse ($games as $game)
             @if ($game->deleted == 0)
                 <a href="/game/{{ $game->name }}">
                     <div class="card bg-dark mb-4 games-card">
@@ -22,7 +22,12 @@
                     </div>
                 </a>
             @endif
-        @endforeach
+        @empty
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <h4 style="font-weight:bold; color: #00000089;"> No Games Found </h4>
+                <img src="/storage/No Data.png" class="no-data-image" alt="...">
+            </div>
+        @endforelse
 
     </div>
 
