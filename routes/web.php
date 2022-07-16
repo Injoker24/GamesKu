@@ -82,11 +82,11 @@ Route::middleware('auth')->group(function() {
 /* Admin Only */
 Route::middleware('admin')->group(function() {
     Route::get('/manage-game', [AdminController::class, "manageGamePage"]);
+    Route::get('/manage-game/addGame', [AdminController::class, "addGamePage"]);
+    Route::post('/manage-game/add-game/add', [AdminController::class, "addGame"]);
     Route::get('/manage-game/{name}', [AdminController::class, "editGamePage"]);
     Route::post('/manage-game/{name}', [AdminController::class, "editGame"]);
-    Route::post('/manage-game/{name}/delete', [AdminController::class, "deleteGame"]);
-    Route::get('/manage-game/add-game', [AdminController::class, "addGamePage"]);
-    Route::post('/manage-game/add-game/add', [AdminController::class, "addGame"]);
+    Route::delete('/manage-game/{name}/delete', [AdminController::class, "deleteGame"]);
 
     Route::get('/manage-transaction', [AdminController::class, "manageTransactionPage"]);
     Route::get('/manage-transaction/{id}', [AdminController::class, "manageTransactionDetail"]);

@@ -114,6 +114,11 @@ class MemberController extends Controller
             // dd($request->file('paymentproof'));
             $file = $request->file('paymentproof')->store('paymentProof');
 
+            // testing buat yg ga keupload di public/storage. kalau mau coba pakai yang ini $file yang diatas di comment dlu :D
+            // $file = $request->file('paymentproof');
+            // $file_name = $file->getClientOriginalName();
+            // $file->move(public_path('/storage/paymentProof'), $file_name);
+
             TransactionDetail::where('id', $request->id)->update([
                 'status' => 'In Progress',
                 'image_path' => $file

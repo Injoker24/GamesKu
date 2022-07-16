@@ -4,8 +4,19 @@
 
 @section('container')
     @include('partials.navbar')
+
+    @if (session()->has('error'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert"> {{ session('error') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @elseif (session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert"> {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
     <div class="container-fluid mt-5 mb-5" style="padding-left: 200px; padding-right: 200px;">
-        <a href="/manage-game/add-game">Add Game</a>
+        <a href="/manage-game/addGame" class="text-decoration-none">Add game</a>
 
         <h3 class="pb-3 pt-3" style="margin-bottom: 20px; color: var(--dark); font-weight: bold;"">Game List</h3>
         <div class="tes d-flex row">
@@ -31,7 +42,8 @@
                     </div>
 
                     <div class="delete" style="width:10%;">
-                        <form action="/manage-game/{{ $game->id }}/delete" method="POST">
+                        <form action="/manage-game/{{ $game->name }}/delete" method="POST">
+                            @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-danger mx-4" onclick="return confirm('Are you sure?')">Delete</button>
                         </form>

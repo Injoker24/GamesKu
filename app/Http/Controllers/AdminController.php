@@ -58,19 +58,36 @@ class AdminController extends Controller
         return redirect()->back()->with('success', 'Game has been updated');
     }
 
-    public function deleteGame(Request $request)
+    public function deleteGame(Request $request, $name)
     {
-        $id = $request->id;
-        $game = Game::find($id);
+        // dd($name);
+        $game = Game::where('name', $name)->first();
 
-        $game->deleted = 1;
-        $game->save();
+        $transactionList = TransactionDetail::whereIn('topup_id', $game->topup->pluck('id'))->get();
+
+        // dd($game->topup, $transactionList);
+        if(str_contains($transactionList, 'In Progress')){
+            $message = 'Game cannot be deleted because there are still transactions in progress';
+            return redirect()->back()->with('error', $message);
+        }
+        $trWaiting = $transactionList->where('status', 'Waiting for Payment');
+        foreach($trWaiting as $tr){
+            $tr->update([
+                'status' => 'Rejected'
+            ]);
+        }
+        Game::where('name',$request->name)->update([
+            'deleted' => true
+        ]);
+        return redirect()->back()->with('success', 'Game has been deleted');
+
 
         return redirect('/manage-game');
     }
 
     public function addGamePage()
     {
+        dd("a");
         return view('admin.addGame');
     }
 
