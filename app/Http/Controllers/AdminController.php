@@ -87,19 +87,20 @@ class AdminController extends Controller
 
     public function addGamePage()
     {
-        dd("a");
         return view('admin.addGame');
     }
 
     public function addGame(Request $request)
     {
+        dd($request);
         $request->validate([
-            'GameName' => 'required',
-            'GameDeveloper' => 'required',
-            'InputExample' => 'required',
-            'Logo' => 'required|mimes:jpeg,jpg,png|max:15000',
-            'BG' => 'required|mimes:jpeg,jpg,png|max:15000'
+            'gameName' => 'required',
+            'gameDeveloper' => 'required',
+            'inputExample' => 'required',
+            'gameLogo' => 'required|mimes:jpeg,jpg,png|max:15000',
+            'gameBG' => 'required|mimes:jpeg,jpg,png|max:15000'
         ]);
+        // baru cek sampai sini
 
         $name = $request->input('OfficeName');
 

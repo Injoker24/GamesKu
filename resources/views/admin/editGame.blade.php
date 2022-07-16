@@ -25,7 +25,7 @@
                 </div>
                 <div class="transaction-detail-item p-5">
                     <h5 class="align-self-center" style="font-weight: bold;">Nominal List</h5>
-                    <table class="table table-sm table-light me-5 w-100">
+                    <table class="table table-sm table-light me-5 w-100 tableNominal">
                         <thead>
                             <tr class="text-center">
                                 <th scope="col" style="width:20%">Nominal</th>

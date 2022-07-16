@@ -4,6 +4,14 @@ $(document).ready(function() {
     }, 1000);
 });
 
+var loadFile = function(event) {
+    var output = document.getElementById('output-preview');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src);
+    }
+};
+
 function addPrice(price){
     var priceinput = document.getElementById('priceinput');
     priceinput.innerHTML = "Price: Rp. " + price;
@@ -25,16 +33,20 @@ function getPaymentType(paymentType){
     document.getElementById('forpayment').value = paymentType;
 }
 
+
+// untuk editgame on admin
 function addNominal(type){
     // console.log(type);
+    if($('tr td:contains("EMPTY")')){
+        $('tr td:contains("EMPTY")').parent().remove();
+    }
+
     var nominal = document.getElementById('inputnominal').value;
     var price = document.getElementById('inputprice').value;
     // console.log(nominal, price);
-    var table = document.getElementsByTagName('table')[0];
+    var table = document.getElementsByTagName('tbody')[0];
     // console.log(table);
-    var x = $('table tbody tr').length;
-    // console.log(x);
-    var row = table.insertRow(x+1);
+    var row = table.insertRow();
     row.className = "text-center";
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
@@ -62,18 +74,33 @@ $(document).ready(function(){
             $('#fordeleted').val(value + "|" + id);
         }
 
-        // console.log($('#fordeleted').val());
+        if($('tbody tr').length == 0){
+            $('.tableNominal tbody').append('<tr class="text-center"><td colspan="3" class="p-5" style="background:none;border:none">EMPTY</td></tr>');
 
+        }
+        // console.log($('#fordeleted').val());
     });
 });
+// end of editgame on admin
 
+
+// untuk addgame on admin
+function addNewNominal(){
+    var type = document.getElementById('topupType').value;
+    addNominal(type);
+}
+
+// end of addgame on admin
+
+//both addgame and editgame on admin
 $("body").on('click', '.delete-new-column', function(){
     $(this).closest('tr').remove();
-});
-var loadFile = function(event) {
-    var output = document.getElementById('output-preview');
-    output.src = URL.createObjectURL(event.target.files[0]);
-    output.onload = function() {
-      URL.revokeObjectURL(output.src);
+    if($('tbody tr').length == 0){
+        $('.tableNominal tbody').append('<tr class="text-center"><td colspan="3" class="p-5" style="background:none;border:none">EMPTY</td></tr>');
+
     }
-};
+    // console.log($('tbody tr').length);
+});
+//end of add game and editgame on admin
+
+
