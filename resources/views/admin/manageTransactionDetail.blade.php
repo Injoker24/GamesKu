@@ -4,32 +4,88 @@
 
 @section('container')
     @include('partials.navbar')
-    <div class="d-flex mt-5 ms-5">
-        <img src="{{ asset('storage' . $trDetail->topup->game->game_logo) }}" class="img-fluid rounded-start" alt="..." width="150">
+    <div class="manage-transaction-detail-container">
+        <div class="manage-transaction-fill-container p-5" style="border-radius: 40px">
+            <div class="d-flex mb-4">
+                <img src="{{ asset('storage' . $trDetail->topup->game->game_logo) }}" class="manage-transaction-detail-image" alt="..." width="">
+                <div class="info-detail d-flex flex-column" style="justify-content: center;">
+                    <h3 class="fw-bolder">{{ $trDetail->topup->game->name }}</h3>
+                    <div class="d-flex mb-1" style="width: 350px; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="fw-bolder">Transaction ID</span>
+                        </div>
+                        <div style="width: 200px;">
+                            <span style="text-align: left;">{{ $trDetail->id }}</span>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-1" style="width: 350px; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="fw-bolder">User Email</span>
+                        </div>
+                        <div style="width: 200px;">
+                            <span style="text-align: left;">{{ Auth::user()->email }}</span>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-1" style="width: 350px; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="fw-bolder">Date & Time</span>
+                        </div>
+                        <div style="width: 200px;">
+                            <span style="text-align: left;">{{ $trDetail->created_at }}</span>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-1" style="width: 350px; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="fw-bolder">Payment Status</span>
+                        </div>
+                        <div style="width: 200px;">
+                            @if( $trDetail->status == "Completed")
+                                <span class="badges badge-pill badge-success">{{ $trDetail->status }}</span>
+                            @elseif ( $trDetail->status == "Waiting for Payment")
+                                <span class="badges badge-pill badge-waiting">{{ $trDetail->status }}</span>
+                            @elseif ( $trDetail->status == "In Progress")
+                                <span class="badges badge-pill badge-progress">{{ $trDetail->status }}</span>
+                            @elseif ( $trDetail->status == "Rejected")
+                                <span class="badges badge-pill badge-rejected">{{ $trDetail->status }}</span>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <div class="info-detail d-flex flex-column justify-content-center ms-5">
-            <span class="h2">{{ $trDetail->topup->game->name }}</span>
-            <span>Transaction ID &emsp;{{ $trDetail->id }}</span>
-            <span>Email &emsp;&emsp;&emsp;&emsp;&emsp;{{ Auth::user()->email }}</span>
-            <span>Date & Time &emsp;&emsp;{{ $trDetail->created_at }}</span>
-            <span>Payment Status &emsp;{{ $trDetail->status }}</span>
-            <span>No. Virtual Acc &emsp;virtual acc blom bkin </span>
+            <div class="transaction-detail-item">
+                <h5 style="font-weight: bold;">User ID</h5>
+                <p class="transaction-detail-data">{{ $trDetail->input_name }}</p>
+            </div>
+            <div class="transaction-detail-item">
+                <h5 style="font-weight: bold;">Item</h5>
+                <p class="transaction-detail-data">{{ $trDetail->topup->amount }} {{ $trDetail->topup->topup_type }}</</p>
+            </div>
+            <div class="transaction-detail-item">
+                <h5 style="font-weight: bold;">Nominal</h5>
+                <p class="transaction-detail-data">Rp {{ $trDetail->topup->price }}</p>
+            </div>
+            <div class="transaction-detail-item">
+                <h5 style="font-weight: bold; ">Payment Method</h5>
+                <div class="transaction-detail-payment d-flex align-items-center">
+                    <img src="{{ asset('storage/' . $trDetail->paymentType->payment_type_logo ) }}" class="img-flui" alt="..." width="100"></p>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <h4 class="py-2" style="font-weight: bold; ">Proof of Payment</h4>
+                <form action="/manage-transaction/{{ $trDetail->id }}" method="POST" class="float-center">
+                    @csrf
+                    <div class="d-flex justify-content-center mb-5">
+                        <img src="{{ asset('storage/' . $trDetail->image_path) }}" style="max-width: 400px;">
+                    </div>
+                    <div class="d-flex justify-content-between my-4">
+                        <button type="submit" class="accept-payment-button me-5" name="submitbutton" value="accept">ACCEPT</button>
+                        <button type="submit" class="reject-payment-button ms-5" name="submitbutton" value="reject">REJECT</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-
-    <h2 class="mt-5 text-center">PAYMENT PROOF</h2>
-    <form action="/manage-transaction/{{ $trDetail->id }}" method="POST" class="ms-5 mt-5 float-center">
-        @csrf
-        {{-- imgnya gabisa kecenter :)) --}}
-        <img src="{{ asset('storage/' . $trDetail->image_path) }}" class="img-fluid rounded-start float-center" alt="...">
-
-        <br>
-
-        <div class="buttton d-flex justify-content-center">
-            <button type="submit" class="btn badge text-bg-success me-3" name="submitbutton" value="accept">ACCEPT</button>
-            <button type="submit" class="btn badge text-bg-danger" name="submitbutton" value="reject">REJECT</button>
-        </div>
-    </form>
-
 @endsection
 
