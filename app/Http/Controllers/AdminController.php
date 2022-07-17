@@ -23,6 +23,7 @@ class AdminController extends Controller
     {
         // sekalian langsung edit
         $game = Game::where('name', $name)->first();
+        // dd($game,$game->topup);
         return view('admin.editGame',[
             'game' => $game,
         ]);
@@ -92,32 +93,63 @@ class AdminController extends Controller
 
     public function addGame(Request $request)
     {
-        dd($request);
+        // dd($request, $request->nominal);
+
         $request->validate([
             'gameName' => 'required',
             'gameDeveloper' => 'required',
             'inputExample' => 'required',
             'gameLogo' => 'required|mimes:jpeg,jpg,png|max:15000',
-            'gameBG' => 'required|mimes:jpeg,jpg,png|max:15000'
+            'gameBG' => 'required|mimes:jpeg,jpg,png|max:15000',
+            'topupType' => 'required',
+            'nominal' => 'required'
+        ],
+        [
+            'gameName.required' => 'Game Name is required',
+            'gameDeveloper.required' => 'Game Developer is required',
+            'inputExample.required' => 'Input Example is required',
+            'gameLogo.required' => 'Game Logo is required',
+            'gameBG.required' => 'Game Background is required',
+            'topupType.required' => 'Topup Type is required',
+            'nominal.required' => 'Please insert at least 1 topup'
         ]);
         // baru cek sampai sini
 
-        $name = $request->input('OfficeName');
-
-        $logoName = 'Logo '.$name.'.'.$request->Logo->extension();
-        $bgName = 'BG '.$name.'.'.$request->BG->extension();
-        Storage::putFileAs('public/gameAsset', $request->file('Image'), $logoName);
-        Storage::putFileAs('public/gameAsset', $request->file('Image'), $bgName);
-
         $game = new Game();
+        $game->name = $request->gameName;
+        $game->developer = $request->gameDeveloper;
+        $game->input_example = $request->inputExample;
+        $game->game_logo = $request->gameLogo->store('/gameAsset');
+        $game->game_img = $request->gameBG->store('/gameAsset');
 
-        $game->name = $request->input('GameName');
-        $game->developer = $request->input('GameDeveloper');
-        $game->game_logo = $logoName;
-        $game->game_img = $bgName;
-        $game->input_example = $request->input('InputExample');
-        $game->deleted = 0;
         $game->save();
+
+        if($request->nominal){
+            $price = $request->price;
+            $idx = 0;
+            foreach($request->nominal as $nominal){
+                $split = explode(' ', $nominal);
+                dump($split[0] . $split[1] . $price[$idx]);
+                $topup = new Topup();
+                $topup->game_id = $game->id;
+                $topup->topup_type = $split[1];
+                $topup->amount = $split[0];
+                $topup->price = $price[$idx];
+                $topup->save();
+                $idx++;
+            }
+        }
+
+        return redirect('/manage-game')->with('success', 'Game has been added');
+
+
+        // $name = $request->input('OfficeName');
+
+        // $logoName = 'Logo '.$name.'.'.$request->Logo->extension();
+        // $bgName = 'BG '.$name.'.'.$request->BG->extension();
+        // Storage::putFileAs('public/gameAsset', $request->file('Image'), $logoName);
+        // Storage::putFileAs('public/gameAsset', $request->file('Image'), $bgName);
+
 
         return redirect('/manage-game');
     }

@@ -71,6 +71,9 @@
 
         <div class="mb-3">
             <table class="table table-sm table-light me-5 w-100 tableNominal">
+                @if ( $errors->has('nominal') )
+                            <span id="nominalHelp" class="form-text text-danger">{{ $errors->first('nominal') }}</span>
+                        @endif
                 <thead>
                     <tr class="text-center">
                         <th scope="col" style="width:20%">NOMINAL</th>

@@ -11,7 +11,7 @@
             <form action="/manage-game/{{ $game->name }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="d-flex mb-4">
-                    <img src="{{ asset('storage' . $game->game_logo) }}" class="transaction-detail-image" alt="..." width="">
+                    <img src="{{ asset('storage/' . $game->game_logo) }}" class="transaction-detail-image" alt="..." width="">
                 </div>
 
                 <div class="transaction-detail-item">
@@ -34,16 +34,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($game->topup as $topup)
-                            @if ($topup->deletedtopup == TRUE)
-                                @continue
+                            @if($game->topup)
+                                @foreach ($game->topup as $topup)
+                                @if ($topup->deletedtopup == TRUE)
+                                    @continue
+                                @endif
+                                <tr class="text-center">
+                                    <td>{{ $topup->amount }} {{ $topup->topup_type }}</td>
+                                    <td>Rp.{{ $topup->price }}</td>
+                                    <td><button type="button" class="btn btn-danger delete-column" id="deletebutton{{ $topup->id }}">DELETE</button></td>
+                                </tr>
+                                @endforeach
                             @endif
-                            <tr class="text-center">
-                                <td>{{ $topup->amount }} {{ $topup->topup_type }}</td>
-                                <td>Rp.{{ $topup->price }}</td>
-                                <td><button type="button" class="btn btn-danger delete-column" id="deletebutton{{ $topup->id }}">DELETE</button></td>
-                            </tr>
-                            @endforeach
                         </tbody>
                     </table>
 
