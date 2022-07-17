@@ -31,8 +31,20 @@ class AdminController extends Controller
 
     public function editGame(Request $request)
     {
-        // dd($request->all());
+        // dd($request);
+        $request->validate([
+            'gameName' => 'required',
+            'gameDeveloper' => 'required',
+            'inputExample' => 'required',
+        ]);
+
         $game = Game::where('name', $request->name)->first();
+        Game::where('name', $request->name)->update([
+            'name' => $request->gameName,
+            'developer' => $request->gameDeveloper,
+            'input_example' => $request->inputExample,
+        ]);
+
         $deleted = explode('|', $request->deleted);
         foreach($deleted as $id){
             $game->topup()->where('id', $id)->update([
@@ -40,6 +52,7 @@ class AdminController extends Controller
             ]);
         };
         // dd($deleted, $request->all(), $game->topup, $request->input('nominal') );
+
 
         if($request->input('nominal')){
             $price = $request->input('price');
@@ -56,7 +69,7 @@ class AdminController extends Controller
                 $idx++;
             }
         }
-        return redirect()->back()->with('success', 'Game has been updated');
+        return redirect('/manage-game')->with('success', 'Game has been updated');
     }
 
     public function deleteGame(Request $request, $name)

@@ -10,7 +10,7 @@ class GameController extends Controller
 {
     public function searchGame(Request $request)
     {
-        $game = Game::where('name', 'like', '%' . $request->input('game') . '%')->get();
+        $game = Game::where('name', 'like', '%' . $request->input('game') . '%')->where('deleted', '=', 'FALSE')->get();
         return view('guest.search', [
             'games' => $game,
             'search' => $request->input('game')

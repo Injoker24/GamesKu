@@ -16,12 +16,19 @@
 
                 <div class="transaction-detail-item">
                     <h5 style="font-weight: bold;">Game Name</h5>
-                    <input type="text" class="transaction-detail-data w-75" value="{{ $game->name }}">
+                    <input type="text" class="transaction-detail-data w-75" name="gameName" value="{{ $game->name }}">
                     {{-- <p class="transaction-detail-data">{{ $trDetail->input_name }}</p> --}}
                 </div>
+
+                <div class="transaction-detail-item">
+                    <h5 style="font-weight: bold;">Game Developer</h5>
+                    <input type="text" class="transaction-detail-data w-75" name="gameDeveloper" value="{{ $game->developer }}">
+                    {{-- <p class="transaction-detail-data">{{ $trDetail->input_name }}</p> --}}
+                </div>
+
                 <div class="transaction-detail-item">
                     <h5 style="font-weight: bold;">User ID Example</h5>
-                    <input type="text" class="transaction-detail-data w-75" value="{{ $game->input_example }}">
+                    <input type="text" class="transaction-detail-data w-75" name="inputExample" value="{{ $game->input_example }}">
                 </div>
                 <div class="transaction-detail-item p-5">
                     <h5 class="align-self-center" style="font-weight: bold;">Nominal List</h5>
