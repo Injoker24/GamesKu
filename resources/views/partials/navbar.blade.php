@@ -2,7 +2,7 @@
     <a href="/" style="padding-left: 200px;"><img src="{{ asset('storage/GamesKu Icon.png') }}" alt="" width="50"></a>
     <div style="padding-right: 200px;">
         @auth
-            <a class="nav-details {{ Request::is("home")? "active" : "" }}" href="/home">Home</a>
+            <a class="nav-details {{ (Request::is("home")? "active" : Request::is("search*")) ? "active" : "" }}" href="/home">Home</a>
             @if (Auth::user()->IsAdmin)
                 <a class="nav-details {{ Request::is("manage-transaction*")? "active" : "" }}" href="/manage-transaction">Manage Transaction</a>
                 <a class="nav-details {{ Request::is("manage-game*")? "active" : "" }}" href="/manage-game">Manage Game</a>
