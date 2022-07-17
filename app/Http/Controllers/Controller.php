@@ -30,9 +30,10 @@ class Controller extends BaseController
         ]);
     }
 
-    public function profile()
+    public function profilePage()
     {
-        return view('profile');
+        $user = auth()->user();
+        return view('profile', compact('user'));
     }
 
     public function editProfilePage()
