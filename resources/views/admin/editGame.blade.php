@@ -11,17 +11,24 @@
             <form action="/manage-game/{{ $game->name }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="d-flex mb-4">
-                    <img src="{{ asset('storage' . $game->game_logo) }}" class="transaction-detail-image" alt="..." width="">
+                    <img src="{{ asset('storage/' . $game->game_logo) }}" class="transaction-detail-image" alt="..." width="">
                 </div>
 
                 <div class="transaction-detail-item">
                     <h5 style="font-weight: bold;">Game Name</h5>
-                    <input type="text" class="transaction-detail-data w-75" value="{{ $game->name }}">
+                    <input type="text" class="transaction-detail-data w-75" name="gameName" value="{{ $game->name }}">
                     {{-- <p class="transaction-detail-data">{{ $trDetail->input_name }}</p> --}}
                 </div>
+
+                <div class="transaction-detail-item">
+                    <h5 style="font-weight: bold;">Game Developer</h5>
+                    <input type="text" class="transaction-detail-data w-75" name="gameDeveloper" value="{{ $game->developer }}">
+                    {{-- <p class="transaction-detail-data">{{ $trDetail->input_name }}</p> --}}
+                </div>
+
                 <div class="transaction-detail-item">
                     <h5 style="font-weight: bold;">User ID Example</h5>
-                    <input type="text" class="transaction-detail-data w-75" value="{{ $game->input_example }}">
+                    <input type="text" class="transaction-detail-data w-75" name="inputExample" value="{{ $game->input_example }}">
                 </div>
                 <div class="transaction-detail-item p-5">
                     <h5 class="align-self-center" style="font-weight: bold;">Nominal List</h5>
@@ -34,16 +41,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($game->topup as $topup)
-                            @if ($topup->deletedtopup == TRUE)
-                                @continue
+                            @if($game->topup)
+                                @foreach ($game->topup as $topup)
+                                @if ($topup->deletedtopup == TRUE)
+                                    @continue
+                                @endif
+                                <tr class="text-center">
+                                    <td>{{ $topup->amount }} {{ $topup->topup_type }}</td>
+                                    <td>Rp.{{ $topup->price }}</td>
+                                    <td><button type="button" class="btn btn-danger delete-column" id="deletebutton{{ $topup->id }}">DELETE</button></td>
+                                </tr>
+                                @endforeach
                             @endif
-                            <tr class="text-center">
-                                <td>{{ $topup->amount }} {{ $topup->topup_type }}</td>
-                                <td>Rp.{{ $topup->price }}</td>
-                                <td><button type="button" class="btn btn-danger delete-column" id="deletebutton{{ $topup->id }}">DELETE</button></td>
-                            </tr>
-                            @endforeach
                         </tbody>
                     </table>
 
