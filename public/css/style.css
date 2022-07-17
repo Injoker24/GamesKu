@@ -79,6 +79,10 @@ a {
     color: var(--accent);
 }
 
+.active {
+    color: var(--accent);
+}
+
 .login-button {
     color: var(--dark);
     background-color: var(--accent);
