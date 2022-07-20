@@ -18,7 +18,7 @@
         background-color: #C4C4C4;
     }
 </style>
-<body>
+<body class="d-flex flex-column min-vh-100">
     {{-- @if (!Request::is('/') && !Request::is('login') && !Request::is('register')) --}}
         {{-- @include('partials.navbar') --}}
     {{-- @endif --}}

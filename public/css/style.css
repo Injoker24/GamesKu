@@ -243,7 +243,7 @@ a {
     height: 500px;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: 50% 25%;
     color: var(--white);
     display: flex;
     flex-direction: column;

@@ -1,4 +1,4 @@
-<div class="footer">
+<div class="footer mt-auto">
     <div class="title" style="padding-left: 200px;">
         <h6 class="subtitle font-weight-normal">Created By</h6>
         <h4 style="font-weight: bold;">Group 4</h4>
