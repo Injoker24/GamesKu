@@ -100,7 +100,7 @@ class Controller extends BaseController
         $user = auth()->user();
         $user->update([
             'password' => Hash::make($validatedData['new_password'])
-        ])->save();
+        ]);
 
         return view('profile', compact('user'));
     }
