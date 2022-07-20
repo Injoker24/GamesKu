@@ -6,8 +6,10 @@ use Carbon\Carbon;
 use App\Models\Game;
 use App\Models\History;
 use App\Models\Transaction;
+use Illuminate\Http\Request;
 use App\Models\HistoryDetail;
 use App\Models\TransactionDetail;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -61,9 +63,27 @@ class Controller extends BaseController
         return view('profile', compact('user'));
     }
 
-    public function editProfilePage()
+    public function editProfilePage(Request $request)
     {
-        return view('editProfile');
+        // dd($request);
+        $validatedData = $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|min:8',
+            'confirm_password' => 'required|same:new_password'
+        ]);
+
+        if(!Hash::check($validatedData['old_password'], auth()->user()->password)) {
+            return back()->with(['error' => 'old password different']);
+        }
+
+        // dd(bcrypt($validatedData['old_password']), auth()->user()->password);
+
+        $user = auth()->user();
+        $user->fill([
+            'password' => Hash::make($validatedData['new_password'])
+        ])->save();
+
+        return view('profile', compact('user'));
     }
 
     public function editProfile()
