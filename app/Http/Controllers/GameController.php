@@ -20,7 +20,7 @@ class GameController extends Controller
     public function viewAllGame()
     {
         return view('allgame', [
-            'games' => Game::all()
+            'games' => Game::where('deleted', '=', 'FALSE')->get()
         ]);
     }
 

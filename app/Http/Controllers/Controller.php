@@ -9,6 +9,7 @@ use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Models\HistoryDetail;
 use App\Models\TransactionDetail;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -52,8 +53,26 @@ class Controller extends BaseController
             }
         }
         // dd($time, $trData);
+
+        $info = DB::select('SELECT game_id, COUNT(*) FROM transaction_details td
+                            JOIN topups t
+                            ON td.topup_id = t.id
+                            JOIN games g
+                            ON t.game_id = g.id
+                            WHERE status = "Completed"
+                            AND g.deleted = FALSE
+                            GROUP BY t.game_id
+                            ORDER BY COUNT(*) DESC
+                            LIMIT 3');
+
+        $info = collect((object) $info);
+        $popularGame = Game::whereIn('id', $info->pluck('game_id'))->get();
+        $allgame = Game::all()->where('deleted', '=', FALSE)->except($popularGame->pluck('id')->toArray())->take(5);
+
+        // dd($info, $popularGame, $allgame);
         return view('home', [
-            'games' => Game::all()->take(5)
+            'popularGames' => $popularGame,
+            'games' => $allgame
         ]);
     }
 
