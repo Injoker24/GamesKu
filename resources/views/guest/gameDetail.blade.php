@@ -60,8 +60,12 @@
                             <input type="hidden" name="payment" value="" id="forpayment">
                         </div>
                     </div>
-                    @if(Auth::user()->IsAdmin)
-                        <a href="/manage-game/{{ $games->name }}" class="buy-now-button" style="text-decoration:none;">Manage</a>
+                    @if (Auth::check())
+                        @if(Auth::user()->IsAdmin)
+                            <a href="/manage-game/{{ $games->name }}" class="buy-now-button" style="text-decoration:none;">Manage</a>
+                        @else
+                            <button type="submit" class="buy-now-button">Buy Now</button>
+                        @endif
                     @else
                         <button type="submit" class="buy-now-button">Buy Now</button>
                     @endif
