@@ -79,7 +79,7 @@ class Controller extends BaseController
         // dd(bcrypt($validatedData['old_password']), auth()->user()->password);
 
         $user = auth()->user();
-        $user->fill([
+        $user->update([
             'password' => Hash::make($validatedData['new_password'])
         ])->save();
 
