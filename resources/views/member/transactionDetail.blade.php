@@ -112,7 +112,7 @@
                     <a href="/transaction/{{ $trDetail->id }}/upload" class="upload-payment-button">Upload Payment</a>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <a href="#" class="cancel-payment-button">Cancel Transaction</a>
+                    <a href="/transaction/{{ $trDetail->id }}/cancel" class="cancel-payment-button">Cancel Transaction</a>
                 </div>
             @endif
         </div>

@@ -71,12 +71,13 @@ Route::middleware('auth')->group(function() {
     Route::post('/game/{name}', [MemberController::class, "topupGame"]);
     Route::get('/transaction', [MemberController::class, "transactionPage"]);
     Route::get('/transaction/{id}', [MemberController::class, "transactionDetail"])->name('transaction_detail_page');
+    Route::get('/transaction/{id}/cancel', [MemberController::class, "cancelTransaction"]);
     Route::get('/transaction/{id}/upload', [MemberController::class, "uploadPaymentPage"]);
     Route::post('/transaction/{id}/upload',[MemberController::class, "uploadPayment"]);
     Route::get('/history', [MemberController::class, "historyPage"]);
     Route::get('/history/{id}', [MemberController::class, "historyDetail"]);
-    Route::post('/history/delete', [MemberController::class, "deleteAllHistory"]);
-    Route::post('/history/{id}/delete', [MemberController::class, "deleteHistory"]);
+    Route::delete('/history/{id}/delete', [MemberController::class, "deleteHistory"]);
+    Route::delete('/history/delete', [MemberController::class, "deleteAllHistory"]);
 });
 
 /* Admin Only */

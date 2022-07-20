@@ -30,6 +30,23 @@ class MemberController extends Controller
         ]);
     }
 
+    public function cancelTransaction($id){
+        TransactionDetail::where('id', $id)->update([
+            'status' => 'Cancelled'
+        ]);
+
+        $history = new History();
+        $history->user_id = auth()->user()->id;
+        $history->save();
+
+        $historyDetail = new HistoryDetail();
+        $historyDetail->history_id = $history->id;
+        $historyDetail->transaction_detail_id = $id;
+        $historyDetail->save();
+
+        return redirect('/home')->with('success', 'Transaction Cancelled');
+    }
+
     public function uploadPaymentPage($id){
         $transactionDetail = TransactionDetail::find($id);
         if($transactionDetail->status == "In Progress" || $transactionDetail->status == "Rejected" || $transactionDetail->status == "Completed") {
@@ -42,8 +59,9 @@ class MemberController extends Controller
 
     public function historyPage()
     {
-        $history = History::where('user_id', auth()->user()->id)->get();
+        $history = auth()->user()->history;
         $historyDetail = HistoryDetail::whereIn('history_id', $history->pluck('id'))->get();
+        // dd($history, $historyDetail);
         return view('member.history', [
             'histories' => $historyDetail
         ]);
@@ -59,12 +77,20 @@ class MemberController extends Controller
 
     public function deleteAllHistory()
     {
+        $history = auth()->user()->history;
+        HistoryDetail::whereIn('history_id', $history->pluck('id'))->delete();
+        History::where('user_id', auth()->user()->id)->delete();
 
+        return redirect('/history')->with('success', 'All History has been deleted');
     }
 
-    public function deleteHistory()
+    public function deleteHistory($id)
     {
-
+        $hsID = HistoryDetail::find($id)->history_id;
+        HistoryDetail::find($id)->delete();
+        History::where('id', $hsID)->delete();
+        // dd($id, $hsID);
+        return redirect('/history')->with('success', 'History has been deleted');
     }
 
     public function topupGame(Request $request){

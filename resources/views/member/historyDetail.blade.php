@@ -42,8 +42,10 @@
                         <div style="width: 200px;">
                             @if( $hsDetail->transaction_detail->status == "Completed")
                                 <span class="badges badge-pill badge-success">{{ $hsDetail->transaction_detail->status }}</span>
-                            @else
+                            @elseif ($hsDetail->transaction_detail->status == "Rejected")
                                 <span class="badges badge-pill badge-rejected">{{ $hsDetail->transaction_detail->status }}</span>
+                            @elseif($hsDetail->transaction_detail->status == "Cancelled")
+                                <span class="badges badge-pill badge-cancelled">{{ $hsDetail->transaction_detail->status }}</span>
                             @endif
                         </div>
                     </div>

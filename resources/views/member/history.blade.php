@@ -5,6 +5,12 @@
 @section('container')
     @include('partials.navbar')
     {{-- @dump($histories) --}}
+    @if (session()->has('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert"> {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+
     <div class="container-fluid mt-5" style="padding-left: 160px; padding-right: 160px;">
         <h3 class="pb-3" style="font-weight: bold;">My History</h3>
         <div class="transaction-container">
@@ -22,6 +28,9 @@
                             <span class="badges badge-pill badge-success">{{ $hs->transaction_detail->status }}</span>
                         @elseif ( $hs->transaction_detail->status == "Rejected")
                             <span class="badges badge-pill badge-rejected">{{ $hs->transaction_detail->status }}</span>
+                            {{-- need colour for badge-cancelled --}}
+                        @elseif ($hs->transaction_detail->status == "Cancelled")
+                            <span class="badges badge-pill badge-cancelled">{{ $hs->transaction_detail->status }}</span>
                         @endif
                     </div>
                 </div>
@@ -31,7 +40,12 @@
                         <h5 class="card-text" style="color: var(--accent); font-weight: bold;">Rp {{ $hs->transaction_detail->topup->price }}</h5>
                     </div>
                     <a href="/history/{{ $hs->id }}" class="detail-button">See Detail</a>
-                    <a href="/history/{{ $hs->id }}/delete" class="remove-button">X</a>
+                    <form action="/history/{{ $hs->id }}/delete" method="post">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="remove-button">X</button>
+                    </form>
+                    {{-- <a href="/history/{{ $hs->id }}/delete" class="remove-button">X</a> --}}
                 </div>
             </div>
             @empty
@@ -40,6 +54,13 @@
                     <img src="/storage/No Data.png" class="no-data-image" alt="...">
                 </div>
             @endforelse
+            @if( $histories->count() > 1)
+                <form action="/history/delete" method="post">
+                    @method('DELETE')
+                    @csrf
+                    <button type="submit" class="remove-all-button">Remove All</button>
+                </form>
+            @endif
         </div>
     </div>
     @include('partials.footer')
