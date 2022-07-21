@@ -53,7 +53,7 @@
                 </form>
             </div>
         </div>
-        
+
         @if (!$popularGames->isEmpty())
         <h3 style="margin-bottom: 20px; color: var(--dark); font-weight: bold;">Popular Games</h3>
             @foreach ($popularGames as $pgame)
@@ -74,7 +74,6 @@
 
         <h3 style="margin-bottom: 20px; color: var(--dark); font-weight: bold;">All Games</h3>
         @forelse ($games as $game)
-            @if ($game->deleted == 0)
                 <a href="/game/{{ $game->name }}">
                     <div class="card bg-dark mb-4 games-card">
                         <img src="{{ asset('storage/' . $game->game_img) }}" alt="..." height="150" style="object-fit:cover; object-position:cover; filter:brightness(50%)">
@@ -87,7 +86,6 @@
                         </div>
                     </div>
                 </a>
-            @endif
         @empty
             <div style="display: flex; flex-direction: column; align-items: center;">
                 <h4 style="font-weight:bold; color: #00000089;"> No Games Found </h4>

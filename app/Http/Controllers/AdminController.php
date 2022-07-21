@@ -212,7 +212,13 @@ class AdminController extends Controller
         $historyDetail->transaction_detail_id = $tr->id;
         $historyDetail->save();
 
-        return redirect('/manage-transaction')->with('info', $message);
+        if($request->input('submitbutton') == 'accept'){
+            return redirect('/manage-transaction')->with('success', $message);
+        }
+        else{
+            return redirect('/manage-transaction')->with('warning', $message);
+        }
+        // return redirect('/manage-transaction')->with('info', $message);
     }
 
 

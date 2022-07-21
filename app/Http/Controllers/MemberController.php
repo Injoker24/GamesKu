@@ -134,7 +134,7 @@ class MemberController extends Controller
         ]);
 
         if(!$request->file('paymentproof')){
-            return redirect('/transaction/' . $request->id . '/upload')->with('error', 'Please upload payment proof');
+            return redirect('/transaction/' . $request->id . '/upload')->with('warning', 'Please upload payment proof');
         }
         else{
             // dd($request->file('paymentproof'));

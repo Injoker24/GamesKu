@@ -5,11 +5,11 @@
 @section('container')
     @include('partials.navbar')
     <div class="transaction-detail-container">
-        @if (session()->has('error'))
+        {{-- @if (session()->has('error'))
         <div class="alert alert-danger alert-dismissible fade show" role="alert"> {{ session('error') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        @endif
+        @endif --}}
         <div class="transaction-fill-container p-5" style="border-radius: 40px">
             <div class="d-flex mb-4">
                 <img src="{{ asset('storage' . $trDetail->topup->game->game_logo) }}" class="transaction-detail-image" alt="..." width="">
