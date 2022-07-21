@@ -123,7 +123,7 @@ class MemberController extends Controller
         $transactionDetail->input_name = $request->userID;
         $transactionDetail->save();
 
-        return redirect()->route('transaction_detail_page', [$transaction->id])->with('success', 'Transaction added');
+        return redirect()->route('transaction_detail_page', [$transaction->id])->with('success', 'Transaction Added');
     }
 
     public function uploadPayment(Request $request){
@@ -149,7 +149,7 @@ class MemberController extends Controller
                 'status' => 'In Progress',
                 'image_path' => $file
             ]);
-            return redirect('/home')->with('success', 'Payment proof uploaded');
+            return redirect('/home')->with('success', 'Payment Proof Uploaded');
         }
 
     }

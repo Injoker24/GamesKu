@@ -212,7 +212,7 @@ class AdminController extends Controller
         $historyDetail->transaction_detail_id = $tr->id;
         $historyDetail->save();
 
-        return redirect('/manage-transaction')->with('message', $message);
+        return redirect('/manage-transaction')->with('info', $message);
     }
 
 
