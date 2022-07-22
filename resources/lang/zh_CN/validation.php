@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'accepted' => 'Isian :attribute harus diterima.',
-    'accepted_if' => 'Isian :attribute harus diterima bila :other berisi :value.',
+    'accepted' => 'The :attribute must be accepted.',
+    'accepted_if' => 'The :attribute must be accepted when :other is :value.',
     'active_url' => 'The :attribute is not a valid URL.',
     'after' => 'The :attribute must be a date after :date.',
     'after_or_equal' => 'The :attribute must be a date after or equal to :date.',

@@ -22,11 +22,14 @@
                 $lang = request()->session()->get('locale');
             ?>
 
-            <option value="/lang/en">
-                {{ $lang != null && lang == 'en' ? 'selected' : '' }}English
+            <option value="/lang/en"
+                {{ $lang != null && $lang == 'en' ? 'selected' : '' }}>English
             </option>
-            <option value="/lang/id">
-                {{ $lang != null && lang == 'id' ? 'selected' : '' }}Indonesia
+            <option value="/lang/id"
+                {{ $lang != null && $lang == 'id' ? 'selected' : '' }}>Indonesia
+            </option>
+            <option value="/lang/zh_CN"
+                {{ $lang != null && $lang == 'zh_CN' ? 'selected' : '' }}>Mandarin
             </option>
         </select>
 

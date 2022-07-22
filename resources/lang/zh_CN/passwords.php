@@ -13,10 +13,10 @@ return [
     |
     */
 
-    'reset' => 'Kata sandi Anda telah disetel ulang!',
-    'sent' => 'Kami telah mengirim email tautan reset kata sandi Anda!',
-    'throttled' => 'Harap tunggu sebelum mencoba lagi.',
-    'token' => 'Token pengaturan ulang kata sandi ini tidak valid.',
-    'user' => "Kami tidak dapat menemukan pengguna dengan alamat email itu.",
+    'reset' => '您的密碼已重置!',
+    'sent' => '我們已通過電子郵件發送您的密碼重置鏈接!',
+    'throttled' => '請稍候再重試.',
+    'token' => '此密碼重置令牌無效.',
+    'user' => "我們找不到具有該電子郵件地址的用戶.",
 
 ];

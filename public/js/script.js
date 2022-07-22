@@ -104,3 +104,10 @@ $("body").on('click', '.delete-new-column', function(){
 //end of add game and editgame on admin
 
 
+
+//change lang
+$("#lang").on("change", function () {
+    window.location = $(this).val();
+});
+
+

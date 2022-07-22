@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\HistoryDetail;
 use App\Models\TransactionDetail;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -23,6 +24,8 @@ class Controller extends BaseController
     private function setLang(){
         if(request()->session()->get('locale') != null){
             App::setLocale(request()->session()->get('locale'));
+        } else {
+            session()->put('locale', 'en');
         }
     }
 
@@ -94,7 +97,6 @@ class Controller extends BaseController
     public function editProfilePage(Request $request)
     {
         $this->setLang();
-        // dd($request);
         $validatedData = $request->validate([
             'old_password' => 'required',
             'new_password' => 'required|min:8',
