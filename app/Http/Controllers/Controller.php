@@ -24,8 +24,6 @@ class Controller extends BaseController
     private function setLang(){
         if(request()->session()->get('locale') != null){
             App::setLocale(request()->session()->get('locale'));
-        } else {
-            session()->put('locale', 'en');
         }
     }
 

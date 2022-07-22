@@ -4,6 +4,28 @@
 
 @section('container')
     @include('partials.navbar')
+    <div class="modal fade" id="popup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Select Default Language</h5>
+            </div>
+            <div class="modal-body row d-flex justify-content-center align-items-center my-auto">
+                <div class="label-lang col-4">
+                    <p>Choose Language :</p>
+                </div>
+                <select class="form-select col-4 w-50" name="lang" id="langHome">
+                    <option value="/lang/en">English</option>
+                    <option value="/lang/id">Indonesia</option>
+                    <option value="/lang/zh_CN">Mandarin</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="popup-button">Save changes</button>
+            </div>
+          </div>
+        </div>
+    </div>
     <div class="boarding-banner">
         <div class="overlay"></div>
         <div class="text-boarding-container">

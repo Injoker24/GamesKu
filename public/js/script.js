@@ -110,4 +110,20 @@ $("#lang").on("change", function () {
     window.location = $(this).val();
 });
 
+//popup for change lang 1st time only
+$(document).ready(function() {
+    if(sessionStorage.getItem('#popup') !== 'true')
+	{
+		$('#popup').modal('show');
+		sessionStorage.setItem('#popup', true);
+	}
+});
+
+$(document).ready(function() {
+    $("#popup-button").on("click", function () {
+        var selected = $('#langHome option:selected').val();
+        window.location = selected;
+    });
+});
+
 
