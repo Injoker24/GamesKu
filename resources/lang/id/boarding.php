@@ -3,7 +3,6 @@
         'default_language' => 'Pilih Bahasa Default',
         'choose_language' => 'Pilih Bahasa',
         'save_changes' => 'Simpan Perubahan',
-        'title' => 'mudah',
         'sub_title' => 'adalah Solusi Anda',
         'join_button' =>'Bergabung sekarang',
         'about_us' => 'Tentang Kami',

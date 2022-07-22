@@ -40,7 +40,7 @@
     </div>
     <div class="container-fluid p-5" style="background-color: var(--dark);">
         <div class="container d-flex justify-content-center">
-            <h2 class="fw-bolder pb-4" style="color: white">Welcome Back!</h2>
+            <h2 class="fw-bolder pb-4" style="color: white">@lang('account.title_login')</h2>
         </div>
         <div class="container" style="width: 800px; background-color: var(--white); padding:0% 5% 0% 5%; border-radius: 40px;">
             @if (session()->has('error'))
@@ -50,18 +50,18 @@
             @endif
             <form style="color: var(--dark);" action="{{ route('login') }}" method="post">
                 @csrf
-                <h1 class="h1 text-center pt-5 pb-3">Login</h1>
+                <h1 class="h1 text-center pt-5 pb-3">@lang('account.login')</h1>
 
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                    <label class="form-label" for="form2Example1">Email address</label>
-                    <input type="email" name="email" id="form2Example1" class="form-control" placeholder="Enter Your Email Address Here..." value={{ old('email') }}>
+                    <label class="form-label" for="form2Example1">@lang('account.email')</label>
+                    <input type="email" name="email" id="form2Example1" class="form-control" placeholder="@lang('account.email_placeholder')" value={{ old('email') }}>
                 </div>
 
                 <!-- Password input -->
                 <div class="form-outline mb-4">
-                    <label class="form-label" for="form2Example2">Password</label>
-                    <input type="password" name="password" id="form2Example2" class="form-control" placeholder="Your Password must be at least 8 characters."/>
+                    <label class="form-label" for="form2Example2">@lang('account.password')</label>
+                    <input type="password" name="password" id="form2Example2" class="form-control" placeholder="@lang('account.password_placeholder')"/>
                 </div>
 
                 @if($errors->any())
@@ -72,13 +72,13 @@
 
                 <!-- Register buttons -->
                 <div class="text-center d-flex justify-content-between">
-                    <p>Don't have an account? <a href="/register">Register</a></p>
-                    <a href="#">Forget Password?</a>
+                    <p>@lang('account.href_register') <a href="/register">@lang('account.register')</a></p>
+                    <a href="#">@lang('account.forget_password')</a>
                 </div>
 
                 <!-- Submit button -->
                 <div class="text-center">
-                    <button type="submit" class="login-page-button">Login</button>
+                    <button type="submit" class="login-page-button">@lang('account.login')</button>
                 </div>
             </form>
         </div>

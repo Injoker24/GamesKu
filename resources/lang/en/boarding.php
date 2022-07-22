@@ -3,7 +3,6 @@
         'default_language' => 'Select Default Language',
         'choose_language' => 'Choose Language',
         'save_changes' => 'Save changes',
-        'title' => 'easy',
         'sub_title' => 'is Your Solution',
         'join_button' =>'Join Now',
         'about_us' => 'About Us',

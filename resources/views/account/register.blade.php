@@ -40,34 +40,34 @@
 </div>
     <div class="container-fluid p-5" style="background-color: var(--dark);">
         <div class="container d-flex justify-content-center">
-            <h2 class="fw-bolder pb-4" style="color: white">Let's Pay and Play!</h2>
+            <h2 class="fw-bolder pb-4" style="color: white">@lang('account.title_register')</h2>
         </div>
         <div class="container" style="width: 800px; background-color: var(--white); padding:0% 5% 0% 5%; border-radius: 40px;">
             <form style="color: var(--dark);" action="{{ route('register') }}" method="post">
                 @csrf
-                <h1 class="h1 text-center pt-5 pb-3">Register</h1>
+                <h1 class="h1 text-center pt-5 pb-3">@lang('account.register')</h1>
 
                 <!-- Name input -->
                 <div class="form-outline mb-4">
-                    <label class="form-label" for="form2Example1">Name</label>
-                    <input type="text" name="name" id="form2Example1" class="form-control" placeholder="Enter Your Name Here..." value="{{ old('name') }}"/>
+                    <label class="form-label" for="form2Example1">@lang('account.name')</label>
+                    <input type="text" name="name" id="form2Example1" class="form-control" placeholder="@lang('account.name_placeholder')" value="{{ old('name') }}"/>
                 </div>
 
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                    <label class="form-label" for="form2Example1">Email address</label>
-                    <input type="email" name="email" id="form2Example1" class="form-control" placeholder="Enter Your Email Address Here..." value={{ old('email') }}>
+                    <label class="form-label" for="form2Example1">@lang('account.email')</label>
+                    <input type="email" name="email" id="form2Example1" class="form-control" placeholder="@lang('account.email_placeholder')" value={{ old('email') }}>
                 </div>
 
                 <!-- Password input -->
                 <div class="form-outline mb-4">
-                    <label class="form-label" for="form2Example2">Password</label>
-                    <input type="password" name="password" id="form2Example2" class="form-control"  placeholder="Your Password must be at least 8 characters."/>
+                    <label class="form-label" for="form2Example2">@lang('account.password')</label>
+                    <input type="password" name="password" id="form2Example2" class="form-control"  placeholder="@lang('account.password_placeholder')"/>
                 </div>
 
                 <div class="form-outline mb-4">
-                    <label class="form-label" for="form2Example2">Confirm Password</label>
-                    <input type="password" name="confirm_password" id="form2Example2" class="form-control"  placeholder="Re-type your password"/>
+                    <label class="form-label" for="form2Example2">@lang('account.confirm_password')</label>
+                    <input type="password" name="confirm_password" id="form2Example2" class="form-control"  placeholder="@lang('account.confirm_password_placeholder')"/>
                 </div>
 
                 <div class="form-outline">
@@ -75,10 +75,10 @@
                         <!-- Checkbox -->
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="true" name="terms" id="form2Example2">
-                            <label class="form-check-label" for="form2Example31"> I Agree With Terms and Conditions </label>
+                            <label class="form-check-label" for="form2Example31"> @lang('account.checkbox') </label>
                         </div>
                         <div class="text-center">
-                            <p>Already have an Account? <a href="/login">Login</a></p>
+                            <p>@lang('account.href_login') <a href="/login">@lang('account.login')</a></p>
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
 
                 <!-- Submit button -->
                 <div class="text-center">
-                    <button type="submit" class="login-page-button">Register</button>
+                    <button type="submit" class="login-page-button">@lang('account.register')</button>
                 </div>
             </form>
         </div>

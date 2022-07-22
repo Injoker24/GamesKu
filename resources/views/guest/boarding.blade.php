@@ -41,7 +41,6 @@
     <div class="boarding-banner">
         <div class="overlay"></div>
         <div class="text-boarding-container">
-            <h2 style="font-weight: bold;">@lang('boarding.title')</h2>
             <h2 style="font-weight:bold;"><span style="color:var(--accent); font-size: 48px;">GamesKu</span> @lang('boarding.sub_title')</h2>
         </div>
         <a href="/register" class="join-button">@lang('boarding.join_button')</a>

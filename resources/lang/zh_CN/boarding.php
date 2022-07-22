@@ -3,7 +3,6 @@
         'default_language' => '選擇默認語言',
         'choose_language' => '選擇語言',
         'save_changes' => '保存更改',
-        'title' => '簡單的',
         'sub_title' => '是您的解決方案',
         'join_button' =>'現在加入',
         'about_us' => '關於我們',
