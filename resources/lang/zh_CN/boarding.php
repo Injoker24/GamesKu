@@ -13,6 +13,7 @@
         'transaction_completed' => '交易完成',
         'cheaper_site' => '比其他網站便宜',
         'search_button' => '搜索',
+        'search_placeholder' => '搜索遊戲...',
         'popular_game' => '熱門遊戲',
         'all_game' => '所有遊戲',
         'no_game' => '未找到遊戲',

@@ -13,6 +13,7 @@
         'transaction_completed' => 'Transaksi Selesai',
         'cheaper_site' => 'Lebih Murah Dari Situs Lain',
         'search_button' => 'Cari',
+        'search_placeholder' => 'Cari Game...',
         'popular_game' => 'Game Populer',
         'all_game' => 'Semua Game',
         'no_game' => 'Tidak Ada Game yang Ditemukan',

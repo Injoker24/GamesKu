@@ -88,7 +88,7 @@
         <div class="main-search-input fl-wrap mb-5">
             <div class="main-search-input-item">
                 <form action="/search" method="get">
-                    <input type="text" value="" placeholder="Search Games..." name="game">
+                    <input type="text" value="" placeholder="@lang('boarding.search_placeholder')" name="game">
                     <button class="main-search-button" type="submit">@lang('boarding.search_button')</button>
                 </form>
             </div>

@@ -13,6 +13,7 @@
         'transaction_completed' => 'Transactions Completed',
         'cheaper_site' => 'Cheaper Than Other Sites',
         'search_button' => 'Search',
+        'search_placeholder' => 'Search Games...',
         'popular_game' => 'Popular Games',
         'all_game' => 'All Games',
         'no_game' => 'No Games Found',
