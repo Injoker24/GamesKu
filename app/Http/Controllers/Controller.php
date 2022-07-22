@@ -29,6 +29,24 @@ class Controller extends BaseController
         }
     }
 
+    private function getPopular(){
+        $info = DB::select('SELECT game_id, COUNT(*) FROM transaction_details td
+        JOIN topups t
+        ON td.topup_id = t.id
+        JOIN games g
+        ON t.game_id = g.id
+        WHERE status = "Completed"
+        AND g.deleted = FALSE
+        GROUP BY t.game_id
+        ORDER BY COUNT(*) DESC
+        LIMIT 3');
+
+        $info = collect((object) $info);
+        $popularGame = Game::whereIn('id', $info->pluck('game_id'))->get();
+
+        return $popularGame;
+    }
+
     public function onboarding()
     {
         $this->setLang();
@@ -36,8 +54,11 @@ class Controller extends BaseController
             return redirect()->route('home_page');
         }
 
+        $popularGame = $this->getPopular();
+        $allgame = Game::all()->where('deleted', '=', FALSE)->except($popularGame->pluck('id')->toArray())->take(5);
         return view('guest.boarding', [
-            'games' => Game::all()->take(5)
+            'popularGames' => $popularGame,
+            'games' => $allgame
         ]);
     }
 
@@ -65,21 +86,9 @@ class Controller extends BaseController
         }
         // dd($time, $trData);
 
-        $info = DB::select('SELECT game_id, COUNT(*) FROM transaction_details td
-                            JOIN topups t
-                            ON td.topup_id = t.id
-                            JOIN games g
-                            ON t.game_id = g.id
-                            WHERE status = "Completed"
-                            AND g.deleted = FALSE
-                            GROUP BY t.game_id
-                            ORDER BY COUNT(*) DESC
-                            LIMIT 3');
 
-        $info = collect((object) $info);
-        $popularGame = Game::whereIn('id', $info->pluck('game_id'))->get();
+        $popularGame = $this->getPopular();
         $allgame = Game::all()->where('deleted', '=', FALSE)->except($popularGame->pluck('id')->toArray())->take(5);
-
         // dd($info, $popularGame, $allgame);
         return view('home', [
             'popularGames' => $popularGame,
