@@ -8,11 +8,11 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Select Default Language</h5>
+              <h5 class="modal-title" id="exampleModalLabel">@lang('boarding.default_language')</h5>
             </div>
             <div class="modal-body row d-flex justify-content-center align-items-center my-auto">
                 <div class="label-lang col-4">
-                    <p>Choose Language :</p>
+                    <p>@lang('boarding.choose_language') :</p>
                 </div>
                 <select class="form-select col-4 w-50" name="lang" id="langHome">
                     <?php
@@ -33,7 +33,7 @@
                 </select>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary" id="popup-button">Save changes</button>
+              <button type="button" class="btn btn-primary" id="popup-button">@lang('boarding.save_changes')</button>
             </div>
           </div>
         </div>
@@ -41,29 +41,29 @@
     <div class="boarding-banner">
         <div class="overlay"></div>
         <div class="text-boarding-container">
-            <h2 style="font-weight: bold;">easy</h2>
-            <h2 style="font-weight:bold;"><span style="color:var(--accent); font-size: 48px;">GamesKu</span> is Your Solution</h2>
+            <h2 style="font-weight: bold;">@lang('boarding.title')</h2>
+            <h2 style="font-weight:bold;"><span style="color:var(--accent); font-size: 48px;">GamesKu</span> @lang('boarding.sub_title')</h2>
         </div>
-        <a href="/register" class="join-button">Join Now</a>
+        <a href="/register" class="join-button">@lang('boarding.join_button')</a>
     </div>
 
     <div class="pt-5 pb-5" style="padding-left: 200px; padding-right: 200px; background-color: #f1f4f1">
         <div class="row align-items-center mr-auto">
             <div class="col-md-6">
-                <h3 class="section-title" style="font-weight: bold;">About Us</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum sunt, unde aperiam aliquid quia repudiandae, ex harum quis amet delectus maxime, tempora possimus aut laboriosam magni corrupti labore. Doloremque, sit?</p>
+                <h3 class="section-title" style="font-weight: bold;">@lang('boarding.about_us')</h3>
+                <p>@lang('boarding.content_about_us')</p>
             </div>
             <div class="col-sm-6 col-md-3">
                 <div class="widget">
                     <div class="infos-wrapper">
                         <h4 class="about-stat">25</h4>
-                        <p style="font-weight: bold;">Games Available</p>
+                        <p style="font-weight: bold;">@lang('boarding.games_available')</p>
                     </div>
                 </div>
                 <div class="widget">
                     <div class="infos-wrapper">
                         <h4 class="about-stat">7k+</h4>
-                        <p style="font-weight: bold;">Users registered</p>
+                        <p style="font-weight: bold;">@lang('boarding.user_register')</p>
                     </div>
                 </div>
             </div>
@@ -71,13 +71,13 @@
                 <div class="widget">
                     <div class="infos-wrapper">
                         <h4 class="about-stat">15k+</h4>
-                        <p style="font-weight: bold;">Transactions Completed</p>
+                        <p style="font-weight: bold;">@lang('boarding.transaction_completed')</p>
                     </div>
                 </div>
                 <div class="widget">
                     <div class="infos-wrapper">
                         <h4 class="about-stat">30%</h4>
-                        <p style="font-weight: bold;">Cheaper Than Other Sites</p>
+                        <p style="font-weight: bold;">@lang('boarding.cheaper_site')</p>
                     </div>
                 </div>
             </div>
@@ -89,13 +89,13 @@
             <div class="main-search-input-item">
                 <form action="/search" method="get">
                     <input type="text" value="" placeholder="Search Games..." name="game">
-                    <button class="main-search-button" type="submit">Search</button>
+                    <button class="main-search-button" type="submit">@lang('boarding.search_button')</button>
                 </form>
             </div>
         </div>
 
         @if (!$popularGames->isEmpty())
-        <h3 style="margin-bottom: 20px; color: var(--dark); font-weight: bold;">Popular Games</h3>
+        <h3 style="margin-bottom: 20px; color: var(--dark); font-weight: bold;">@lang('boarding.popular_game')</h3>
             @foreach ($popularGames as $pgame)
                 <a href="/game/{{ $pgame->name }}">
                     <div class="card bg-dark mb-4 games-card">
@@ -112,7 +112,7 @@
             @endforeach
         @endif
 
-        <h3 style="margin-bottom: 20px; color: var(--dark); font-weight: bold;">All Games</h3>
+        <h3 style="margin-bottom: 20px; color: var(--dark); font-weight: bold;">@lang('boarding.all_game')</h3>
         @forelse ($games as $game)
         <a href="/game/{{ $game->name }}">
             <div class="card bg-dark mb-4 games-card">
@@ -128,12 +128,12 @@
         </a>
         @empty
             <div style="display: flex; flex-direction: column; align-items: center;">
-                <h4 style="font-weight:bold; color: #00000089;"> No Games Found </h4>
+                <h4 style="font-weight:bold; color: #00000089;"> @lang('boarding.no_game') </h4>
                 <img src="/storage/No Data.png" class="no-data-image" alt="...">
             </div>
         @endforelse
         <div class="view-all-button-container">
-            <a href="/allgames" class="view-all-games-button">View All Games</a>
+            <a href="/allgames" class="view-all-games-button">@lang('boarding.view_all_game')</a>
         </div>
     </div>
     @include('partials.footer')
