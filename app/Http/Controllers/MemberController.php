@@ -12,8 +12,15 @@ use App\Models\TransactionDetail;
 
 class MemberController extends Controller
 {
+    private function setLang(){
+        if(request()->session()->get('locale') != null){
+            App::setLocale(request()->session()->get('locale'));
+        }
+    }
+
     public function transactionPage()
     {
+        $this->setLang();
         $transaction = Transaction::where('user_id', auth()->user()->id)->get();
         $transactionDetail = TransactionDetail::whereIn('transaction_id', $transaction->pluck('id'))->where('status', 'In Progress')->orWhere('status', 'Waiting for Payment')->get();
         // dd($transactionDetail);
@@ -24,6 +31,7 @@ class MemberController extends Controller
 
     public function transactionDetail($id)
     {
+        $this->setLang();
         $transactionDetail = TransactionDetail::find($id);
         return view('member.transactionDetail', [
             'trDetail' => $transactionDetail
@@ -48,6 +56,7 @@ class MemberController extends Controller
     }
 
     public function uploadPaymentPage($id){
+        $this->setLang();
         $transactionDetail = TransactionDetail::find($id);
         if($transactionDetail->status == "In Progress" || $transactionDetail->status == "Rejected" || $transactionDetail->status == "Completed") {
             return redirect()->back();
@@ -59,6 +68,7 @@ class MemberController extends Controller
 
     public function historyPage()
     {
+        $this->setLang();
         $history = auth()->user()->history;
         $historyDetail = HistoryDetail::whereIn('history_id', $history->pluck('id'))->get();
         // dd($history, $historyDetail);
@@ -69,6 +79,7 @@ class MemberController extends Controller
 
     public function historyDetail($id)
     {
+        $this->setLang();
         $historyDetail = HistoryDetail::find($id);
         return view('member.historyDetail', [
             'hsDetail' => $historyDetail

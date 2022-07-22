@@ -11,11 +11,25 @@
         <div class="label-lang col-1">
             <p>Language :</p>
         </div>
-        <select class="form-select col-11 w-25" aria-label="Default select example">
+        {{-- <select class="form-select col-11 w-25" aria-label="Default select example">
             <option value="english" selected>English</option>
             <option value="indonesia">Indonesian</option>
             <option value="mandarin">Mandarin</option>
-          </select>
+          </select> --}}
+
+        <select class="form-select col-11 w-25" name="lang" id="lang">
+            <?php
+                $lang = request()->session()->get('locale');
+            ?>
+
+            <option value="/lang/en">
+                {{ $lang != null && lang == 'en' ? 'selected' : '' }}English
+            </option>
+            <option value="/lang/id">
+                {{ $lang != null && lang == 'id' ? 'selected' : '' }}Indonesia
+            </option>
+        </select>
+
     </div>
     <div class="box">
         <h3>Change Password</h3>

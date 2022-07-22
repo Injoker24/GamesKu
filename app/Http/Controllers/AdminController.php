@@ -12,8 +12,15 @@ use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
+    private function setLang(){
+        if(request()->session()->get('locale') != null){
+            App::setLocale(request()->session()->get('locale'));
+        }
+    }
+
     public function manageGamePage()
     {
+        $this->setLang();
         return view('admin.manageGame', [
             'games' => Game::all()
         ]);
@@ -21,6 +28,7 @@ class AdminController extends Controller
 
     public function editGamePage($name)
     {
+        $this->setLang();
         // sekalian langsung edit
         $game = Game::where('name', $name)->first();
         // dd($game,$game->topup);
@@ -101,6 +109,7 @@ class AdminController extends Controller
 
     public function addGamePage()
     {
+        $this->setLang();
         return view('admin.addGame');
     }
 
@@ -169,6 +178,7 @@ class AdminController extends Controller
 
     public function manageTransactionPage()
     {
+        $this->setLang();
         $transaction = TransactionDetail::where('status', 'In Progress')->get();
         return view('admin.manageTransaction', [
             'transactions' => $transaction
@@ -177,6 +187,7 @@ class AdminController extends Controller
 
     public function manageTransactionDetail($id)
     {
+        $this->setLang();
         $transactionDetail = TransactionDetail::find($id);
         return view('admin.manageTransactionDetail', [
             'trDetail' => $transactionDetail

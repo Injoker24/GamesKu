@@ -20,8 +20,15 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    private function setLang(){
+        if(request()->session()->get('locale') != null){
+            App::setLocale(request()->session()->get('locale'));
+        }
+    }
+
     public function onboarding()
     {
+        $this->setLang();
         if(auth()->check()){
             return redirect()->route('home_page');
         }
@@ -33,6 +40,7 @@ class Controller extends BaseController
 
     public function homePage()
     {
+        $this->setLang();
         // bagusnya pas admin login baru kerjain ini atau member juga bkal jlanin function ini
         $time = Carbon::now()->format('Y-m-d H:i:s');
         $trData = TransactionDetail::where('status', 'Waiting for Payment')->where('due_date', '<', $time)->get();
@@ -78,12 +86,14 @@ class Controller extends BaseController
 
     public function profilePage()
     {
+        $this->setLang();
         $user = auth()->user();
         return view('profile', compact('user'));
     }
 
     public function editProfilePage(Request $request)
     {
+        $this->setLang();
         // dd($request);
         $validatedData = $request->validate([
             'old_password' => 'required',

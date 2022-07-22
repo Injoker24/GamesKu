@@ -7,13 +7,21 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    private function setLang(){
+        if(request()->session()->get('locale') != null){
+            App::setLocale(request()->session()->get('locale'));
+        }
+    }
+
     public function index_login()
     {
+        $this->setLang();
         return view('account.login');
     }
 
     public function index_register()
     {
+        $this->setLang();
         return view('account.register');
     }
 

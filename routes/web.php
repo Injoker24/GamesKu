@@ -104,3 +104,9 @@ Route::middleware(['auth'])->group(function() {
     // Route::post('/edit-profile/edit', [Controller::class, "editProfile"]);
     Route::get('/logout', [UserController::class, "logout"])->name('logout');
 });
+
+/* Lang */
+Route::get('/lang/{locale}', function ($locale) {
+    session()->put('locale', $locale);
+    return back();
+});

@@ -7,7 +7,7 @@
     <div class="boarding-banner">
         <div class="overlay"></div>
         <div class="text-boarding-container">
-            <h2 style="font-weight: bold;">Easy TopUp?</h2>
+            <h2 style="font-weight: bold;">easy</h2>
             <h2 style="font-weight:bold;"><span style="color:var(--accent); font-size: 48px;">GamesKu</span> is Your Solution</h2>
         </div>
         <a href="/register" class="join-button">Join Now</a>
