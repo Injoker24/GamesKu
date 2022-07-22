@@ -111,12 +111,8 @@ $("#lang").on("change", function () {
 });
 
 //popup for change lang 1st time only
-$(document).ready(function() {
-    if(sessionStorage.getItem('#popup') !== 'true')
-	{
-		$('#popup').modal('show');
-		sessionStorage.setItem('#popup', true);
-	}
+$("#popup-button-navbar").on("click", function () {
+    $('#popup').modal('show');
 });
 
 $(document).ready(function() {

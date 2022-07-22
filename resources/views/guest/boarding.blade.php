@@ -15,9 +15,21 @@
                     <p>Choose Language :</p>
                 </div>
                 <select class="form-select col-4 w-50" name="lang" id="langHome">
-                    <option value="/lang/en">English</option>
+                    <?php
+                        $lang = request()->session()->get('locale');
+                    ?>
+                    <option value="/lang/en"
+                        {{ $lang != null && $lang == 'en' ? 'selected' : '' }}>English
+                    </option>
+                    <option value="/lang/id"
+                        {{ $lang != null && $lang == 'id' ? 'selected' : '' }}>Indonesia
+                    </option>
+                    <option value="/lang/zh_CN"
+                        {{ $lang != null && $lang == 'zh_CN' ? 'selected' : '' }}>Mandarin
+                    </option>
+                    {{-- <option value="/lang/en">English</option>
                     <option value="/lang/id">Indonesia</option>
-                    <option value="/lang/zh_CN">Mandarin</option>
+                    <option value="/lang/zh_CN">Mandarin</option> --}}
                 </select>
             </div>
             <div class="modal-footer">
