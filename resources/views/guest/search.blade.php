@@ -4,6 +4,40 @@
 
 @section('container')
     @include('partials.navbar')
+    <div class="modal fade" id="popup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">@lang('boarding.default_language')</h5>
+            </div>
+            <div class="modal-body row d-flex justify-content-center align-items-center my-auto">
+                <div class="label-lang col-4">
+                    <p>@lang('boarding.choose_language') :</p>
+                </div>
+                <select class="form-select col-4 w-50" name="lang" id="langHome">
+                    <?php
+                        $lang = request()->session()->get('locale');
+                    ?>
+                    <option value="/lang/en"
+                        {{ $lang != null && $lang == 'en' ? 'selected' : '' }}>English
+                    </option>
+                    <option value="/lang/id"
+                        {{ $lang != null && $lang == 'id' ? 'selected' : '' }}>Indonesia
+                    </option>
+                    <option value="/lang/zh_CN"
+                        {{ $lang != null && $lang == 'zh_CN' ? 'selected' : '' }}>Mandarin
+                    </option>
+                    {{-- <option value="/lang/en">English</option>
+                    <option value="/lang/id">Indonesia</option>
+                    <option value="/lang/zh_CN">Mandarin</option> --}}
+                </select>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="popup-button">@lang('boarding.save_changes')</button>
+            </div>
+          </div>
+        </div>
+    </div>
     <div class="mt-5 mb-5" style="padding-left: 200px; padding-right: 200px;">
         <div class="main-search-input fl-wrap mb-5">
             <div class="main-search-input-item">
