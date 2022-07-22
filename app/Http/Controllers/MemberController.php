@@ -9,6 +9,7 @@ use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Models\HistoryDetail;
 use App\Models\TransactionDetail;
+use Illuminate\Support\Facades\App;
 
 class MemberController extends Controller
 {

@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game;
+use App\Models\Topup;
 use App\Models\History;
 use Illuminate\Http\Request;
 use App\Models\HistoryDetail;
-use App\Models\Topup;
 use App\Models\TransactionDetail;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
