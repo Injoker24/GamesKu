@@ -5,22 +5,31 @@
 @section('container')
     @include('partials.navbar')
     <div class="container">
-        <h1>My Profile</h1>
-        <div class="text-center">
-            <p>Name : {{ $user->name }}</p>
-            <p>Email : {{ $user->email }}</p>
-
-            <div class="d-flex col-12">
-                <div class="label-lang col-1">
-                    <p>Language :</p>
+        <div class="mt-3">
+            <h1>My Profile</h1>
+        </div>
+        <div class="card-body mt-4 mb-5 mx-auto" style="padding-left: 30%">
+            <div class="row">
+                <div class="col-2">
+                    <p>Name</p>
                 </div>
-                {{-- <select class="form-select col-11 w-25" aria-label="Default select example">
-                    <option value="english" selected>English</option>
-                    <option value="indonesia">Indonesian</option>
-                    <option value="mandarin">Mandarin</option>
-                </select> --}}
-
-                <select class="form-select col-11 w-25" name="lang" id="lang">
+                <div class="col-10">
+                    : {{ $user->name }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <p>Email</p>
+                </div>
+                <div class="col-10">
+                    <p>: {{ $user->email }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="label-lang col-2">
+                    <p>Language</p>
+                </div>
+                <select class="form-select col-10 w-50" name="lang" id="lang">
                     <?php
                         $lang = request()->session()->get('locale');
                     ?>

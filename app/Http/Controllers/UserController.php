@@ -46,6 +46,11 @@ class UserController extends Controller
         $credentials = $request->validate([
             'email' => 'required|email:dns',
             'password' => 'required|min:8'
+        ],[
+            'email.required' => trans('validation.required'),
+            'password.required' => trans('validation.required'),
+            'email.dns' => trans('validation.email'),
+            'password.min' => trans('validation.min.numeric')
         ]);
 
         if(auth()->attempt($credentials)){

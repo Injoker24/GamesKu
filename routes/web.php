@@ -108,5 +108,6 @@ Route::middleware(['auth'])->group(function() {
 /* Lang */
 Route::get('/lang/{locale}', function ($locale) {
     session()->put('locale', $locale);
+    session()->put('fallback_locale', $locale);
     return back();
 });
