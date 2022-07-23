@@ -1,5 +1,6 @@
 <?php
     return [
+        'title' => '上传付款',
         'tr_id' => '交易编号:',
         'user_email' => '用户邮箱',
         'date_time' => '约会时间',

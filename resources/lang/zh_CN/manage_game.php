@@ -1,5 +1,6 @@
 <?php
     return [
+        'title' => '管理游戏',
         'add_game' => '添加游戏',
         'game_list' => '游戏列表',
         'del' => '删除',

@@ -1,5 +1,9 @@
 <?php
     return [
+        'title' => '登机页面',
+        'search_title' => '搜索页面',
+        'login' => '登录',
+        'register' => '登记',
         'default_language' => '选择默认语言',
         'choose_language' => '选择语言',
         'save_changes' => '保存更改',

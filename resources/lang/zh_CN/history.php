@@ -1,5 +1,6 @@
 <?php
     return [
+        'title' => '历史',
         'my_history' => '我的历史',
         'tr_id' => '交易编号:',
         'created' => '已创建:',

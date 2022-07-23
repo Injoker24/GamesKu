@@ -1,5 +1,6 @@
 <?php
     return [
+        'title' => '主页',
         'valo_bundle' => '新的勇敢捆绑?',
         'got_you' => '有你覆盖',
         'diamond_topup' => '新皮肤的钻石充值？',

@@ -1,5 +1,6 @@
 <?php
     return [
+        'title' => '个人资料页',
         'my_profile' => '我的简历',
         'name' => '姓名',
         'email' => '电子邮件',

@@ -1,5 +1,6 @@
 <?php
     return [
+        'title' => '添加游戏',
         'game_nm' => '游戏名称',
         'game_dvlp' => '游戏开发者',
         'user_id_exp' => '用户 ID 示例',
