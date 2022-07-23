@@ -1,6 +1,6 @@
 <?php
     return [
-        'home' => '家',
+        'home' => '主页',
         'manage_transaction' => '管理交易',
         'manage_game' => '管理游戏',
         'transaction' => '交易',

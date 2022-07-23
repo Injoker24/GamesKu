@@ -66,9 +66,11 @@
                         @endif
                         <div class="row">
                             @foreach ($games->topup as $topup)
-                            <div class="col-3 topup-button-container">
-                                <button type="button" class="topup-type-button" id="amount{{ $topup->id }}" onclick="addPrice({{ $topup->price }})">{{ $topup->amount }} {{ $topup->topup_type }}</button>
-                            </div>
+                                @if ($topup->deletedtopup == FALSE)
+                                    <div class="col-3 topup-button-container">
+                                        <button type="button" class="topup-type-button" id="amount{{ $topup->id }}" onclick="addPrice({{ $topup->price }})">{{ $topup->amount }} {{ $topup->topup_type }}</button>
+                                    </div>
+                                @endif
                             @endforeach
                         </div>
                     </div>
