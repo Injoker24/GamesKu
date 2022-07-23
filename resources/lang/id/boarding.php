@@ -1,5 +1,9 @@
 <?php
     return [
+        'title' => 'Halaman Awal',
+        'search_title' => 'Halaman Pencarian',
+        'login' => 'Masuk',
+        'register' => 'Daftar',
         'default_language' => 'Pilih Bahasa Default',
         'choose_language' => 'Pilih Bahasa',
         'save_changes' => 'Simpan Perubahan',
@@ -17,5 +21,6 @@
         'all_game' => 'Semua Game',
         'no_game' => 'Tidak Ada Game yang Ditemukan',
         'view_all_game' => 'Lihat Semua Game',
+        'show_result' => 'Menampilkan Hasil untuk',
     ];
 ?>

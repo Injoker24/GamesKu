@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Login')
+@section('title', '@lang('boarding.login')')
 
 @section('container')
     @include('partials.navbar')

@@ -1,18 +1,18 @@
 @extends('layouts.main')
 
-@section('title', 'Profile Page')
+@section('title', '@lang('profile.title')')
 
 @section('container')
     @include('partials.navbar')
     <div class="container">
-        <h1>My Profile</h1>
+        <h1>@lang('profile.my_profile')</h1>
         <div class="text-center">
-            <p>Name : {{ $user->name }}</p>
-            <p>Email : {{ $user->email }}</p>
+            <p>@lang('profile.name') : {{ $user->name }}</p>
+            <p>@lang('profile.email') : {{ $user->email }}</p>
 
             <div class="d-flex col-12">
                 <div class="label-lang col-1">
-                    <p>Language :</p>
+                    <p>@lang('profile.lang') :</p>
                 </div>
                 {{-- <select class="form-select col-11 w-25" aria-label="Default select example">
                     <option value="english" selected>English</option>
@@ -40,25 +40,25 @@
         </div>
         <div class="container mt-3">
             <div class="text-center">
-                <h3>Change Password</h3>
+                <h3>@lang('profile.change_pass')</h3>
             </div>
             <div class="card mb-4" style="width: 100%; padding:0% 5% 0% 5%; border-radius: 40px;">
                 <div class="card-body">
                     <form style="color: var(--dark);" action="/profile" method="post">
                         @csrf
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="form2Example1">Old Password</label>
-                            <input type="password" name="old_password" id="form2Example1" class="form-control" placeholder="Input Your Old Password" value="{{ old('name') }}"/>
+                            <label class="form-label" for="form2Example1">@lang('profile.old_pass')</label>
+                            <input type="password" name="old_password" id="form2Example1" class="form-control" placeholder="@lang('profile.old_pass_ph')" value="{{ old('name') }}"/>
                         </div>
 
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="form2Example1">New Password</label>
-                            <input type="password" name="new_password" id="form2Example1" class="form-control" placeholder="Input Your New Password" value="{{ old('name') }}"/>
+                            <label class="form-label" for="form2Example1">@lang('profile.new_pass')</label>
+                            <input type="password" name="new_password" id="form2Example1" class="form-control" placeholder="@lang('profile.new_pass_ph')" value="{{ old('name') }}"/>
                         </div>
 
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="form2Example1">Confirm Password</label>
-                            <input type="password" name="confirm_password" id="form2Example1" class="form-control" placeholder="Input Your New Password" value="{{ old('name') }}"/>
+                            <label class="form-label" for="form2Example1">@lang('profile.confirm_pass')</label>
+                            <input type="password" name="confirm_password" id="form2Example1" class="form-control" placeholder="@lang('profile.confirm_pass_ph')" value="{{ old('name') }}"/>
                         </div>
 
                         @if($errors->any())
@@ -74,7 +74,7 @@
                         @endif
 
                         <div class="text-center">
-                            <button type="submit" class="login-page-button">Change</button>
+                            <button type="submit" class="login-page-button">@lang('profile.change_btn')</button>
                         </div>
                     </form>
                 </div>

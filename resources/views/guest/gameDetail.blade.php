@@ -8,11 +8,11 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">@lang('boarding.default_language')</h5>
+              <h5 class="modal-title" id="exampleModalLabel">@lang('game_detail.default_language')</h5>
             </div>
             <div class="modal-body row d-flex justify-content-center align-items-center my-auto">
                 <div class="label-lang col-4">
-                    <p>@lang('boarding.choose_language') :</p>
+                    <p>@lang('game_detail.choose_language') :</p>
                 </div>
                 <select class="form-select col-4 w-50" name="lang" id="langHome">
                     <?php
@@ -33,7 +33,7 @@
                 </select>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary" id="popup-button">@lang('boarding.save_changes')</button>
+              <button type="button" class="btn btn-primary" id="popup-button">@lang('game_detail.save_changes')</button>
             </div>
           </div>
         </div>
@@ -51,8 +51,8 @@
                 <form action="/game/{{ $games->name }}" method="POST" class="mx-5 form-game-detail-container" enctype="multipart/form-data">
                     @csrf
                     <div class="my-3 w-100 mx-5 align-self-center topup-part-container">
-                        <label for="userID" class="form-label" style="margin-right: 20px;">Input User ID</label>
-                        <input style="width: 100%;" type="text" class="form-control @error('userID') is-invalid @enderror" id="userID" name="userID" placeholder="For example: {{ $games->input_example }}">
+                        <label for="userID" class="form-label" style="margin-right: 20px;">@lang('game_detail.input_id')</label>
+                        <input style="width: 100%;" type="text" class="form-control @error('userID') is-invalid @enderror" id="userID" name="userID" placeholder="@lang('game_detail.example') {{ $games->input_example }}">
                         @error('userID')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -60,7 +60,7 @@
                         @enderror
                     </div>
                     <div class="my-3 w-100 mx-5 align-self-center topup-part-container">
-                        <label>Choose Nominal</label>
+                        <label>@lang('game_detail.choose_nmnl')</label>
                         @if ( $errors->has('price') )
                             <span id="priceHelp" class="form-text text-danger">{{ $errors->first('price') }}</span>
                         @endif
@@ -73,12 +73,12 @@
                         </div>
                     </div>
 
-                    <div class="price-topup" id="priceinput" name="priceinput">Price: </div>
+                    <div class="price-topup" id="priceinput" name="priceinput">@lang('game_detail.price') </div>
                     {{-- input bawah ni jangan dihapus ya --}}
                     <input type="hidden" name="price" value="" id="forprice">
 
                     <div class="my-3 w-100 mx-5 align-self-center topup-part-container">
-                        <label>Choose Payment Type</label>
+                        <label>@lang('game_detail.choose_pt')</label>
                         @if ( $errors->has('payment') )
                             <span id="paymentHelp" class="form-text text-danger">{{ $errors->first('payment') }}</span>
                         @endif
@@ -96,12 +96,12 @@
                     </div>
                     @if (Auth::check())
                         @if(Auth::user()->IsAdmin)
-                            <a href="/manage-game/{{ $games->name }}" class="buy-now-button" style="text-decoration:none;">Manage</a>
+                            <a href="/manage-game/{{ $games->name }}" class="buy-now-button" style="text-decoration:none;">@lang('game_detail.manage')</a>
                         @else
-                            <button type="submit" class="buy-now-button">Buy Now</button>
+                            <button type="submit" class="buy-now-button">@lang('game_detail.buy_now')</button>
                         @endif
                     @else
-                        <button type="submit" class="buy-now-button">Buy Now</button>
+                        <button type="submit" class="buy-now-button">@lang('game_detail.buy_now')</button>
                     @endif
                 </form>
             </div>

@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', "Manage Games")
+@section('title', "@lang('manage_game.title')")
 
 @section('container')
     @include('partials.navbar')
@@ -16,9 +16,9 @@
     @endif
 
     <div class="container-fluid mt-5 mb-5" style="padding-left: 200px; padding-right: 200px;">
-        <a href="/manage-game/addGame" class="text-decoration-none">Add game</a>
+        <a href="/manage-game/addGame" class="text-decoration-none">@lang('manage_game.add_game')</a>
 
-        <h3 class="pb-3 pt-3" style="margin-bottom: 20px; color: var(--dark); font-weight: bold;"">Game List</h3>
+        <h3 class="pb-3 pt-3" style="margin-bottom: 20px; color: var(--dark); font-weight: bold;"">@lang('manage_game.game_list')</h3>
         <div class="tes d-flex row">
             @forelse ($games as $game)
                 @if ($game->deleted == 0)
@@ -45,13 +45,13 @@
                         <form action="/manage-game/{{ $game->name }}/delete" method="POST">
                             @method('DELETE')
                             @csrf
-                            <button type="submit" class="btn btn-danger mx-4" onclick="return confirm('Are you sure?')">Delete</button>
+                            <button type="submit" class="btn btn-danger mx-4">@lang('manage_game.del')</button>
                         </form>
                     </div>
                 @endif
             @empty
                 <div style="display: flex; flex-direction: column; align-items: center;">
-                    <h4 style="font-weight:bold; color: #00000089;"> No Games Found </h4>
+                    <h4 style="font-weight:bold; color: #00000089;"> @lang('manage_game.no_games') </h4>
                     <img src="/storage/No Data.png" class="no-data-image" alt="...">
                 </div>
             @endforelse

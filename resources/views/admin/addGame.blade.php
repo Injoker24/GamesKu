@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', "Add Game")
+@section('title', "@lang('add_game.title')")
 
 @section('container')
     @include('partials.navbar')
@@ -9,7 +9,7 @@
             <form method="POST" action="/manage-game/addGame" class="mb-5" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
-                  <label for="gameName" class="add-label form-label">Game Name</label>
+                  <label for="gameName" class="add-label form-label">@lang('add_game.game_nm')</label>
                   <input type="text" class="form-control @error('gameName') is-invalid
                   @enderror" id="gameName" name="gameName">
                   @error('gameName')
@@ -19,7 +19,7 @@
                   @enderror
                 </div>
                 <div class="mb-3">
-                  <label for="gameDeveloper" class="add-label form-label">Game Developer</label>
+                  <label for="gameDeveloper" class="add-label form-label">@lang('add_game.game_dvlp')</label>
                   <input type="text" class="form-control @error('gameDeveloper') is-invalid
                   @enderror" id="gameDeveloper" name="gameDeveloper">
                   @error('gameDeveloper')
@@ -29,7 +29,7 @@
                   @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="inputExample" class="add-label form-label">User ID Example</label>
+                    <label for="inputExample" class="add-label form-label">@lang('add_game.user_id_exp')</label>
                     <input type="text" class="form-control @error('inputExample') is-invalid
                     @enderror" id="inputExample" name="inputExample">
                     @error('inputExample')
@@ -39,7 +39,7 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="gameLogo" class="add-label form-label">Upload Game Logo</label>
+                    <label for="gameLogo" class="add-label form-label">@lang('add_game.up_logo')</label>
                     <input type="file" class="form-control @error('gameLogo') is-invalid
                     @enderror" id="gameLogo" name="gameLogo">
                     @error('gameLogo')
@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="gameBG" class="add-label form-label">Upload Game Background</label>
+                    <label for="gameBG" class="add-label form-label">@lang('add_game.up_bg')</label>
                     <input class="form-control @error('gameBG') is-invalid
                     @enderror" type="file" id="gameBG" name="gameBG">
                     @error('gameBG')
@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="topupType" class="add-label form-label">Topup Type</label>
+                    <label for="topupType" class="add-label form-label">@lang('add_game.tu_type')</label>
                     <input class="form-control @error('topupType') is-invalid
                     @enderror" type="text" id="topupType" name="topupType">
                     @error('topupType')
@@ -79,20 +79,20 @@
                         <thead>
                             <tr class="text-center">
                                 <th scope="col" style="width:20%">NOMINAL</th>
-                                <th scope="col" style="width:20%">PRICE</th>
+                                <th scope="col" style="width:20%">@lang('add_game.price')</th>
                                 <th scope="col" style="width:20%"></th>
                             </tr>
                         </thead>
                         <tbody>
                                 <tr  class="text-center">
-                                    <td colspan="3" class="p-5" style="background:none;border:none">EMPTY</td>
+                                    <td colspan="3" class="p-5" style="background:none;border:none">@lang('add_game.empty')</td>
                                 </tr>
                         </tbody>
                     </table>
                 </div>
 
                 <button type="button" class="btn btn-primary w-25 align-self-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    +Add Nominal
+                    +@lang('add_game.add_nom')
                 </button>
 
                 <!-- Modal -->
@@ -100,29 +100,29 @@
                     <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add Nominal</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">@lang('add_game.add_nom')</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body d-flex justify-content-start">
                             <div class="ms-3">
-                                <label for="inputnominal" class="form-label">Input Nominal</label>
+                                <label for="inputnominal" class="form-label">@lang('add_game.inp_nom')</label>
                                 <input type="text" class="form-control" id="inputnominal" name="inputnominal">
                             </div>
 
                             <div class="ms-3">
-                                <label for="inputprice" class="form-label">Input Price</label>
+                                <label for="inputprice" class="form-label">@lang('add_game.inp_price')</label>
                                 <input type="text" class="form-control" name="inputprice" id="inputprice">
                             </div>
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="addNewNominal()">Add</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="addNewNominal()">@lang('add_game.add')</button>
                         </div>
                     </div>
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Insert</button>
+                <button type="submit" class="btn btn-primary">@lang('add_game.insert')</button>
             </form>
         </div>
     </div>

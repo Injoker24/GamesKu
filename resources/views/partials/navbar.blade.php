@@ -4,7 +4,7 @@
         @auth
             <a class="nav-details {{ (Request::is("home")? "active" : Request::is("search*")) ? "active" : "" }}" href="/home">@lang('navbar.home')</a>
             @if (Auth::user()->IsAdmin)
-                <a class="nav-details {{ Request::is("manage-transaction*")? "active" : "" }}" href="/manage-transaction">@lang('navbar.mamage_transaction')</a>
+                <a class="nav-details {{ Request::is("manage-transaction*")? "active" : "" }}" href="/manage-transaction">@lang('navbar.manage_transaction')</a>
                 <a class="nav-details {{ Request::is("manage-game*")? "active" : "" }}" href="/manage-game">@lang('navbar.manage_game')</a>
             @else
                 <a class="nav-details {{ Request::is("transaction*")? "active" : "" }}" href="/transaction">@lang('navbar.transaction')</a>

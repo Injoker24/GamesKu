@@ -1,5 +1,9 @@
 <?php
     return [
+        'title' => 'Boarding Page',
+        'search_title' => 'Search Page',
+        'login' => 'Login',
+        'register' => 'Register',
         'default_language' => 'Select Default Language',
         'choose_language' => 'Choose Language',
         'save_changes' => 'Save changes',
@@ -17,5 +21,6 @@
         'all_game' => 'All Games',
         'no_game' => 'No Games Found',
         'view_all_game' => 'View All Games',
+        'show_result' => 'Showing Results for',
     ];
 ?>

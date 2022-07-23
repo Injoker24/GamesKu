@@ -1,11 +1,11 @@
 @extends('layouts.main')
 
-@section('title', "All Games")
+@section('title', "@lang('allGame.title')")
 
 @section('container')
     @include('partials.navbar')
     <div class="container-fluid mt-5 mb-5" style="padding-left: 200px; padding-right: 200px;">
-        <h3 class="pb-3" style="margin-bottom: 20px; color: var(--dark); font-weight: bold;">Games List</h3>
+        <h3 class="pb-3" style="margin-bottom: 20px; color: var(--dark); font-weight: bold;">@lang('allGame.game_list')</h3>
 
         @forelse ($games as $game)
             <a href="/game/{{ $game->name }}">
@@ -22,7 +22,7 @@
             </a>
         @empty
             <div style="display: flex; flex-direction: column; align-items: center;">
-                <h4 style="font-weight:bold; color: #00000089;"> No Games Found </h4>
+                <h4 style="font-weight:bold; color: #00000089;"> @lang('allGame.no_game') </h4>
                 <img src="/storage/No Data.png" class="no-data-image" alt="...">
             </div>
         @endforelse

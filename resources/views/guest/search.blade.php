@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Search Page')
+@section('title', '@lang('boarding.search_title')')
 
 @section('container')
     @include('partials.navbar')
@@ -42,12 +42,12 @@
         <div class="main-search-input fl-wrap mb-5">
             <div class="main-search-input-item">
                 <form action="/search" method="get">
-                    <input type="text" value="" placeholder="Search Games..." name="game">
-                    <button class="main-search-button" type="submit">Search</button>
+                    <input type="text" value="" placeholder="@lang('boarding.search_placeholder')" name="game">
+                    <button class="main-search-button" type="submit">placeholder="@lang('boarding.search_button')</button>
                 </form>
             </div>
         </div>
-        <h3 style="margin-bottom: 20px; color: var(--dark); font-weight: bold;">Showing Results for {{ $search }}</h3>
+        <h3 style="margin-bottom: 20px; color: var(--dark); font-weight: bold;">@lang('boarding.show_result') {{ $search }}</h3>
         @forelse ($games as $game)
         <a href="/game/{{ $game->name }}">
             <div class="card bg-dark mb-4 games-card">
@@ -63,7 +63,7 @@
         </a>
         @empty
             <div style="display: flex; flex-direction: column; align-items: center;">
-                <h4 style="font-weight:bold; color: #00000089;"> No Games Found </h4>
+                <h4 style="font-weight:bold; color: #00000089;"> @lang('boarding.no_game') </h4>
                 <img src="/storage/No Data.png" class="no-data-image" alt="...">
             </div>
         @endforelse

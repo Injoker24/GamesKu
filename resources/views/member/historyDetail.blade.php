@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', "History Detail")
+@section('title', "@lang('history_dtl.title')")
 
 @section('container')
     @include('partials.navbar')
@@ -13,7 +13,7 @@
                     <h3 class="fw-bolder">{{ $hsDetail->transaction_detail->topup->game->name }}</h3>
                     <div class="d-flex mb-1" style="width: 350px; justify-content: space-between; align-items: center;">
                         <div>
-                            <span class="fw-bolder">Transaction ID</span>
+                            <span class="fw-bolder">@lang('history_dtl.tr_id')</span>
                         </div>
                         <div style="width: 200px;">
                             <span style="text-align: left;">{{ $hsDetail->transaction_detail_id }}</span>
@@ -21,7 +21,7 @@
                     </div>
                     <div class="d-flex mb-1" style="width: 350px; justify-content: space-between; align-items: center;">
                         <div>
-                            <span class="fw-bolder">User Email</span>
+                            <span class="fw-bolder">@lang('history_dtl.user_email')</span>
                         </div>
                         <div style="width: 200px;">
                             <span style="text-align: left;">{{ Auth::user()->email }}</span>
@@ -29,7 +29,7 @@
                     </div>
                     <div class="d-flex mb-1" style="width: 350px; justify-content: space-between; align-items: center;">
                         <div>
-                            <span class="fw-bolder">Date & Time</span>
+                            <span class="fw-bolder">@lang('history_dtl.date_time')</span>
                         </div>
                         <div style="width: 200px;">
                             <span style="text-align: left;">{{ $hsDetail->transaction_detail->created_at }}</span>
@@ -37,7 +37,7 @@
                     </div>
                     <div class="d-flex mb-1" style="width: 350px; justify-content: space-between; align-items: center;">
                         <div>
-                            <span class="fw-bolder">Payment Status</span>
+                            <span class="fw-bolder">@lang('history_dtl.paym_stat')</span>
                         </div>
                         <div style="width: 200px;">
                             @if( $hsDetail->transaction_detail->status == "Completed")
@@ -61,7 +61,7 @@
             </div>
 
             <div class="history-detail-item">
-                <h5 style="font-weight: bold;">User ID</h5>
+                <h5 style="font-weight: bold;">@lang('history_dtl.user_id')</h5>
                 <p class="history-detail-data">{{ $hsDetail->transaction_detail->input_name }}</p>
             </div>
             <div class="history-detail-item">
@@ -73,7 +73,7 @@
                 <p class="history-detail-data">Rp {{ $hsDetail->transaction_detail->topup->price }}</p>
             </div>
             <div class="history-detail-item">
-                <h5 style="font-weight: bold; ">Payment Method</h5>
+                <h5 style="font-weight: bold; ">@lang('history_dtl.paym_method')</h5>
                 <div class="history-detail-payment d-flex align-items-center">
                     <img src="{{ asset('storage/' . $hsDetail->transaction_detail->paymentType->payment_type_logo ) }}" class="img-flui" alt="..." width="100"></p>
                 </div>
