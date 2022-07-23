@@ -43,7 +43,7 @@
             <div class="main-search-input-item">
                 <form action="/search" method="get">
                     <input type="text" value="" placeholder="@lang('boarding.search_placeholder')" name="game">
-                    <button class="main-search-button" type="submit">placeholder="@lang('boarding.search_button')</button>
+                    <button class="main-search-button" type="submit">@lang('boarding.search_button')</button>
                 </form>
             </div>
         </div>
