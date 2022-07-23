@@ -1,10 +1,10 @@
 <?php
     return [
-        'curr_tr' => 'Current Transactions',
-        'tr_id' => 'Transaction ID:',
-        'dl' => 'Deadline:',
-        'manage' => 'Manage',
-        'no_tr' =>'No Transaction Found',
+        'curr_tr' => '当前交易',
+        'tr_id' => '交易编号:',
+        'dl' => '最后期限:',
+        'manage' => '管理',
+        'no_tr' =>'未找到交易',
 
     ];
 ?>

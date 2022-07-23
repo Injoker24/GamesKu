@@ -109,7 +109,7 @@
             @if ($trDetail->status == "Waiting for Payment")
                 <div class="d-flex justify-content-center my-4">
                     {{-- <a href="/transaction/{{ $trDetail->id }}/upload" class="badge rounded-pill text-bg-secondary text-decoration-none p-5">UPLOAD PAYMENT</a> --}}
-                    <a href="/transaction/{{ $trDetail->id }}/upload" class="upload-payment-button">@lang('transaction_dtl.yp_paym')</a>
+                    <a href="/transaction/{{ $trDetail->id }}/upload" class="upload-payment-button">@lang('transaction_dtl.up_paym')</a>
                 </div>
                 <div class="d-flex justify-content-center">
                     <a href="/transaction/{{ $trDetail->id }}/cancel" class="cancel-payment-button">@lang('transaction_dtl.cancel_tr')</a>

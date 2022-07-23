@@ -1,6 +1,6 @@
 <?php
     return [
-        'game_list' => 'Game List',
-        'no_game' => 'No Games Found',
+        'game_list' => '游戏列表',
+        'no_game' => '未找到游戏',
     ];
 ?>

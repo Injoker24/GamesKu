@@ -1,8 +1,8 @@
 <?php
     return [
-        'add_game' => 'Add game',
-        'game_list' => 'Game List',
-        'del' => 'Delete',
-        'no_games' => 'No Games Found',
+        'add_game' => '添加游戏',
+        'game_list' => '游戏列表',
+        'del' => '删除',
+        'no_games' => '未找到游戏',
     ];
 ?>
