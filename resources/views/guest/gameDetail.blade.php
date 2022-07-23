@@ -108,4 +108,13 @@
         </div>
     </div>
     @include('partials.footer')
+    <script>
+        function addPrice(price){
+            var priceinput = document.getElementById('priceinput');
+            var text = "@lang('game_detail.price')";
+            // priceinput.innerHTML = "Price: Rp. " + price;
+            priceinput.innerHTML = text + price;
+            document.getElementById('forprice').value = price;
+        }
+    </script>
 @endsection
