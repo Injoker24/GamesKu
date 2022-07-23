@@ -28,12 +28,20 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
+        app()->setLocale(request()->session()->get('locale'));
         $validateData = $request->validate([
             'name' => 'required',
-            'email' => 'required|email:dns',
+            'email' => 'required|email:dns|unique:users',
             'password' => 'required|min:8',
             'confirm_password' => 'required|same:password',
             'terms' => 'accepted'
+        ],[
+            'required' => trans('validation.required'),
+            'dns' => trans('validation.email'),
+            'unique' => trans('validation.unique'),
+            'min' => trans('validation.min.string'),
+            'same' => trans('validation.same'),
+            'accepted' => trans('validation.accepted')
         ]);
         $validateData["password"] = bcrypt($validateData["password"]);
         $user = User::create($validateData);
@@ -43,20 +51,20 @@ class UserController extends Controller
 
     public function login(Request $request)
     {
+        app()->setLocale(request()->session()->get('locale'));
         $credentials = $request->validate([
             'email' => 'required|email:dns',
             'password' => 'required|min:8'
         ],[
-            'email.required' => trans('validation.required'),
-            'password.required' => trans('validation.required'),
-            'email.dns' => trans('validation.email'),
-            'password.min' => trans('validation.min.numeric')
+            'required' => trans('validation.required'),
+            'dns' => trans('validation.email'),
+            'min' => trans('validation.min.string')
         ]);
 
         if(auth()->attempt($credentials)){
             return redirect()->route('home_page');
         } else {
-            return redirect()->back()->withInput()->withErrors(['error' => 'Email or password is incorrect']);
+            return redirect()->back()->withInput()->withErrors(['error' => trans('validation.custom.attribute-name.check_data')]);
         }
     }
 

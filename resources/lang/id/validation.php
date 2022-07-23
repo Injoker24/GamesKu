@@ -147,7 +147,7 @@ return [
 
     'custom' => [
         'attribute-name' => [
-            'rule-name' => 'custom-message',
+            'check_data' => 'Email atau kata sandi salah',
         ],
     ],
 

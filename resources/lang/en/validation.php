@@ -143,7 +143,7 @@ return [
 
     'custom' => [
         'attribute-name' => [
-            'rule-name' => 'custom-message',
+            'check_data' => 'Email or password is incorrect',
         ],
     ],
 

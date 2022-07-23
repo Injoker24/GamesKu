@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', "@lang('transaction_dtl.title')")
+@section('title', trans('transaction_dtl.title'))
 
 @section('container')
     {{-- @dump($trDetail) --}}

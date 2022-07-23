@@ -143,7 +143,7 @@ return [
 
     'custom' => [
         'attribute-name' => [
-            'rule-name' => 'custom-message',
+            'check_data' => '电子邮件或密码不正确',
         ],
     ],
 

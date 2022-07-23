@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', "@lang('allGame.title')")
+@section('title', trans('allGame.title'))
 
 @section('container')
     @include('partials.navbar')

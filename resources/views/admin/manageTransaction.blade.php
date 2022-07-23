@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', "@lang('manage_transaction.title')")
+@section('title', trans('manage_transaction.title'))
 
 @section('container')
     @include('partials.navbar')
