@@ -12,11 +12,9 @@ return [
     | has failed, such as for an invalid token or invalid new password.
     |
     */
-
-    'reset' => '您的密碼已重置!',
-    'sent' => '我們已通過電子郵件發送您的密碼重置鏈接!',
-    'throttled' => '請稍候再重試.',
-    'token' => '此密碼重置令牌無效.',
-    'user' => "我們找不到具有該電子郵件地址的用戶.",
-
+    'reset' => '您的密码已重置！',
+    'sent' => '我们已将您的密码重置链接通过电子邮件发送给您！',
+    'throttled' => '请稍候再重试。',
+    'token' => '此密码重置令牌无效。',
+    'user' => "我们找不到具有该电子邮件地址的用户。",
 ];

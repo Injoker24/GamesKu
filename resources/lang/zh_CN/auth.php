@@ -12,9 +12,9 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
-    'failed' => '這些憑據與我們的記錄不符.',
-    'password' => '提供的密碼不正確.',
-    'throttle' => '登錄嘗試次數過多. 請在 :seconds 秒後重試.',
+    
+    'failed' => '这些凭据与我们的记录不符。',
+    'password' => '提供的密码不正确。',
+    'throttle' => '登录尝试次数过多。请在 :seconds 秒后重试。',
 
 ];
