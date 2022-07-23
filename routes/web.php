@@ -100,8 +100,6 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/home', [Controller::class, "homePage"])->name('home_page');
     Route::get('/profile', [Controller::class, "profilePage"]);
     Route::post('/profile', [Controller::class, "editProfilePage"]);
-    // Route::get('/edit-profile', [Controller::class, "editProfilePage"]);
-    // Route::post('/edit-profile/edit', [Controller::class, "editProfile"]);
     Route::get('/logout', [UserController::class, "logout"])->name('logout');
 });
 

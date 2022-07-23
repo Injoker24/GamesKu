@@ -5,10 +5,10 @@
 @section('container')
     @include('partials.navbar')
     <div class="container">
-        <div class="mt-3">
-            <h1>@lang('profile.my_profile')</h1>
+        <div class="mt-5">
+            <h1 style="color: var(--dark);">@lang('profile.my_profile')</h1>
         </div>
-        <div class="card-body mt-4 mb-5 mx-auto" style="padding-left: 30%">
+        <div class="card-body mt-4 mb-5 p-4" style="background-color: var(--dark); color: var(--white); border-radius: 10px;">
             <div class="row">
                 <div class="col-2">
                     <p>@lang('profile.name')</p>
@@ -33,7 +33,6 @@
                     <?php
                         $lang = request()->session()->get('locale');
                     ?>
-
                     <option value="/lang/en"
                         {{ $lang != null && $lang == 'en' ? 'selected' : '' }}>English
                     </option>
@@ -48,10 +47,10 @@
             </div>
         </div>
         <div class="container mt-3">
-            <div class="text-center">
+            <div class="mb-3">
                 <h3>@lang('profile.change_pass')</h3>
             </div>
-            <div class="card mb-4" style="width: 100%; padding:0% 5% 0% 5%; border-radius: 40px;">
+            <div class="card mb-4" style="width: 100%; padding:5% 5% 0% 5%; border-radius: 40px; border: 3px solid var(--dark);">
                 <div class="card-body">
                     <form style="color: var(--dark);" action="/profile" method="post">
                         @csrf
