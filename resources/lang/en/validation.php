@@ -144,6 +144,8 @@ return [
     'custom' => [
         'attribute-name' => [
             'check_data' => 'Email or password is incorrect',
+            'error_change_password' => 'Old Password is incorrect',
+            'success_change_password' => 'Password has been changed'
         ],
     ],
 

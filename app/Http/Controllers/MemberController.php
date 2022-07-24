@@ -106,6 +106,7 @@ class MemberController extends Controller
     }
 
     public function topupGame(Request $request){
+        $this->setLang();
         if(!auth()->check()){
             return redirect()->route('login_page')->with('error', 'You must login first');
         }
@@ -115,9 +116,9 @@ class MemberController extends Controller
             'payment' => 'required',
         ],
         [
-            'userID.required' => 'Please enter your user ID',
-            'price.required' => 'Please choose one of the nominals stated',
-            'payment.required' => 'Please choose one of the payment methods stated',
+            'userID.required' => trans('game_detail.custom.attribute-name.user_id_validate'),
+            'price.required' => trans('game_detail.custom.attribute-name.price_validate'),
+            'payment.required' => trans('game_detail.custom.attribute-name.payment_validate'),
         ]);
 
         $transaction = new Transaction();
@@ -139,14 +140,15 @@ class MemberController extends Controller
     }
 
     public function uploadPayment(Request $request){
+        $this->setLang();
         $validatedData = $request->validate([
             'paymentproof' => 'image|mimes:jpeg,png,jpg'
         ],[
-            'paymentproof.image' => 'Please upload payment proof image'
+            'paymentproof.image' => trans('up_payment.custom.attribute-name.payment_proof_validate_error')
         ]);
 
         if(!$request->file('paymentproof')){
-            return redirect('/transaction/' . $request->id . '/upload')->with('warning', 'Please upload payment proof');
+            return redirect('/transaction/' . $request->id . '/upload')->with('warning', trans('up_payment.custom.attribute-name.payment_proof_validate_error'));
         }
         else{
             // dd($request->file('paymentproof'));
@@ -167,7 +169,7 @@ class MemberController extends Controller
             //     'status' => 'In Progress',
             //     'image_path' => '/storage/paymentProof' . $file_name
             // ]);
-            return redirect('/home')->with('success', 'Payment Proof Uploaded');
+            return redirect('/home')->with('success', trans('up_payment.custom.attribute-name.payment_proof_validate_success'));
         }
 
     }

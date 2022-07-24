@@ -10,5 +10,12 @@
         'pay_bfr' => 'Pay Before:',
         'up_prf' => 'Upload Proof of Payment',
         'submit_paym' => 'Submit Payment',
+
+        'custom' => [
+            'attribute-name' => [
+                'payment_proof_validate_error' => 'Please upload payment proof image',
+                'payment_proof_validate_success' => 'Payment Proof Uploaded',
+            ],
+        ],
     ];
 ?>

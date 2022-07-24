@@ -108,10 +108,14 @@ class Controller extends BaseController
             'old_password' => 'required',
             'new_password' => 'required|min:8',
             'confirm_password' => 'required|same:new_password'
+        ], [
+            'required' => trans('validation.required'),
+            'min' => trans('validation.min.string'),
+            'same' => trans('validation.same')
         ]);
 
         if(!Hash::check($validatedData['old_password'], auth()->user()->password)) {
-            return redirect('/profile')->with(['warning' => 'Old password different']);
+            return redirect('/profile')->with(['warning' => trans('validation.custom.attribute-name.error_change_password')]);
         }
 
         // dd(bcrypt($validatedData['old_password']), auth()->user()->password);
@@ -122,7 +126,7 @@ class Controller extends BaseController
         ]);
 
         // return view('profile', compact('user'))->with('success', 'Password changed');
-        return redirect('/profile')->with(['success' => 'Password has been changed', 'user' => $user]);
+        return redirect('/profile')->with(['success' => trans('validation.custom.attribute-name.success_change_password'), 'user' => $user]);
     }
 
     public function editProfile()

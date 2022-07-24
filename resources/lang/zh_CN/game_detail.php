@@ -10,5 +10,13 @@
         'choose_pt' => '选择付款方式',
         'manage' => '管理',
         'buy_now' => '立即购买',
+
+        'custom' => [
+            'attribute-name' => [
+                'user_id_validate' => '请输入您的用户名',
+                'price_validate' => '请选择所述的名词之一',
+                'payment_validate' => '请选择其中一种付款方式'
+            ],
+        ],
     ];
 ?>
