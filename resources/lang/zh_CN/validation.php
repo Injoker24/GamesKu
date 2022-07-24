@@ -144,6 +144,8 @@ return [
     'custom' => [
         'attribute-name' => [
             'check_data' => '电子邮件或密码不正确',
+            'error_change_password' => '旧密码不正确',
+            'success_change_password' => '密码已被更改',
         ],
     ],
 

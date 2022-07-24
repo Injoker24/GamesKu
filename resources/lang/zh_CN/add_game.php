@@ -14,5 +14,18 @@
         'inp_price' => '输入价格',
         'add' => '添加',
         'insert' => '插入',
+
+        'custom' => [
+            'attribute-name' => [
+                'game_name_validate' => '游戏名称为必填项',
+                'game_developer_validate' => '需要游戏开发者',
+                'input_example_validate' => '输入示例是必需的',
+                'game_logo_validate' => '游戏徽标是必需的',
+                'game_bg_validate' => '需要游戏背景',
+                'topup_type_validate' => '充值类型为必填项',
+                'nominal_validate' => '请插入至少 1 笔充值',
+                'add_game_success' => '游戏已添加',
+            ],
+        ],
     ];
 ?>

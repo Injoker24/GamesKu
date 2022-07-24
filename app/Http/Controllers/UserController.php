@@ -28,7 +28,7 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
-        app()->setLocale(request()->session()->get('locale'));
+       $this->setLang();
         $validateData = $request->validate([
             'name' => 'required',
             'email' => 'required|email:dns|unique:users',
@@ -51,7 +51,7 @@ class UserController extends Controller
 
     public function login(Request $request)
     {
-        app()->setLocale(request()->session()->get('locale'));
+        $this->setLang();
         $credentials = $request->validate([
             'email' => 'required|email:dns',
             'password' => 'required|min:8'

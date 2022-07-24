@@ -148,6 +148,8 @@ return [
     'custom' => [
         'attribute-name' => [
             'check_data' => 'Email atau kata sandi salah',
+            'error_change_password' => 'Kata sandi lama salah',
+            'success_change_password' => 'Kata sandi sudah diubah'
         ],
     ],
 

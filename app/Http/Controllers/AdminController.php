@@ -41,10 +41,13 @@ class AdminController extends Controller
     public function editGame(Request $request)
     {
         // dd($request);
+        $this->setLang();
         $request->validate([
             'gameName' => 'required',
             'gameDeveloper' => 'required',
             'inputExample' => 'required',
+        ], [
+            'required' => trans('validation.required'),
         ]);
 
 
@@ -144,7 +147,7 @@ class AdminController extends Controller
     public function addGame(Request $request)
     {
         // dd($request, $request->nominal);
-
+        $this->setLang();
         $request->validate([
             'gameName' => 'required',
             'gameDeveloper' => 'required',
@@ -155,13 +158,14 @@ class AdminController extends Controller
             'nominal' => 'required'
         ],
         [
-            'gameName.required' => 'Game Name is required',
-            'gameDeveloper.required' => 'Game Developer is required',
-            'inputExample.required' => 'Input Example is required',
-            'gameLogo.required' => 'Game Logo is required',
-            'gameBG.required' => 'Game Background is required',
-            'topupType.required' => 'Topup Type is required',
-            'nominal.required' => 'Please insert at least 1 topup'
+            // 'required' => trans('validation.required'),
+            'gameName.required' => trans('add_game.custom.attribute-name.game_name_validate'),
+            'gameDeveloper.required' => trans('add_game.custom.attribute-name.game_developer_validate'),
+            'inputExample.required' => trans('add_game.custom.attribute-name.input_example_validate'),
+            'gameLogo.required' => trans('add_game.custom.attribute-name.game_logo_validate'),
+            'gameBG.required' => trans('add_game.custom.attribute-name.game_bg_validate'),
+            'topupType.required' => trans('add_game.custom.attribute-name.topup_type_validate'),
+            'nominal.required' => trans('add_game.custom.attribute-name.nominal_validate'),
         ]);
         // baru cek sampai sini
 
@@ -190,7 +194,7 @@ class AdminController extends Controller
             }
         }
 
-        return redirect('/manage-game')->with('success', 'Game has been added');
+        return redirect('/manage-game')->with('success', trans('add_game.custom.attribute-name.add_game_success'));
 
 
         // $name = $request->input('OfficeName');
