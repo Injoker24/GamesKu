@@ -58,7 +58,7 @@
                 <form action="/history/delete" method="post">
                     @method('DELETE')
                     @csrf
-                    <button type="submit" class="remove-all-button">@lang('history.remove_all')</button>
+                    <button type="submit" class="btn btn-danger remove-all-button">@lang('history.remove_all')</button>
                 </form>
             @endif
         </div>

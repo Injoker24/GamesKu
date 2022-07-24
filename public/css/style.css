@@ -41,7 +41,7 @@ a {
 }
 
 .badge-rejected {
-    color: var(--white);
+    color: var(--dark);
     background-color: var(--red);
 }
 
@@ -53,6 +53,11 @@ a {
 .badge-waiting {
     color: var(--dark);
     background-color: #ffc107;
+}
+
+.badge-cancelled {
+    color: var(--dark);
+    background-color: #f85d20;
 }
 
 /* navbar.blade.php */
@@ -188,7 +193,7 @@ a {
     font-weight: bold;
     padding: 10px 20px 10px 20px;
     border-radius: 5px;
-    width: 150px;
+    width: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -589,6 +594,13 @@ a {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.remove-all-button {
+    width: 400px;
+    height: 75px;
+    margin-bottom: 20px;
+    font-size: 24px !important;
+}
 /* End of transaction.blade.php, history.blade.php, and manageTransaction.blade.php */
 
 
@@ -625,6 +637,7 @@ a {
     color: var(--white);
     border-radius: 10px;
     padding-left: 30px;
+    padding-right: 30px;
     padding-top: 20px;
     padding-bottom: 20px;
     margin-bottom: 20px;
@@ -633,7 +646,10 @@ a {
 .transaction-detail-data{
     font-size: 24px;
     margin: 0;
-    color: var(--accent);
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: var(--white);
 }
 
 .transaction-detail-payment{
@@ -879,4 +895,24 @@ a {
 .add-label{
     font-size: larger;
     font-weight: bolder;
+}
+
+/* Manage Game */
+.form-manage-container {
+    background-color: var(--white);
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.edit-detail-data {
+    font-size: 20px;
+    margin: 0;
+    width: 100%;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: var(--dark);
 }

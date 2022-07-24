@@ -55,14 +55,6 @@
                             @endif
                         </div>
                     </div>
-                    <div class="d-flex mb-1" style="width: 350px; justify-content: space-between; align-items: center;">
-                        <div>
-                            <span class="fw-bolder">Virtual Acc</span>
-                        </div>
-                        <div style="width: 200px;">
-                            <span style="text-align: left;">virtual acc blom bkin</span>
-                        </div>
-                    </div>
                 </div>
             </div>
 

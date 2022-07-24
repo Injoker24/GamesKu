@@ -91,8 +91,8 @@
                     </table>
                 </div>
 
-                <button type="button" class="btn btn-primary w-25 align-self-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    +@lang('add_game.add_nom')
+                <button type="button" class="btn btn-primary w-10 align-self-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    + @lang('add_game.add_nom')
                 </button>
 
                 <!-- Modal -->
@@ -122,9 +122,9 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary">@lang('add_game.insert')</button>
+                <button type="submit" class="btn btn-success w-25">@lang('add_game.insert')</button>
             </form>
         </div>
     </div>
-
+    @include('partials.footer')
 @endsection

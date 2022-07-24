@@ -18,38 +18,38 @@
     <div class="container-fluid mt-5 mb-5" style="padding-left: 200px; padding-right: 200px;">
         <a href="/manage-game/addGame" class="text-decoration-none btn btn-primary">+ @lang('manage_game.add_game')</a>
 
-        <h3 class="pb-3 pt-3" style="margin-bottom: 20px; color: var(--dark); font-weight: bold;"">@lang('manage_game.game_list')</h3>
+        <h3 class="pb-3 pt-3" style="margin-bottom: 20px; color: var(--dark); font-weight: bold;">@lang('manage_game.game_list')</h3>
         <div class="d-flex flex-column">
             @forelse ($games as $game)
-            <div class="d-flex flex-row align-items-center mb-4">
-                @if ($game->deleted == 0)
-                    <div class="content" style="width: 90%">
-                        <a href="/manage-game/{{ $game->name }}">
-                            <div class="card bg-dark games-card">
-                                <img src="{{ asset('storage/' . $game->game_img) }}" alt="..." height="150" style="object-fit:cover; object-position:cover; filter:brightness(50%)">
-                                <div class="game-content">
-                                    <div class="card-img-overlay" style="padding-left: 50px">
-                                        <img src="{{ asset('storage/' . $game->game_logo) }}" alt="" width="75" height="75" style="object-fit:cover; border-radius:10px">
-                                        <div class="info ms-3" style="color: var(--white);">
-                                            <h5 class="card-title">{{ $game->name }}</h5>
-                                            <p class="card-text">{{ $game->developer }}</p>
-                                        </div>
+            @if ($game->deleted == 0)
+            <div class="d-flex flex-row mb-4 align-items-center">
+                <div class="content" style="width: 90%">
+                    <a href="/manage-game/{{ $game->name }}">
+                        <div class="card bg-dark games-card">
+                            <img src="{{ asset('storage/' . $game->game_img) }}" alt="..." height="150" style="object-fit:cover; object-position:cover; filter:brightness(50%)">
+                            <div class="game-content">
+                                <div class="card-img-overlay" style="padding-left: 50px">
+                                    <img src="{{ asset('storage/' . $game->game_logo) }}" alt="" width="75" height="75" style="object-fit:cover; border-radius:10px">
+                                    <div class="info ms-3" style="color: var(--white);">
+                                        <h5 class="card-title">{{ $game->name }}</h5>
+                                        <p class="card-text">{{ $game->developer }}</p>
                                     </div>
                                 </div>
-
                             </div>
-                        </a>
-                    </div>
 
-                    <div class="delete">
-                        <form action="/manage-game/{{ $game->name }}/delete" method="POST">
-                            @method('DELETE')
-                            @csrf
-                            <button type="submit" class="btn btn-danger mx-4" style="height: 100px;">@lang('manage_game.del')</button>
-                        </form>
-                    </div>
-                @endif
+                        </div>
+                    </a>
+                </div>
+
+                <div class="delete">
+                    <form action="/manage-game/{{ $game->name }}/delete" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-danger mx-4" style="height: 100px;">@lang('manage_game.del')</button>
+                    </form>
+                </div>
             </div>
+            @endif
             @empty
                 <div style="display: flex; flex-direction: column; align-items: center;">
                     <h4 style="font-weight:bold; color: #00000089;"> @lang('manage_game.no_games') </h4>

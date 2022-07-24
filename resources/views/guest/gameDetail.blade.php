@@ -45,7 +45,6 @@
                 <img class="detail-image" src="{{ asset('storage/' . $games->game_img) }}" alt="">
                 <img class="detail-icon" src="{{ asset('storage/' . $games->game_logo) }}" alt="">
             </div>
-            {{-- masih kurang validasi form untuk harus milih semua baru bisa beli --}}
             <div class="form-game-container">
                 <h3 class="section-title" style="font-weight: bold; margin-top: 80px;">{{ $games->name }}</h3>
                 <form action="/game/{{ $games->name }}" method="POST" class="mx-5 form-game-detail-container" enctype="multipart/form-data">
