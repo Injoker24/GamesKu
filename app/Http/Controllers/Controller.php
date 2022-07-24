@@ -111,7 +111,7 @@ class Controller extends BaseController
         ]);
 
         if(!Hash::check($validatedData['old_password'], auth()->user()->password)) {
-            return back()->with(['error' => 'old password different']);
+            return redirect('/profile')->with(['warning' => 'Old password different']);
         }
 
         // dd(bcrypt($validatedData['old_password']), auth()->user()->password);
@@ -121,7 +121,8 @@ class Controller extends BaseController
             'password' => Hash::make($validatedData['new_password'])
         ]);
 
-        return view('profile', compact('user'))->with('success', 'Password changed');
+        // return view('profile', compact('user'))->with('success', 'Password changed');
+        return redirect('/profile')->with(['success' => 'Password has been changed', 'user' => $user]);
     }
 
     public function editProfile()
