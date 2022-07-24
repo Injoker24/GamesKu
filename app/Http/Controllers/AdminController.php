@@ -158,7 +158,6 @@ class AdminController extends Controller
             'nominal' => 'required'
         ],
         [
-            // 'required' => trans('validation.required'),
             'gameName.required' => trans('add_game.custom.attribute-name.game_name_validate'),
             'gameDeveloper.required' => trans('add_game.custom.attribute-name.game_developer_validate'),
             'inputExample.required' => trans('add_game.custom.attribute-name.input_example_validate'),
@@ -183,7 +182,7 @@ class AdminController extends Controller
             $idx = 0;
             foreach($request->nominal as $nominal){
                 $split = explode(' ', $nominal);
-                dump($split[0] . $split[1] . $price[$idx]);
+                // dump($split[0] . $split[1] . $price[$idx]);
                 $topup = new Topup();
                 $topup->game_id = $game->id;
                 $topup->topup_type = $split[1];
@@ -205,7 +204,7 @@ class AdminController extends Controller
         // Storage::putFileAs('public/gameAsset', $request->file('Image'), $bgName);
 
 
-        return redirect('/manage-game');
+        // return redirect('/manage-game');
     }
 
     public function manageTransactionPage()
