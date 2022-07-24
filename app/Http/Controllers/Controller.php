@@ -121,7 +121,7 @@ class Controller extends BaseController
             'password' => Hash::make($validatedData['new_password'])
         ]);
 
-        return view('profile', compact('user'));
+        return view('profile', compact('user'))->with('success', 'Password changed');
     }
 
     public function editProfile()

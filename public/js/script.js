@@ -124,4 +124,39 @@ $(document).ready(function() {
     });
 });
 
+const gameLogoDiv = document.querySelector('.game-logo');
+const gameBgDiv = document.querySelector('.game-bg');
+const uploadGameLogoBtn = document.querySelector('#gameLogoBtn');
+const uploadGameBgBtn = document.querySelector('#gameBackgroundBtn');
+
+gameLogoDiv.addEventListener('mouseenter', function() {
+    uploadGameLogoBtn.style.display = 'block';
+});
+
+gameLogoDiv.addEventListener('mouseleave', function() {
+    uploadGameLogoBtn.style.display = 'none';
+});
+
+gameBgDiv.addEventListener('mouseenter', function() {
+    uploadGameBgBtn.style.display = 'block';
+});
+
+gameBgDiv.addEventListener('mouseleave', function() {
+    uploadGameBgBtn.style.display = 'none';
+});
+
+
+var loadFileLogo = function(event){
+    var image = document.getElementById('photoLogo');
+    image.src = URL.createObjectURL(event.target.files[0]);
+}
+
+var loadFileBG = function(event){
+    var image = document.getElementById('photobg');
+    image.src = URL.createObjectURL(event.target.files[0]);
+}
+
+
+
+
 

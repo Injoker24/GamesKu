@@ -161,6 +161,12 @@ class MemberController extends Controller
                 'status' => 'In Progress',
                 'image_path' => $file
             ]);
+
+            // kalau pakai yang yang kedua
+            // TransactionDetail::where('id', $request->id)->update([
+            //     'status' => 'In Progress',
+            //     'image_path' => '/storage/paymentProof' . $file_name
+            // ]);
             return redirect('/home')->with('success', 'Payment Proof Uploaded');
         }
 

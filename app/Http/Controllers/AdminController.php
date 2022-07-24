@@ -47,12 +47,39 @@ class AdminController extends Controller
             'inputExample' => 'required',
         ]);
 
+
         $game = Game::where('name', $request->name)->first();
         Game::where('name', $request->name)->update([
             'name' => $request->gameName,
             'developer' => $request->gameDeveloper,
             'input_example' => $request->inputExample,
         ]);
+
+        if($request->hasFile('gameLogo')){
+            // $file = $request->file('gameLogo')->store('gameAsset');
+
+            $file = $request->file('gameLogo');
+            $file_name = $file->getClientOriginalName();
+            $file->move(public_path('/storage/gameAsset'), $file_name);
+
+            Game::where('name', $request->name)->update([
+                'game_logo' => '/gameAsset/' . $file_name
+            ]);
+            Storage::delete($game->game_logo);
+        }
+
+        if($request->hasFile('gameBackground')){
+            // $file = $request->file('gameBackground')->store('gameAsset');
+
+            $file = $request->file('gameBackground');
+            $file_name = $file->getClientOriginalName();
+            $file->move(public_path('/storage/gameAsset'), $file_name);
+
+            Game::where('name', $request->name)->update([
+                'game_img' => '/gameAsset/' . $file_name
+            ]);
+            Storage::delete($game->game_img);
+        }
 
         $deleted = explode('|', $request->deleted);
         foreach($deleted as $id){
