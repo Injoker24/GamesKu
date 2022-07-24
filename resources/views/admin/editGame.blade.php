@@ -17,8 +17,8 @@
                     </div>
                     <div class="detail-icon game-logo">
                         <img class="" src="{{ asset('storage/' . $game->game_logo) }}" alt="" id="photoLogo">
-                        <input type="file" id="gameLogo" name="gameLogo" onchange="loadFileLogo(event)">
-                        <label for="gameLogo" id="gameLogoBtn"><i class="bi bi-camera-fill"></i> Change Logo</label>
+                        <input type="file" id="gamelogo" name="gamelogo" onchange="loadFileLogo(event)">
+                        <label for="gamelogo" id="gameLogoBtn"><i class="bi bi-camera-fill"></i> Change Logo</label>
                     </div>
                 </div>
                 <div class="form-manage-container">
