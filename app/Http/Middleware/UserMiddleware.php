@@ -20,7 +20,7 @@ class UserMiddleware
         if(!Auth::check()){
             return redirect()->route('login');
         }
-        else if(Auth::user()->role != "user"){
+        else if(Auth::user()->IsAdmin == true){
             return abort(403);
         }
         return $next($request);

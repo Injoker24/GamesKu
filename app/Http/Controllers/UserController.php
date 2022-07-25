@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Cookie;
 
 class UserController extends Controller
 {
@@ -54,7 +55,7 @@ class UserController extends Controller
         $this->setLang();
         $credentials = $request->validate([
             'email' => 'required|email:dns',
-            'password' => 'required|min:8'
+            'password' => 'required|min:8',
         ],[
             'required' => trans('validation.required'),
             'dns' => trans('validation.email'),
@@ -62,6 +63,9 @@ class UserController extends Controller
         ]);
 
         if(auth()->attempt($credentials)){
+            if($request->has('checkbox')) {
+                Cookie::queue('login_cookie', $request->email, 5);
+            }
             return redirect()->route('home_page');
         } else {
             return redirect()->back()->withInput()->withErrors(['error' => trans('validation.custom.attribute-name.check_data')]);

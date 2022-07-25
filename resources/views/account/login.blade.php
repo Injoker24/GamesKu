@@ -55,7 +55,7 @@
                 <!-- Email input -->
                 <div class="form-outline mb-4">
                     <label class="form-label" for="form2Example1">@lang('account.email')</label>
-                    <input type="email" name="email" id="form2Example1" class="form-control" placeholder="@lang('account.email_placeholder')" value={{ old('email') }}>
+                    <input type="email" name="email" id="form2Example1" class="form-control" placeholder="@lang('account.email_placeholder')" value={{ \Illuminate\Support\Facades\Cookie::get("login_cookie") !== NULL ? \Illuminate\Support\Facades\Cookie::get("login_cookie") : old('email') }}>
                 </div>
 
                 <!-- Password input -->
@@ -73,7 +73,18 @@
                 <!-- Register buttons -->
                 <div class="text-center d-flex justify-content-between">
                     <p>@lang('account.href_register') <a href="/register">@lang('account.register')</a></p>
-                    <a href="#">@lang('account.forget_password')</a>
+                    {{-- <a href="#">@lang('account.forget_password')</a> --}}
+                </div>
+
+                {{-- checkbox --}}
+                <div class="row mb-1">
+                    <div class="col d-flex justify-content-center">
+                        <!-- Checkbox -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" name="checkbox" id="form2Example31" checked={{ \Illuminate\Support\Facades\Cookie::get("login_cookie") !== NULL }}>
+                            <label class="form-check-label" for="form2Example31"> Remember me </label>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Submit button -->
