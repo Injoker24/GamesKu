@@ -59,15 +59,17 @@ Route::get('/allgames', [GameController::class, "viewAllGame"]);
 
 
 /* Guest Only */
-Route::get('/', [Controller::class, "onboarding"])->name('boarding_page');
-Route::get('/login', [UserController::class, "index_login"])->name('login_page');
-Route::post('/login/auth', [UserController::class, "login"])->name('login');
+Route::middleware('guest')->group(function() {
+    Route::get('/', [Controller::class, "onboarding"])->name('boarding_page');
+    Route::get('/login', [UserController::class, "index_login"])->name('login_page');
+    Route::post('/login/auth', [UserController::class, "login"])->name('login');
 
-Route::get('/register', [UserController::class, "index_register"])->name('register_page');
-Route::post('/register/auth', [UserController::class, "register"])->name('register');
+    Route::get('/register', [UserController::class, "index_register"])->name('register_page');
+    Route::post('/register/auth', [UserController::class, "register"])->name('register');
+});
 
 /* Member Only */
-Route::middleware('auth')->group(function() {
+Route::middleware('user')->group(function() {
     Route::post('/game/{name}', [MemberController::class, "topupGame"]);
     Route::get('/transaction', [MemberController::class, "transactionPage"]);
     Route::get('/transaction/{id}', [MemberController::class, "transactionDetail"])->name('transaction_detail_page');
