@@ -23,7 +23,7 @@
                             <span class="fw-bolder">@lang('manage_transaction_dtl.user_email')</span>
                         </div>
                         <div style="width: 200px;">
-                            <span style="text-align: left;">{{ Auth::user()->email }}</span>
+                            <span style="text-align: left;">{{ $trDetail->transaction->user->email }}</span>
                         </div>
                     </div>
                     <div class="d-flex mb-1" style="width: 350px; justify-content: space-between; align-items: center;">
