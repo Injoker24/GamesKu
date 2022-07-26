@@ -10,7 +10,7 @@
         'sub_title' => 'adalah Solusi Anda',
         'join_button' =>'Bergabung sekarang',
         'about_us' => 'Tentang Kami',
-        'content_about_us' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum sunt, unde aperiam aliquid quia repudiandae, ex harum quis amet delectus maxime, tempora possimus aut laboriosam magni corrupti labore. Doloremque, sit?',
+        'content_about_us' => 'GamesKu merupakan aplikasi berbasis website untuk memenuhi kebutuhan para penggemar games atau permainan online. GamesKu menyediakan layanan pembelian item dalam games atau permainan online secara resmi, cepat dan terpercaya.',
         'games_available' => 'Game Tersedia',
         'user_register' => 'Pengguna terdaftar',
         'transaction_completed' => 'Transaksi Selesai',

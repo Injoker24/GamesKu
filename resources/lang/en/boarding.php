@@ -10,7 +10,7 @@
         'sub_title' => 'is Your Solution',
         'join_button' =>'Join Now',
         'about_us' => 'About Us',
-        'content_about_us' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum sunt, unde aperiam aliquid quia repudiandae, ex harum quis amet delectus maxime, tempora possimus aut laboriosam magni corrupti labore. Doloremque, sit?',
+        'content_about_us' => 'GamesKu is a website-based application to meet the needs of game fans or online games. GamesKu provides an official, fast and reliable service for purchasing items in games or online games.',
         'games_available' => 'Games Available',
         'user_register' => 'Users registered',
         'transaction_completed' => 'Transactions Completed',

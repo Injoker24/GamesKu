@@ -10,7 +10,7 @@
         'sub_title' => '是您的解决方案',
         'join_button' =>'现在加入',
         'about_us' => '关于我们',
-        'content_about_us' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum sunt, unde aperiam aliquid quia repudiandae, ex harum quis amet delectus maxime, tempora possimus aut laboriosam magni corrupti labore. Doloremque, sit?',
+        'content_about_us' => 'GamesKu 是一个基于网站的应用程序，以满足游戏爱好者或在线游戏的需求。 GamesKu 为购买游戏或在线游戏中的物品提供官方、快速和可靠的服务。',
         'games_available' => '可用游戏',
         'user_register' => '用户注册',
         'transaction_completed' => '交易完成',
