@@ -56,6 +56,7 @@ use App\Http\Controllers\MemberController;
 Route::get('/search', [GameController::class, "searchGame"]);
 Route::get('/game/{name}', [GameController::class, "gameDetail"]);
 Route::get('/allgames', [GameController::class, "viewAllGame"]);
+Route::post('/game/{name}', [MemberController::class, "topupGame"]);
 
 
 /* Guest Only */
@@ -66,8 +67,7 @@ Route::middleware('guest')->group(function() {
 
     Route::get('/register', [UserController::class, "index_register"])->name('register_page');
     Route::post('/register/auth', [UserController::class, "register"])->name('register');
-    
-    Route::post('/game/{name}', [MemberController::class, "topupGame"]);
+
 });
 
 /* Member Only */
