@@ -66,11 +66,12 @@ Route::middleware('guest')->group(function() {
 
     Route::get('/register', [UserController::class, "index_register"])->name('register_page');
     Route::post('/register/auth', [UserController::class, "register"])->name('register');
+    
+    Route::post('/game/{name}', [MemberController::class, "topupGame"]);
 });
 
 /* Member Only */
 Route::middleware('user')->group(function() {
-    Route::post('/game/{name}', [MemberController::class, "topupGame"]);
     Route::get('/transaction', [MemberController::class, "transactionPage"]);
     Route::get('/transaction/{id}', [MemberController::class, "transactionDetail"])->name('transaction_detail_page');
     Route::get('/transaction/{id}/cancel', [MemberController::class, "cancelTransaction"]);
